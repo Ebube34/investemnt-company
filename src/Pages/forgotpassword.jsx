@@ -1,0 +1,176 @@
+import axios from "axios";
+import React, { useState } from "react";
+import Spinner from "../components/spinner";
+
+function ForgotPassword() {
+
+    const [validEmail, setValid] = useState(false);
+    const [buttonisMousedOver, setButtonMouseOver] = useState(false);
+    const [process, setProcess] = useState(false);
+    const [newError, setNewError] = useState(false);
+   
+
+  
+    
+
+
+    const [input, setInput] = useState({
+        email: '',
+        password: '',
+        confirmPassword: ''
+      });
+     
+      const [error, setError] = useState({
+        email: '',
+        password: '',
+        confirmPassword: ''
+      })
+     
+      const onInputChange = e => {
+        const { name, value } = e.target;
+        setInput(prev => ({
+          ...prev,
+          [name]: value
+        }));
+        validateInput(e);
+      }
+     
+      const validateInput = e => {
+        let { name, value } = e.target;
+        setError(prev => {
+          const stateObj = { ...prev, [name]: "" };
+       
+          switch (name) {
+            case "email":
+              if (!value) {
+                stateObj[name] = "Please enter Email.";
+              }
+              break;
+       
+            case "password":
+              if (!value) {
+                stateObj[name] = "Please enter Password.";
+              } else if (input.confirmPassword && value !== input.confirmPassword) {
+                stateObj["confirmPassword"] = "Password and Confirm Password does not match.";
+              } else {
+                stateObj["confirmPassword"] = input.confirmPassword ? "" : error.confirmPassword;
+              }
+              break;
+       
+            case "confirmPassword":
+              if (!value) {
+                stateObj[name] = "Please enter Confirm Password.";
+              } else if (input.password && value !== input.password) {
+                stateObj[name] = "Password and Confirm Password does not match.";
+              }
+              break;
+       
+            default:
+              break;
+          }
+       
+          return stateObj;
+        });
+      }
+
+
+    function handleButtonMouseOver(){
+        setButtonMouseOver(true);
+    }
+    
+    function handleButtonMouseOut(){
+        setButtonMouseOver(false);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setProcess(true);
+
+        const userEmailInput = input.email;
+        const userPasswordInput = input.password;
+        const configuration = {
+            method: "post",
+            url: "https://fx-backend-sever.onrender.com/how/forgot-password",
+            data: {
+                userEmailInput,
+                userPasswordInput,
+            },
+        };
+        axios(configuration)
+        .then((result) => {
+            setValid(true);
+            setProcess(false);
+           setInput({
+            email: "",
+            password: "",
+            confirmPassword: ""
+           });
+        })
+        .catch((error) => {
+            error = new Error();
+            setProcess(false);
+            setNewError(true);
+        })
+    }
+
+    return (
+        <>
+        <div className="containerRegister">
+           <form class="register" onSubmit={(e)=>handleSubmit(e)}>
+           <h2>Reset Password</h2>
+           <p>Please provide the email used in registration</p>
+      <input className="inputElement"
+       required 
+       type="email" 
+       name="email" 
+       value={input.email} 
+       placeholder="Email"
+       onChange={onInputChange}
+       onBlur={validateInput}
+        />
+        {error.email && <p className="text-danger">{error.email}</p>}
+
+        <input className="inputElement"
+       required
+        type="password"
+         name="password" 
+         value={input.password}
+         placeholder="New password" 
+         onChange={onInputChange}
+         onBlur={validateInput}
+         />
+         {error.password && <p className="text-danger">{error.password}</p>}
+
+        <input className="inputElement"
+       required
+        type="password"
+         name="confirmPassword" 
+         value={input.confirmPassword}
+         placeholder="Confirm password" 
+         onChange={onInputChange}
+         onBlur={validateInput}
+         
+         />
+          {error.confirmPassword && <p className="text-danger">{error.confirmPassword}</p>}
+        
+       
+      
+      <button 
+      className="formButton"
+      type="submit" 
+      name="button" 
+      onClick={(e)=>handleSubmit(e)}
+      style={{backgroundColor: buttonisMousedOver ? "#3CA6A6": "#012E40"}}  onMouseOver={handleButtonMouseOver} onMouseOut={handleButtonMouseOut} 
+      >{process ? <Spinner size='lg' spinning='spinning' /> : "Reset password"}</button>
+     
+    </form>
+    {validEmail ? (
+          <p className="text-success">password reset successfull you can now login to your accout</p>
+        ) : ""}
+        {newError ? (<p className="text-danger">error while reseting your password, check your email and try again</p>) : ""}
+    </div>
+        </>
+    );
+};
+
+export default ForgotPassword;

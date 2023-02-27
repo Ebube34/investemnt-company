@@ -1,0 +1,557 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: #024959;
+    color: white;
+  }
+  
+  
+  
+  /* general  */
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  a:hover{
+    color: #3CA6A6;
+    transition: 0.2s;
+  }
+  
+  ul {
+    list-style-type: none;
+  }  
+  .max-width {
+    max-width: 1220px;
+    margin: 0 auto;
+    
+  }
+  
+  /* Header section  */
+  
+  .header {
+    display: flex;
+    }
+    .header-logo {
+      width: 20%;
+      padding: 40px 0 30px 0;
+      font-size: 2.5em;
+      font-weight: bold;
+  
+    }
+    h1 {
+     font-family: 'McLaren', cursive;
+    }
+    .nav-links {
+      width: 70%;
+      text-align: right;
+      padding-left: 140px;
+    }
+    .navbar-ul {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 3em;
+      padding: 45px 0 30px 0;
+     
+    }
+    .navbar-ul li {
+        padding-right: 2.1em;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .navbar-ul li:last-child{
+      padding-right: 0;
+    }
+    .has-sub-menu {
+      position: relative;
+      padding-right: 2.1em;
+      }
+      .pages-sub-menu{
+        position: absolute;
+        top: 50px;
+        z-index: 1;
+        border-top:  2px solid #3CA6A6;
+        width: 200px;
+        padding: 15px 0 15px 0;
+        margin: 0 auto;
+        background-color: #012E40;
+        }
+        .pages-sub-menu > ul > li{
+          padding: 10px 0px 10px 0;
+          text-align: left;
+        }
+        .pages-sub-menu > ul > li:last-child{
+          padding-bottom: 0;
+        }
+
+  
+    .header-button {
+      appearance: none;
+        outline: 0;
+        background-color: black;
+        border: 0;
+        padding: 10px 15px;
+        margin:  40px 0 30px 0;
+        color: white;
+        border-radius: 3px;
+        width: 120px;
+        height: 45px;
+        font-size: 18px;
+        border: 1px solid #012E40;
+    }
+
+/* header part 2 */
+
+.header-2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+.header-2 > .header-logo{
+  width: 75%;
+  font-size: 2em;
+}
+.header-2 > button {
+ font-size: 10px;
+ width: 15%;
+ height: 45px;
+
+}
+.user > i {
+font-size: 1.7em;
+padding: 30px 0;
+color: white;
+}
+.toggle-bar > i {
+font-size: 2em;
+padding: 30px 0;
+color: white;
+}
+.toggle-bar > i:hover{
+  color: #3CA6A6;
+}
+
+.toggle-menu-bar{
+background-color: #012E40;
+padding: 30px 0 30px;
+width: 70%;
+position: absolute;
+right: 0;
+top: 0;
+z-index: 1;
+
+}
+.toggle-menu-bar > .toggle-icon > i{
+  font-size: 2.5em;
+  color: white;
+  padding-left: 90%;
+  padding-bottom: 10px
+}
+.toggle-menu-bar > .toggle-icon > i:hover{
+  color: #3CA6A6;
+}
+.toggle-menu-bar-ul > li {
+ padding: 0px 0 30px 30px;
+}
+
+.toggle-menu-bar-ul > li .pages-sub-menu-2 {
+  
+  font-size: 16px;
+  padding: 10px 0 0px 15px;
+}
+.toggle-menu-bar-ul > li .pages-sub-menu-2 > ul > li {
+  padding: 10px 0 15px 0px;
+}
+
+
+
+
+@media only screen and (min-width: 961px) {
+.main-section{
+ display: none;
+}
+}
+@media only screen and (max-width: 960px) {
+ .header{
+   display: none;
+ }
+}
+
+
+/* Heading */
+
+.body-slide{
+  padding: 4em 0 4em 2em;
+  position: relative;
+ 
+  
+}
+.heading-text{
+  padding: 0 0 20px 0;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.heading-button{
+  appearance: none;
+    outline: 0;
+    border: 0;
+    padding: 10px 15px;
+    margin: 60px 0 0 0;
+    color: white;
+    border-radius: 3px;
+    width: fit-content;
+    height: 50px;
+    font-size: 18px;
+}
+
+
+.slide-indicators {
+  position: relative;
+  z-index: 0;
+  margin-bottom: 0px;
+
+}
+.slide-indicators > button{
+  border: none;
+  margin: 20px;
+}
+
+
+
+/* first box */
+
+.box{
+  margin: 20px 0 20px 0;
+}
+.first-box {
+  margin: 0 30px 0 10px;
+  }
+  .our-strength{
+    display: flex;
+    flex-direction: row;
+    padding: 40px 0 30px 0;
+    margin: 30px 0 30px 0;
+  }
+  .icon{
+    width: 20%;
+    font-size: 3em;
+    color: #3CA6A6;
+    padding: 0 20px 0 20px;
+  }
+
+  .content h3{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-bottom: 15px;
+  }
+
+  .content p {
+    padding-bottom: 15px;
+    opacity: 0.5;
+  }
+  .content a {
+    opacity: 0.5;
+  }
+.reverse{
+  flex-direction: row-reverse;
+}
+.content-reverse{
+  text-align: right;
+}
+
+
+.second-box {
+  background-color: #012E40;
+  height: fit-content;
+  }
+  .second-box h3 {
+    text-align: center;
+    font-size: 1.6em;
+    font-family: 'Anton', sans-serif;
+    padding: 15px 0 10px 0;
+  }
+  .article-item{
+    display: flex;
+    padding: 10px;
+  }
+  .article-img{
+    width: 35%;
+    padding-right: 10px;
+  }
+  .article-content{
+    padding: 10px 0 0 0;
+    }
+    .article-content p {
+      padding: 10px 0 0 0;
+      font-size: 13px;
+    }
+
+
+  .services{
+      padding: 2em;
+      margin: 1.5em;
+      
+    }
+    .services > .service-heading {
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      padding-bottom: 2em;
+    }
+    .services-container{
+      margin: 0 auto;
+    }
+  
+    .service-box{
+      margin: 1em auto;
+      padding: 7em 2em 2em 2em;
+      background-color: #012E40;
+    }
+    .service-box h5{
+      font-size: 1.8em;
+      font-weight: bold;
+      padding-bottom: 25px;
+    }
+    .service-box p {
+      font-size: 1.2em;
+      opacity: 0.5;
+    }
+    .Tip{
+      padding: 2em 0 0 1em;
+      font-size: 1.1em;
+    }
+    .services-button-container{
+      padding-left: 1em;
+    }
+    .service-button {
+      appearance: none;
+        outline: 0;
+        background-color: #50a3a2;
+        border: 0;
+        margin: 40px 0 0 0;
+        color: white;
+        border-radius: 3px;
+        padding: 0 15px;
+        max-width: 100%;
+        height: 50px;
+        font-size: 18px;
+        line-height: normal;
+    }
+
+.attrative-section {
+  margin-bottom: 4em;
+}
+
+    .attrative-box {
+      background-color: #012E40;
+      padding: 2em;
+      
+    }
+
+
+
+    .Buy-your-home{
+      background-color: #F2E3D5;
+      margin-top: 2em;
+      padding: 3em;
+    }
+    .first-time-home-buyers{
+      background-color: #012E40;
+  
+      color: white;
+    
+    }
+    .first-time-home-buyers > h5 {
+      padding: 3em 1em 1em;
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+    .first-time-home-buyers > p {
+        padding: 0 1em 1em 1em;
+    }
+
+
+
+
+
+  .build-wealth > h5 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    padding-bottom: 2em;
+    padding-top: 2em;
+  }
+  .build-wealth-box{
+    display: flex;
+    border-bottom: 1px solid rgba(60, 166, 166, 0.4);
+    padding: 3em 1em;
+  }
+  .build-wealth-box:last-child{
+    border-bottom: 0;
+  }
+  .Build-wealth-img{
+    width: 17%;
+    height: 140px;
+  }
+
+  @media only screen and (max-width: 960px) {
+    .Build-wealth-img{
+      width: 30%;
+    }
+    .wealth-text-box{
+      padding: 0 0 0.5em 1em;
+      }
+      .Wealth-text-heading{
+        padding:  0;
+        font-size: 0.2em;
+        word-spacing: 1.5px;
+        font-weight: lighter;
+        font-family: 'Anton', sans-serif;
+      }
+      .wealth-text-box >p:first-child{
+        letter-spacing: 2px;
+        font-size: 0.9em;
+        opacity: 0.5;
+      }
+      .wealth-text-box >p {
+        font-size: 0.8em;
+        opacity: 0.5;
+      }
+   }
+.wealth-text-box{
+  padding: 0 0 0.5em 2em;
+  }
+  .Wealth-text-heading{
+    padding:  0;
+    font-size: 1.4em;
+    word-spacing: 1.5px;
+    font-weight: lighter;
+    font-family: 'Anton', sans-serif;
+  }
+  .wealth-text-box >p:first-child{
+    letter-spacing: 2px;
+    font-size: 0.9em;
+    opacity: 0.5;
+  }
+  .wealth-text-box >p {
+    font-size: 0.8em;
+    opacity: 0.5;
+  }
+
+
+
+footer{
+  background-color: #012E40;
+}
+  .footer-section{
+    padding: 2em;
+    display: flex;
+  }
+  .footer-1{
+    text-align: center;
+    }
+    .footer-heading{
+      font-size: 3em;
+      padding: 0.5em 0.5em 0;
+      font-family: 'McLaren', cursive;
+      opacity: 0.5;
+    }
+    .newsletter-btn{
+      appearance: none;
+        outline: 0;
+        border: 0;
+        margin: 40px 0 0 0;
+        color: white;
+        border-radius: 3px;
+        padding: 15px;
+        width: 80%;
+        height: 60px;
+        font-size: 18px;
+    }
+    .footer-1 > p{
+      padding: 40px 20px 10px;
+      opacity: 0.5;
+    }
+    .footer-icons > i{
+      padding: 8px;
+      font-size: 1.4em;
+      color: #3CA6A6;
+    }
+  .footer-2{
+    padding: 6em 0 2em 7em;
+    opacity: 0.5;
+  }
+  .footer-2-list{
+    padding: 20px;
+  }
+  .footer-2-list ul li {
+    padding: 7px;
+  }
+  @media only screen and (min-width: 961px) {
+    .footer-2{
+      display: flex;
+      padding: 8em 0 2em 7em;
+
+    }
+  }
+
+.copyright{
+  padding: 1em;
+  opacity: 0.5;
+}
+
+
+/* Register page styles */
+
+.containerRegister{
+  margin: 10% auto;
+ padding: 20px 0;
+ text-align: center;
+}
+.textBox > h1{
+  padding-bottom: 20px;
+}
+.textBox > p {
+  margin: 0;
+  padding: 0;
+}
+
+.textBox > p:last-child{
+  padding-bottom: 30px;
+}
+.signpText{
+  font-size: 23px;
+}
+.signuptext2{
+  font-size: 14px;
+}
+.inputElement {
+  border: 1px solid rgba(252, 252, 252, 0.4);
+ background-color: rgba(252, 252, 252, 0.2);
+ width: 350px;
+ border-radius: 3px;
+ padding: 10px 15px;
+ margin: 0 auto 25px auto;
+ display: block;
+ text-align: center;
+ font-size: 18px;
+ color: white;
+ font-weight: 500;
+}
+.formButton {
+  appearance: none;
+ outline: 0;
+ background-color: #012E40;
+ border: 0;
+ padding: 10px 15px;
+ color: white;
+ border-radius: 3px;
+ width: 350px;
+ font-size: 18px;
+}
+
+
+
+ 
+
+  
+
+    
