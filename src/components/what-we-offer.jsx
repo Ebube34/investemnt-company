@@ -10,7 +10,7 @@ function WhatWeOffer() {
     <h4 class="service-heading">What we offer</h4>
     <div class="row  services-container ">
       <InvestmentPlans
-       heading="Cryptocurrency investment plans"
+       heading="Crypto investment plans"
         content="With bitcoin, ethereum and popular altcoins, create a portifio with more secure high returns"
        />
         <InvestmentPlans 

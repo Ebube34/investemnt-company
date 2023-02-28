@@ -4,6 +4,7 @@ import { Outlet, Link } from "react-router-dom";
 import { SubMenuPages2 } from "./pages-sub-menu";
 import ResourcesMenuPages2 from "./resources-sub-menu";
 import ButtonMain from "./button";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
 
@@ -13,6 +14,7 @@ function Header() {
     const [menuBarIsClicked, setMenuBar] = useState(false);
     const [pagesIsClicked, setPagesClick] = useState(false);
     const [resourcesIsClicked, setResourcesClick] = useState(false);
+    const navigate = useNavigate();
 
 
     function handlePagesMouseOver(){
@@ -22,6 +24,9 @@ function Header() {
         setPagesMouseOver(false)
     }
 
+      function navigateLogin() {
+        navigate("/dashboard");
+      }
 
 
 
@@ -99,7 +104,7 @@ function Header() {
   <h1  class="header-logo">EbubeFx</h1>
 
 <div class="user">
-<i class="fa-solid fa-user"></i>
+<i onClick={navigateLogin} class="fa-solid fa-user"></i>
 </div>
 <div class="toggle-bar">
 <i class="fa-solid fa-bars" onClick={handleMenuClick}></i>

@@ -32,7 +32,7 @@ body{
     }
     .header-logo {
       width: 20%;
-      padding: 40px 0 30px 0;
+      padding: 40px 0 20px 0;
       font-size: 2.5em;
       font-weight: bold;
   
@@ -117,12 +117,12 @@ body{
 }
 .user > i {
 font-size: 1.7em;
-padding: 30px 0;
+padding: 40px 0;
 color: white;
 }
 .toggle-bar > i {
 font-size: 2em;
-padding: 30px 0;
+padding: 40px 0;
 color: white;
 }
 .toggle-bar > i:hover{
@@ -142,7 +142,7 @@ z-index: 1;
 .toggle-menu-bar > .toggle-icon > i{
   font-size: 2.5em;
   color: white;
-  padding-left: 90%;
+  padding-left: 80%;
   padding-bottom: 10px
 }
 .toggle-menu-bar > .toggle-icon > i:hover{
@@ -234,7 +234,7 @@ z-index: 1;
     width: 20%;
     font-size: 3em;
     color: #3CA6A6;
-    padding: 0 20px 0 20px;
+    padding: 0 30px 0 10px;
   }
 
   .content h3{
@@ -286,7 +286,7 @@ z-index: 1;
 
 
   .services{
-      padding: 2em;
+      padding: 0em;
       margin: 1.5em;
       
     }
@@ -302,7 +302,7 @@ z-index: 1;
   
     .service-box{
       margin: 1em auto;
-      padding: 7em 2em 2em 2em;
+      padding: 7em 2em 0em 2em;
       background-color: #012E40;
     }
     .service-box h5{
@@ -478,9 +478,11 @@ footer{
   .footer-2{
     padding: 6em 0 2em 7em;
     opacity: 0.5;
+    
   }
   .footer-2-list{
-    padding: 20px;
+  margin-right: 60px;
+    
   }
   .footer-2-list ul li {
     padding: 7px;
