@@ -42,7 +42,8 @@ function Wellcome() {
         ) : (
           <p className="text-danger">You Are Not verified please wait!</p>
         )}
-                <Link to={"/login"}>Login</Link>
+                <Link to=""></Link>
+                <p><a href="https://investmentfx.netlify.app/login">Login</a></p>
             </div>
         </>
     );
