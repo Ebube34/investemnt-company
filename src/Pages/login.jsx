@@ -3,6 +3,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 import Spinner from "../components/spinner";
+import { useNavigate } from "react-router-dom";
 
 const cookies = new Cookies();
 function Login() {
@@ -13,6 +14,7 @@ function Login() {
   const [buttonisMousedOver, setButtonMouseOver] = useState(false);
   const [process, setProcess] = useState(false);
   const [newError, setNewError] = useState(false);
+  const navigate = useNavigate();
 
   function handleButtonMouseOver(){
     setButtonMouseOver(true);
@@ -46,7 +48,7 @@ function handleButtonMouseOut(){
         setEmail("");
         setPassword("");
         setProcess(false);
-        window.location.href = "/dashboard";
+        navigate("/dashboard");
     })
     .catch((error) => {
       error = new Error();
