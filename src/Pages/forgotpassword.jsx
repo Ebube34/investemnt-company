@@ -1,11 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Spinner from "../components/spinner";
+
 
 function ForgotPassword() {
 
     const [validEmail, setValid] = useState(false);
-    const [buttonisMousedOver, setButtonMouseOver] = useState(false);
     const [process, setProcess] = useState(false);
     const [newError, setNewError] = useState(false);
    
@@ -74,13 +73,7 @@ function ForgotPassword() {
       }
 
 
-    function handleButtonMouseOver(){
-        setButtonMouseOver(true);
-    }
-    
-    function handleButtonMouseOut(){
-        setButtonMouseOver(false);
-    }
+  
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -155,13 +148,12 @@ function ForgotPassword() {
         
        
       
-      <button 
-      className="formButton"
+          <button 
+      className={process ? "test-button button--loading" : "test-button"}
       type="submit" 
       name="button" 
-      onClick={(e)=>handleSubmit(e)}
-      style={{backgroundColor: buttonisMousedOver ? "#3CA6A6": "#012E40"}}  onMouseOver={handleButtonMouseOver} onMouseOut={handleButtonMouseOut} 
-      >{process ? <Spinner size='lg' spinning='spinning' /> : "Reset password"}</button>
+        
+      onClick={(e)=>handleSubmit(e)}><span class="button_text">Reset password</span></button>
      
     </form>
     {validEmail ? (

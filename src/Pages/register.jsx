@@ -3,7 +3,6 @@ import PhoneInput from 'react-phone-number-input'
 import "react-phone-number-input/style.css"
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Spinner from "../components/spinner";
 
 
 
@@ -15,17 +14,10 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [register, setRegister] = useState(false);
-  const [buttonisMousedOver, setButtonMouseOver] = useState(false);
   const [process, setProcess] = useState(false);
   const [newError, setNewError] = useState(false);
 
-  function handleButtonMouseOver(){
-    setButtonMouseOver(true);
-}
 
-function handleButtonMouseOut(){
-    setButtonMouseOver(false);
-}
 
 
 
@@ -119,7 +111,12 @@ function handleButtonMouseOut(){
       onChange={(e) => setPassword(e.target.value)}
 
       />
-      <button className="formButton" style={{backgroundColor: buttonisMousedOver ? "#3CA6A6": "#012E40"}}  onMouseOver={handleButtonMouseOver} onMouseOut={handleButtonMouseOut} type="submit" name="button" onClick={(e)=>handleSubmit(e)}>{process ? <Spinner size='lg' spinning='spinning' /> : "Sign up"}</button>
+        <button 
+      className={process ? "test-button button--loading" : "test-button"}
+      type="submit" 
+      name="button" 
+        
+      onClick={(e)=>handleSubmit(e)}><span class="button_text">Sign up</span></button>
      
     </form>
     {register ? (<p className="text-success">You Are Registered Successfully, check your email for verification</p>) : ""}

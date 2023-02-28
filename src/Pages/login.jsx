@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
-import Spinner from "../components/spinner";
 import { useNavigate } from "react-router-dom";
 
 const cookies = new Cookies();
@@ -11,18 +10,11 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
-  const [buttonisMousedOver, setButtonMouseOver] = useState(false);
   const [process, setProcess] = useState(false);
   const [newError, setNewError] = useState(false);
   const navigate = useNavigate();
 
-  function handleButtonMouseOver(){
-    setButtonMouseOver(true);
-}
 
-function handleButtonMouseOut(){
-    setButtonMouseOver(false);
-}
 
 
 
@@ -89,11 +81,11 @@ function handleButtonMouseOut(){
          onChange={(e) => setPassword(e.target.value)}
          />
       <button 
-      className="formButton"
+      className={process ? "test-button button--loading" : "test-button"}
       type="submit" 
       name="button" 
-      style={{backgroundColor: buttonisMousedOver ? "#3CA6A6": "#012E40"}}  onMouseOver={handleButtonMouseOver} onMouseOut={handleButtonMouseOut} 
-      onClick={(e)=>handleSubmit(e)}>{process ? <Spinner size='lg' spinning='spinning' /> : "Sign in"}</button>
+        
+      onClick={(e)=>handleSubmit(e)}><span class="button_text">Sign in</span></button>
      
     </form>
     <p><Link to="/forgot-password">Forgot pasword?</Link></p>
