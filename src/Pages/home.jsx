@@ -7,11 +7,14 @@ import Attrative from "../components/attrative-section";
 import BuyYourHome from "../components/buy-your-home";
 import BuildWealth from "../components/build-wealth-section";
 import Footer from "../components/footer";
+import LiveChat from "../components/live-chat";
+
 
 function Home() {
     return (
         <>
             <Header />
+            <LiveChat />
             <Heading />
             <Attrative />
             <Firstbox />

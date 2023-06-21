@@ -3,10 +3,11 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/footer";
+import Header from "../components/Header";
 
 const cookies = new Cookies();
 function Login() {
-    
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
@@ -14,27 +15,23 @@ function Login() {
   const [newError, setNewError] = useState(false);
   const navigate = useNavigate();
 
-
-
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setProcess(true);
 
     const configurations = {
-        method: "post",
-        url: "https://fx-backend-sever.onrender.com/login",
-        data: {
-            email,
-            password,
-        },
+      method: "post",
+      url: "https://fx-backend-sever.onrender.com/login", 
+      data: {
+        email,
+        password,
+      },
     };
     axios(configurations)
-    .then((result) => {
+      .then((result) => {
         setLogin(true);
         cookies.set("TOKEN", result.data.token, {
-            path: "/",
+          path: "/",
         });
         localStorage.setItem("userDetails", JSON.stringify(result.data));
         setEmail("");
@@ -42,69 +39,73 @@ function Login() {
         setProcess(false);
         navigate("/dashboard");
         window.location.reload(true);
-        
-    })
-    .catch((error) => {
-      error = new Error();
+      })
+      .catch((error) => {
+        error = new Error();
         setProcess(false);
         setNewError(true);
-    })
-  }
-
+      });
+  };
 
   return (
     <>
+    <Header />
       <div class="containerRegister">
-    <div className="textBox">
-    <h1>EbubeFX</h1>
-    <p className="signpText">Login your account</p>
-    <p className="signuptext2">Dont have an account? <Link to="/register">Signup here</Link></p>
-    
-    </div>
+        <div className="textBox">
+          <p className="signpText">Login your account</p>
+          <p className="signuptext2">
+            Dont have an account? <Link to="/register">Signup here</Link>
+          </p>
+        </div>
 
+        <form class="register" onSubmit={(e) => handleSubmit(e)}>
+          <input
+            className="inputElement"
+            required
+            type="email"
+            name="email"
+            value={email}
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            className="inputElement"
+            required
+            type="password"
+            name="password"
+            value={password}
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button
+            className={process ? "test-button button--loading" : "test-button"}
+            type="submit"
+            name="button"
+            onClick={(e) => handleSubmit(e)}
+          >
+            <span class="button_text">Sign in</span>
+          </button>
+        </form>
+        <p>
+          <Link to="/forgot-password">Forgot pasword?</Link>
+        </p>
+        {login ? (
+          <p className="text-success">
+            You Are Logged in Successfully! please wait
+          </p>
+        ) : (
+          ""
+        )}
 
-    <form class="register" onSubmit={(e)=>handleSubmit(e)}>
-      <input className="inputElement"
-       required 
-       type="email" 
-       name="email" 
-       value={email} 
-       placeholder="Email"
-       onChange={(e) => setEmail(e.target.value)}
-        />
-      <input className="inputElement"
-       required
-        type="password"
-         name="password" 
-         value={password}
-         placeholder="Password" 
-         onChange={(e) => setPassword(e.target.value)}
-         />
-      <button 
-      className={process ? "test-button button--loading" : "test-button"}
-      type="submit" 
-      name="button" 
-        
-      onClick={(e)=>handleSubmit(e)}><span class="button_text">Sign in</span></button>
-     
-    </form>
-    <p><Link to="/forgot-password">Forgot pasword?</Link></p>
-    {login ? (
-          <p className="text-success">You Are Logged in Successfully! please wait</p>
-        ) : ""}
-
-        {newError ? (<p className="text-danger">invalid attempt to login try again</p>) : ""}
-</div>
-
+        {newError ? (
+          <p className="text-danger">invalid attempt to login try again</p>
+        ) : (
+          ""
+        )}
+      </div>
+      <Footer />
     </>
   );
 }
 
 export default Login;
-
-
-
-
-
-   
-  

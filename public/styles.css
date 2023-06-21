@@ -132,7 +132,7 @@ color: white;
 .toggle-menu-bar{
 background-color: #012E40;
 padding: 30px 0 30px;
-width: 70%;
+width: 90%;
 position: absolute;
 right: 0;
 top: 0;
@@ -586,6 +586,34 @@ font-size: 18px;
     transform: rotate(1turn);
   }
 }
+
+.contact-details {
+  background-color: #012E40;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0 0 1em;
+  border-radius: 10px;
+  }
+  .live-chat-box {
+    display: flex;
+    margin-right: 2em;
+    }
+    .live-chat-box > i {
+      padding: 0.3em 0.5em 0 0;
+    }
+  
+    
+  .whatsapp-contact {
+    display: flex;
+    padding-right: 1em;
+    }
+    .whatsapp-contact > i {
+      font-size: 1.3em;
+      padding: 0.1em 0.5em 0 0;
+    }
+
+
 
 
 

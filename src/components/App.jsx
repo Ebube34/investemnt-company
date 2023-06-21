@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useMemo } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "../Pages/home";
 import Contact from "../Pages/contact";
 import About from "../Pages/about";
@@ -40,13 +40,25 @@ import Address from "../Pages/Address";
 import Wellcome from "./wellcome";
 import Dashboard from "../Pages/dashboard";
 import ForgotPassword from "../Pages/forgotpassword";
+import {  ThemeProvider } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
+import { useSelector } from "react-redux";
+import { themeSettings } from "../theme.js";
+import DashboardMain from "../scenes/dashboardmain";
+import Layout from "../scenes/layout";
+
+
 
 
 
 function App() {
+  const mode = useSelector((state) => state.global.mode);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
  return (
   <div>
     <BrowserRouter>
+    <ThemeProvider theme={theme}>
+     
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="contact" element={<Contact />} />
@@ -88,10 +100,19 @@ function App() {
         <Route path="overview" element={<Overview />} />
         <Route path="/confirm/:confirmationCode" element={<Wellcome />}/>
         <Route path="/forgot-password" element={<ForgotPassword /> } />
+        <Route element={<Layout />}>
+        
+              <Route
+                path="dashboard"
+                element={<Navigate to="home" replace />}
+              />
+              <Route path="home" element={<DashboardMain />} />
+            </Route>
 
 
 
       </Routes>
+      </ThemeProvider>
     </BrowserRouter>
   </div>
  )

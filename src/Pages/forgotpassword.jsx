@@ -9,10 +9,6 @@ function ForgotPassword() {
     const [newError, setNewError] = useState(false);
    
 
-  
-    
-
-
     const [input, setInput] = useState({
         email: '',
         password: '',
