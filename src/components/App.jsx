@@ -46,6 +46,7 @@ import { useSelector } from "react-redux";
 import { themeSettings } from "../theme.js";
 import DashboardMain from "../scenes/dashboardmain";
 import Layout from "../scenes/layout";
+import Contracts from "../scenes/contracts";
 
 
 
@@ -107,6 +108,7 @@ function App() {
                 element={<Navigate to="home" replace />}
               />
               <Route path="home" element={<DashboardMain />} />
+              <Route path="Contracts" element={<Contracts />} />
             </Route>
 
 

@@ -12,15 +12,18 @@ function Login() {
   const [login, setLogin] = useState(false);
   const [process, setProcess] = useState(false);
   const [newError, setNewError] = useState(false);
+  const [errorContent, setErrorContent] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setProcess(true);
+    setErrorContent("");
+    setNewError(false);
 
     const configurations = {
       method: "post",
-      url: "https://fx-backend-sever.onrender.com/login", 
+      url: "https://fx-backend-sever.onrender.com/login",
       data: {
         email,
         password,
@@ -40,15 +43,17 @@ function Login() {
         window.location.reload(true);
       })
       .catch((error) => {
-        error = new Error();
+        
         setProcess(false);
         setNewError(true);
+        setErrorContent(error.message);
+        setPassword("");
+        
       });
   };
 
   return (
     <>
-   
       <div class="containerRegister">
         <div className="textBox">
           <p className="signpText">Login your account</p>
@@ -98,9 +103,9 @@ function Login() {
 
         {newError ? (
           <p className="text-danger">invalid attempt to login try again</p>
-        ) : (
-          ""
-        )}
+        ) : ""
+        } 
+        {<p className="text-danger">{errorContent}</p>}
       </div>
       <Footer />
     </>
