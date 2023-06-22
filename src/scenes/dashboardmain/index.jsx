@@ -13,6 +13,7 @@ import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined
 import { IconButton } from "@mui/material";
 import Cookies from "universal-cookie";
 import Login from "../../Pages/login";
+import { useNavigate } from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -20,6 +21,7 @@ const DashboardMain = () => {
   const theme = useTheme();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
   const token = cookies.get("TOKEN");
+  const navigate = useNavigate();
 
   if (token) {
     return (
@@ -202,6 +204,7 @@ const DashboardMain = () => {
                 letterSpacing: "1.5px",
               }}
               fullWidth="100%"
+              onClick={() => navigate("/contracts")}
             >
               <Typography sx={{ color: theme.palette.primary[400] }}>
                 CREATE A PLAN

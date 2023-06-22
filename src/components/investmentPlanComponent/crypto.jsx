@@ -1,8 +1,8 @@
 import { Box,  Typography,  } from "@mui/material";
 import React from "react";
 
+
 const Crypto = () => {
-  
   return (
     <>
       <div style={{ marginTop: "30px" }}>crypto</div>
