@@ -4,7 +4,6 @@ import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/footer";
-import Header from "../components/Header";
 
 const cookies = new Cookies();
 function Login() {
@@ -49,7 +48,7 @@ function Login() {
 
   return (
     <>
-    <Header />
+   
       <div class="containerRegister">
         <div className="textBox">
           <p className="signpText">Login your account</p>

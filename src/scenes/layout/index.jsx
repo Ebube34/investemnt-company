@@ -5,11 +5,16 @@ import DashboardNavbar from "../../components/dashboardNavbar";
 import DashboardSidebar from "../../components/dashboardSidebar";
 import { useGetUserQuery } from "../../state/api";
 import { CssBaseline } from "@mui/material";
+import Cookies from "universal-cookie";
+import Login from "../../Pages/login";
+
+const cookies = new Cookies();
 
 const Layout = () => {
   const isNotMobile = useMediaQuery("(min-width: 600px)");
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [userId, setUserId] = useState("");
+  const token = cookies.get("TOKEN");
 
   useEffect(() => {
     const localStorageItems = JSON.parse(localStorage.getItem("userDetails"));
@@ -22,28 +27,34 @@ const Layout = () => {
   const { data } = useGetUserQuery(userId);
   
 
-  return (
-    <>
-    <CssBaseline />
-      <Box display={isNotMobile ? "flex" : "block"} width="100%" height="100%">
-        <DashboardSidebar
-        user={ data || {}}
-          isNotMobile={isNotMobile}
-          drawerWidth="250px"
-          isSideBarOpen={isSideBarOpen}
-          setIsSideBarOpen={setIsSideBarOpen}
-        />
-        <Box flexGrow={1}>
-          <DashboardNavbar
+  if (token) {
+    return (
+      <>
+      <CssBaseline />
+        <Box display={isNotMobile ? "flex" : "block"} width="100%" height="100%">
+          <DashboardSidebar
           user={ data || {}}
+            isNotMobile={isNotMobile}
+            drawerWidth="250px"
             isSideBarOpen={isSideBarOpen}
             setIsSideBarOpen={setIsSideBarOpen}
           />
-          <Outlet />
+          <Box flexGrow={1}>
+            <DashboardNavbar
+            user={ data || {}}
+              isSideBarOpen={isSideBarOpen}
+              setIsSideBarOpen={setIsSideBarOpen}
+            />
+          </Box>
         </Box>
-      </Box>
-    </>
-  );
+        <Outlet />
+      </>
+    )
+  } else {
+    return (
+      <Login />
+    )
+  };
 };
 
 export default Layout;
