@@ -57,7 +57,7 @@ const DashboardNavbar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         <FlexBetween>
           <IconButton onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
-            <MenuIcon />
+            <MenuIcon sx={{ fontSize: "25px" }} />
           </IconButton>
         </FlexBetween>
 

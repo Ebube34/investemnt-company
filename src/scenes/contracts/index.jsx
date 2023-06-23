@@ -3,7 +3,8 @@ import { Button, Box, useMediaQuery, Typography, useTheme } from "@mui/material"
 import Trading from "../../components/investmentPlanComponent/trading";
 import Crypto from "../../components/investmentPlanComponent/crypto";
 import Foregin from "../../components/investmentPlanComponent/foregin";
-import Structured from "../../components/investmentPlanComponent/structured"
+import Structured from "../../components/investmentPlanComponent/structured";
+import DashboardHeading from "../../components/dashboard-heading";
 
 
 const Contracts = () => {
@@ -46,6 +47,7 @@ const Contracts = () => {
   
   return (
     <>
+    <DashboardHeading title="CONTRACTS" subTitle="Our investment Plans" />
       <Box
         mt="20px"
         display="grid"
@@ -71,7 +73,7 @@ const Contracts = () => {
             onClick={handleCryptoClick}
           >
             <Typography sx={{ color: theme.palette.primary[500] }}>
-              Cryptocurrency Investment Plans
+              Cryptocurrency Investment 
             </Typography>
           </Button>
         </Box>
@@ -89,7 +91,7 @@ const Contracts = () => {
             onClick={handleTradingClick}
           >
             <Typography sx={{ color: theme.palette.primary[500] }}>
-              Trading Investment Plans
+              Trading Investment 
             </Typography>
           </Button>
         </Box>
@@ -106,7 +108,7 @@ const Contracts = () => {
             onClick={handleForeignExchangeClick}
           >
             <Typography sx={{ color: theme.palette.primary[500] }}>
-            Foreign Exchange Investment Plans
+            Foreign Exchange Investment 
             </Typography>
           </Button>
         </Box>
@@ -121,9 +123,10 @@ const Contracts = () => {
             }}
             fullWidth="100%"
             onClick={handleStructuredInvestmentClick}
+            
           >
             <Typography sx={{ color: theme.palette.primary[500] }}>
-              Structured Investment Brokerage plans
+              Structured Investment Brokerage 
             </Typography>
           </Button>
         </Box>

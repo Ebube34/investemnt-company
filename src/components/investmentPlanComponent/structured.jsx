@@ -1,7 +1,63 @@
-import React from 'react';
-import { Box,  Typography, } from "@mui/material";
+import { Box, Button, Typography, useTheme } from "@mui/material";
+import React, { useState } from "react";
+import BasicPlan from "./basicPlan";
+import StandardPlan from "./standardPlan";
+import SpecialPlan from "./specialPlan";
 
 const Structured = () => {
+  const theme = useTheme();
+  const [isBasicPlanClicked, setBasicPlanClick] = useState(false);
+  const [basicPlanContent, setBasicPlanContent] = useState("");
+  const [isStandardPlanClicked, setIsStandardPlanClick] = useState(false);
+  const [standardPlanContent, setStandardPlanContent] = useState("");
+  const [isSpecialPlanClicked, setSpecialPlanClicked] = useState(false);
+  const [specialPlanContent, setSpecialPlanContent] = useState("");
+  const [specialPlanPercentage, setSpecialPlanPercentage] = useState("");
+  const [standardPlanPercentage, setStandardPlanPercentage] = useState("");
+  const [basicPlanPercentage, setBasicPlanPercentage] = useState("");
+  const [minnimumAmount, setMinimumAmount] = useState("");
+
+  const structuredBrokeragePlan = "Structured Investment Brokerage";
+
+  function handleBasicPlan() {
+    setIsStandardPlanClick(false);
+    setSpecialPlanClicked(false);
+    setSpecialPlanContent("");
+    setStandardPlanContent("");
+    setSpecialPlanPercentage("");
+    setStandardPlanPercentage("");
+    setBasicPlanClick(true);
+    setBasicPlanContent("Basic Plan");
+    setBasicPlanPercentage("13% increase per month");
+    setMinimumAmount("Minimum starting capital $200");
+   
+  };
+
+  function handleSpecialPlan() {
+    setIsStandardPlanClick(false);
+    setStandardPlanContent("");
+    setBasicPlanClick(false);
+    setBasicPlanContent("");
+    setStandardPlanPercentage("");
+    setBasicPlanPercentage("");
+    setSpecialPlanClicked(true);
+    setSpecialPlanContent("Special Plan");
+    setSpecialPlanPercentage("22% increase per month");
+    setMinimumAmount("Minimum starting capital $5000");
+  };
+
+  function handleStandardPlan() {
+    setBasicPlanClick(false);
+    setBasicPlanContent("");
+    setSpecialPlanClicked(false);
+    setSpecialPlanContent("");
+    setBasicPlanPercentage("");
+    setSpecialPlanPercentage("");
+    setIsStandardPlanClick(true);
+    setStandardPlanContent("Standard Plan");
+    setStandardPlanPercentage("17% increase per month");
+    setMinimumAmount("Minimum starting capital $1000");
+  };
   return (
     <>
         <div style={{ marginTop: "30px" }}>Structured</div>
@@ -9,15 +65,67 @@ const Structured = () => {
       <Box>
       <Box>
           <Typography style={{ paddingTop: "20px"}}>Select a structured brokerage plan </Typography>
-            <select style={{ width: "100%", textAlign: "center"}} name="invesyment plan" id="investment plan">
-          <optgroup >
-            <option value="plan 1">Plan 1 </option>
-            <option value="plan 2">Plan 2</option>
-            <option value="plan 3">Plan 3</option>
-          </optgroup>
-          
-        </select>
+      
+          <Box sx={{ width: "100%", margin: "2em 0 2em 0" }}>
+            <Button
+              onClick={handleBasicPlan}
+              sx={{ width: "30%", padding: "1em" }}
+            >
+              <Typography sx={{ color: theme.palette.primary[400] }}>
+                Basic Plan
+              </Typography>
+            </Button>
+            <Button
+              onClick={handleStandardPlan}
+              sx={{ width: "30%", padding: "1em" }}
+            >
+              <Typography>Standard Plan</Typography>
+            </Button>
+            <Button
+              onClick={handleSpecialPlan}
+              sx={{ width: "30%", padding: "1em" }}
+            >
+              <Typography>Special Plan</Typography>
+            </Button>
+          </Box>
+
         </Box>
+      </Box>
+
+      <Box>
+        {isBasicPlanClicked ? (
+          <BasicPlan
+            basicPlanText="bunch of stuff on Structured Investment Brokerage, basic Plan"
+            basicPlanInputText={structuredBrokeragePlan}
+            basicPlanInputText2={basicPlanContent}
+            basicPlanInputText3={basicPlanPercentage}
+            basicPlanInputText4={minnimumAmount}
+          />
+        ) : (
+          ""
+        )}
+        {isStandardPlanClicked ? (
+          <StandardPlan
+            standardPlanText="bunch of stuff on Structured Investment Brokerage, standard Plan"
+            standardPlanInputText={structuredBrokeragePlan}
+            standardPlanInputText2={standardPlanContent}
+            standardPlanInputText3={standardPlanPercentage}
+            standardPlanInputText4={minnimumAmount}
+          />
+        ) : (
+          ""
+        )}
+        {isSpecialPlanClicked ? (
+          <SpecialPlan
+            specialPlanText="bunch of stuff on Structured Investment Brokerage, special plan"
+            specialPlanInputText={structuredBrokeragePlan}
+            specialPlanInputText2={specialPlanContent}
+            specialPlanInputText3={specialPlanPercentage}
+            specialPlanInputText4={minnimumAmount}
+          />
+        ) : (
+          ""
+        )}
       </Box>
     </>
   )

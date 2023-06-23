@@ -62,7 +62,7 @@ function Login() {
           </p>
         </div>
 
-        <form class="register" onSubmit={(e) => handleSubmit(e)}>
+        <form className="register" onSubmit={(e) => handleSubmit(e)}>
           <input
             className="inputElement"
             required
