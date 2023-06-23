@@ -47,6 +47,7 @@ const Contracts = () => {
   
   return (
     <>
+    <Box height="40px"></Box>
     <DashboardHeading title="CONTRACTS" subTitle="Our investment Plans" />
       <Box
         mt="20px"
