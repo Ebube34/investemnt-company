@@ -1,4 +1,10 @@
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import React, { useState } from "react";
 import BasicPlan from "./basicPlan";
 import StandardPlan from "./standardPlan";
@@ -6,6 +12,7 @@ import SpecialPlan from "./specialPlan";
 
 const Trading = () => {
   const theme = useTheme();
+  const isNonMobile = useMediaQuery("(min-width: 1000px)");
   const [isBasicPlanClicked, setBasicPlanClick] = useState(false);
   const [basicPlanContent, setBasicPlanContent] = useState("");
   const [isStandardPlanClicked, setIsStandardPlanClick] = useState(false);
@@ -68,27 +75,45 @@ const Trading = () => {
             Select a preferred Trading Investment plan{" "}
           </Typography>
 
-          <Box sx={{ width: "100%", margin: "2em 0 2em 0" }}>
-            <Button
-              onClick={handleBasicPlan}
-              sx={{ width: "30%", padding: "1em" }}
-            >
-              <Typography sx={{ color: theme.palette.primary[400] }}>
-                Basic Plan
-              </Typography>
-            </Button>
-            <Button
-              onClick={handleStandardPlan}
-              sx={{ width: "30%", padding: "1em" }}
-            >
-              <Typography>Standard Plan</Typography>
-            </Button>
-            <Button
-              onClick={handleSpecialPlan}
-              sx={{ width: "30%", padding: "1em" }}
-            >
-              <Typography>Special Plan</Typography>
-            </Button>
+          <Box
+            mt="20px"
+            display="grid"
+            gridTemplateColumns="repeat(2, minmax(0, 1fr))"
+            justifyContent="space-between"
+            rowGap="20px"
+            columnGap="1.33%"
+            sx={{
+              "& > div": { gridColumn: isNonMobile ? undefined : "span 3" },
+            }}
+          >
+            <Box>
+              <Button
+                onClick={handleBasicPlan}
+                sx={{ width: "50%", padding: "1em" }}
+              >
+                <Typography sx={{ color: theme.palette.primary[400] }}>
+                  Basic Plan
+                </Typography>
+              </Button>
+            </Box>
+
+            <Box>
+              <Button
+                onClick={handleStandardPlan}
+                sx={{ width: "50%", padding: "1em" }}
+              >
+                <Typography>Standard Plan</Typography>
+              </Button>
+            </Box>
+
+            <Box>
+              <Button
+                onClick={handleSpecialPlan}
+                sx={{ width: "50%", padding: "1em" }}
+              >
+                <Typography>Special Plan</Typography>
+              </Button>
+            </Box>
           </Box>
         </Box>
       </Box>
