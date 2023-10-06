@@ -7,14 +7,14 @@ const DashboardHeading = ({ title, subTitle }) => {
   return (
     <Box>
         <Typography 
-        variant="h2" 
+        variant="h3" 
         color={theme.palette.secondary[100]} 
         fontWeight="bold" 
         sx={{ mb: "5px"}}>
             {title}
         </Typography>
         <Typography 
-        variant="h5"
+        variant="h6"
          color={theme.palette.secondary[300]}>
             {subTitle}
         </Typography>

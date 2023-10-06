@@ -371,7 +371,7 @@ const AccountDeposits = () => {
 
   return (
     <>
-      <Box height="40px"></Box>
+      <Box height="55px"></Box>
       <DashboardHeading
         title="ACCOUNT DEPOSIT"
         subTitle="Our recommended payment systems"
@@ -396,7 +396,7 @@ const AccountDeposits = () => {
       >
         <Box boxShadow="2px 2px 2px #383F67" height="130px" textAlign="center">
           <Box
-            sx={{ backgroundColor: theme.palette.secondary[200] }}
+            sx={{ backgroundColor: theme.palette.secondary[100] }}
             height="65%"
             paddingTop="15px"
           >
@@ -508,7 +508,7 @@ const AccountDeposits = () => {
             handleDepositClick={handlePayWithEtherumClick}
             cancelLogo={cancelLogo}
             cryptoLogo={EthereumLogo}
-            nameText="Ethereum (ETH)"
+            nameText="Ethereum"
             contentText="BEP2, BEP20, ERC20"
             secondContentText="ETH"
             handleConfirmClick={handleEthereumConfirmClick}
@@ -732,7 +732,7 @@ const AccountDeposits = () => {
 
         <Box boxShadow="2px 2px 2px #383F67" height="130px" textAlign="center">
           <Box
-            sx={{ backgroundColor: theme.palette.secondary[200] }}
+            sx={{ backgroundColor: theme.palette.secondary[100] }}
             height="65%"
             paddingTop="15px"
           >
@@ -762,7 +762,7 @@ const AccountDeposits = () => {
 
         <Box boxShadow="2px 2px 2px #383F67" height="130px" textAlign="center">
           <Box
-            sx={{ backgroundColor: theme.palette.secondary[200] }}
+            sx={{ backgroundColor: theme.palette.secondary[100] }}
             height="65%"
             paddingTop="15px"
           >
@@ -794,7 +794,7 @@ const AccountDeposits = () => {
 
         <Box boxShadow="2px 2px 2px #383F67" height="130px" textAlign="center">
           <Box
-            sx={{ backgroundColor: theme.palette.secondary[200] }}
+            sx={{ backgroundColor: theme.palette.secondary[100] }}
             height="65%"
             paddingTop="15px"
           >
@@ -824,7 +824,7 @@ const AccountDeposits = () => {
 
         <Box boxShadow="2px 2px 2px #383F67" height="130px" textAlign="center">
           <Box
-            sx={{ backgroundColor: theme.palette.secondary[200] }}
+            sx={{ backgroundColor: theme.palette.secondary[100] }}
             height="65%"
             paddingTop="15px"
           >
@@ -856,7 +856,7 @@ const AccountDeposits = () => {
 
         <Box boxShadow="2px 2px 2px #383F67" height="130px" textAlign="center">
           <Box
-            sx={{ backgroundColor: theme.palette.secondary[200] }}
+            sx={{ backgroundColor: theme.palette.secondary[100] }}
             height="65%"
             paddingTop="15px"
           >
@@ -886,7 +886,7 @@ const AccountDeposits = () => {
 
         <Box boxShadow="2px 2px 2px #383F67" height="130px" textAlign="center">
           <Box
-            sx={{ backgroundColor: theme.palette.secondary[200] }}
+            sx={{ backgroundColor: theme.palette.secondary[100] }}
             height="65%"
             paddingTop="15px"
           >
@@ -918,7 +918,7 @@ const AccountDeposits = () => {
 
         <Box boxShadow="2px 2px 2px #383F67" height="130px" textAlign="center">
           <Box
-            sx={{ backgroundColor: theme.palette.secondary[200] }}
+            sx={{ backgroundColor: theme.palette.secondary[100] }}
             height="65%"
             paddingTop="15px"
           >
@@ -948,7 +948,7 @@ const AccountDeposits = () => {
 
         <Box boxShadow="2px 2px 2px #383F67" height="130px" textAlign="center">
           <Box
-            sx={{ backgroundColor: theme.palette.secondary[200] }}
+            sx={{ backgroundColor: theme.palette.secondary[100] }}
             height="65%"
             paddingTop="15px"
           >
