@@ -104,7 +104,7 @@ const CryptoAddress = ({
                 <Typography padding="10px 0 5px 0">{priceOfCrypto }</Typography>
                 <Typography>copy the address or scan the QR code:</Typography>
                 <Box color="black">
-                  <input type="text" value={cryptoAddressText} readOnly style={{ border: "0"}} />
+                  <input  type="text" value={cryptoAddressText} readOnly style={{ width: "60%", border: "0"}} />
                   <Button onClick={handleCopyClick}>
                     <span>{isCopied ? "Copied" : "Copy"}</span>
                   </Button>
