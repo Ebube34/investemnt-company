@@ -187,6 +187,7 @@ const DashboardMain = () => {
                 letterSpacing: "2px",
               }}
               fullWidth="100%"
+              onClick={() => navigate("/deposits")}
             >
               <Typography sx={{ color: theme.palette.primary[100] }}>
                 New Deposit

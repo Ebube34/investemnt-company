@@ -16,13 +16,14 @@ const Foregin = () => {
   const [specialPlanPercentage, setSpecialPlanPercentage] = useState("");
   const [standardPlanPercentage, setStandardPlanPercentage] = useState("");
   const [basicPlanPercentage, setBasicPlanPercentage] = useState("");
-  const [minnimumAmount, setMinimumAmount] = useState("");
+  const [minnimumAmount, setMinimumAmount] = useState("the");
 
   const foreignExchangePlan = "Foreign Exchange Investment";
 
   function handleBasicPlan() {
     setIsStandardPlanClick(false);
-    setSpecialPlanClicked(false);
+    setSpecialPlanClicked(false); 
+
     setSpecialPlanContent("");
     setStandardPlanContent("");
     setSpecialPlanPercentage("");
@@ -32,7 +33,6 @@ const Foregin = () => {
     setBasicPlanPercentage("10% increase per month");
     setMinimumAmount("Minimum starting capital $100");
   }
-
   function handleSpecialPlan() {
     setIsStandardPlanClick(false);
     setStandardPlanContent("");

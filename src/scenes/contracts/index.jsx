@@ -66,16 +66,17 @@ const Contracts = () => {
             sx={{
               padding: "1.5em",
               borderRadius: "0px",
-              backgroundColor: theme.palette.secondary[300],
+              backgroundColor: isCryptoClicked ? theme.palette.primary[500] : theme.palette.secondary[300],
               backgroundImage: "none",
               letterSpacing: "1.5px",
             }}
             fullWidth="100%"
             onClick={handleCryptoClick}
           >
-            <Typography sx={{ color: theme.palette.primary[500] }}>
+            <Typography sx={{ color: isCryptoClicked ? theme.palette.secondary[300] : theme.palette.primary[500] }}>
               Cryptocurrency Investment 
             </Typography>
+
           </Button>
         </Box>
 
@@ -84,14 +85,14 @@ const Contracts = () => {
             sx={{
               padding: "1.5em",
               borderRadius: "0px",
-              backgroundColor: theme.palette.secondary[300],
+              backgroundColor: isTradingClicked ? theme.palette.primary[500] : theme.palette.secondary[300],
               backgroundImage: "none",
               letterSpacing: "1.5px",
             }}
             fullWidth="100%"
             onClick={handleTradingClick}
           >
-            <Typography sx={{ color: theme.palette.primary[500] }}>
+            <Typography sx={{ color: isTradingClicked ? theme.palette.secondary[300] : theme.palette.primary[500] }}>
               Trading Investment 
             </Typography>
           </Button>
@@ -101,14 +102,14 @@ const Contracts = () => {
             sx={{
               padding: "1.5em",
               borderRadius: "0px",
-              backgroundColor: theme.palette.secondary[300],
+              backgroundColor: isForeginExchangeClicked ? theme.palette.primary[500] : theme.palette.secondary[300],
               backgroundImage: "none",
               letterSpacing: "1.5px",
             }}
             fullWidth="100%"
             onClick={handleForeignExchangeClick}
           >
-            <Typography sx={{ color: theme.palette.primary[500] }}>
+            <Typography sx={{ color: isForeginExchangeClicked ? theme.palette.secondary[300] : theme.palette.primary[500] }}>
             Foreign Exchange Investment 
             </Typography>
           </Button>
@@ -118,7 +119,7 @@ const Contracts = () => {
             sx={{
               padding: "1.5em",
               borderRadius: "0px",
-              backgroundColor: theme.palette.secondary[300],
+              backgroundColor: isStructuredInvestmentClicked ? theme.palette.primary[500] : theme.palette.secondary[300],
               backgroundImage: "none",
               letterSpacing: "1.5px",
             }}
@@ -126,7 +127,7 @@ const Contracts = () => {
             onClick={handleStructuredInvestmentClick}
             
           >
-            <Typography sx={{ color: theme.palette.primary[500] }}>
+            <Typography sx={{ color: isStructuredInvestmentClicked ? theme.palette.secondary[300] : theme.palette.primary[500] }}>
               Structured Investment Brokerage 
             </Typography>
           </Button>

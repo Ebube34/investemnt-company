@@ -8,6 +8,7 @@ import { CssBaseline } from "@mui/material";
 import Cookies from "universal-cookie";
 import Login from "../../Pages/login";
 
+
 const cookies = new Cookies();
 
 const Layout = () => {
@@ -21,7 +22,7 @@ const Layout = () => {
 
     if (localStorageItems) {
       setUserId(localStorageItems.userId);
-    }
+    } 
   }, []);
 
   const { data } = useGetUserQuery(userId);

@@ -47,6 +47,7 @@ import { themeSettings } from "../theme.js";
 import DashboardMain from "../scenes/dashboardmain";
 import Layout from "../scenes/layout";
 import Contracts from "../scenes/contracts";
+import AccountDeposits from "../scenes/accountDeposits";
 
 
 
@@ -109,6 +110,7 @@ function App() {
               />
               <Route path="home" element={<DashboardMain />} />
               <Route path="Contracts" element={<Contracts />} />
+              <Route path="Deposits" element={<AccountDeposits />} />
             </Route>
 
 
