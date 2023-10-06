@@ -68,7 +68,7 @@ const CryptoAddress = ({
             >
               <Box>
                 <Box
-                  sx={{ backgroundColor: theme.palette.secondary[200] }}
+                  sx={{ backgroundColor: theme.palette.secondary[100] }}
                   height=""
                   padding="0 0 25px 0"
                 >
