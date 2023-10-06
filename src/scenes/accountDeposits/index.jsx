@@ -689,7 +689,7 @@ const AccountDeposits = () => {
 
         <Box boxShadow="2px 2px 2px #383F67" height="130px" textAlign="center">
           <Box
-            sx={{ backgroundColor: theme.palette.secondary[200] }}
+            sx={{ backgroundColor: theme.palette.secondary[100] }}
             height="65%"
             paddingTop="15px"
           >
@@ -715,7 +715,7 @@ const AccountDeposits = () => {
             />
           </Box>
           <Box
-            sx={{ pt: "10px", backgroundColor: theme.palette.primary[500] }}
+            sx={{ backgroundColor: theme.palette.primary[500] }}
             height="35%"
             marginBottom="0px"
           >
