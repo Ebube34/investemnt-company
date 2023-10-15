@@ -48,16 +48,17 @@ const navItems = [
     icon: <ShoppingCartOutlined />,
   },
   {
-    text: "Deposits",
-    icon: <Groups2Outlined />,
+    text: "Markets",
+    icon: <PublicOutlined />,
+    
   },
   {
     text: "Transactions",
     icon: <ReceiptLongOutlined />,
   },
   {
-    text: "Geography",
-    icon: <PublicOutlined />,
+    text: "Deposits",
+    icon: <Groups2Outlined />,
   },
   {
     text: "Sales",

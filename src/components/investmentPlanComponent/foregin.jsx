@@ -58,6 +58,7 @@ const Foregin = () => {
     setStandardPlanPercentage("13% increase per month");
     setMinimumAmount("Minimum starting capital $500");
   }
+  
   return (
     <>
       <div style={{ marginTop: "30px" }}>Foregin</div>

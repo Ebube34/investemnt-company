@@ -29,7 +29,7 @@ const DashboardMain = () => {
         <Box height="40px"></Box>
         <DashboardHeading
           title="ACCOUNT"
-          subTitle="Welcome to your dashboard"
+          subTitle="Wellcome to your dashboard"
         />
         <Box
           mt="20px"

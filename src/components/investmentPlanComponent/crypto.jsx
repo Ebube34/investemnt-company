@@ -39,6 +39,7 @@ const Crypto = () => {
     setMinimumAmount("Minimum starting capital $200");
     console.log("i was clicked");
   }
+  
 
   function handleSpecialPlan() {
     setIsStandardPlanClick(false);

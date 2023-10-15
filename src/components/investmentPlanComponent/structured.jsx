@@ -4,6 +4,7 @@ import BasicPlan from "./basicPlan";
 import StandardPlan from "./standardPlan";
 import SpecialPlan from "./specialPlan";
 
+
 const Structured = () => {
   const theme = useTheme();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");

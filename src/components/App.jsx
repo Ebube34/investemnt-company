@@ -48,6 +48,8 @@ import DashboardMain from "../scenes/dashboardmain";
 import Layout from "../scenes/layout";
 import Contracts from "../scenes/contracts";
 import AccountDeposits from "../scenes/accountDeposits";
+import GoogleTranslate from "./googleTranslate";
+import Markets from "../scenes/markets";
 
 
 
@@ -60,13 +62,13 @@ function App() {
   <div>
     <BrowserRouter>
     <ThemeProvider theme={theme}>
+    <GoogleTranslate />
      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="contact" element={<Contact />} />
         <Route path="about" element={<About />}/>
         <Route path="reviews" element={<Reviews />} />
-        <Route path="dashboard" element={<Dashboard />} />
         <Route path="investment" element={<Investment />} />
         <Route path="resourses" element={<Resources />} />
         <Route path="FAQs" element={<FAQs />}/>
@@ -74,6 +76,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="our-team" element={<OurTeam />} />
         <Route path="register" element={<Register />} />
+        <Route path="dashboard" element={<Dashboard />} />
         <Route path="roadmap" element={<Roadmap />} />
         <Route path="customers" element={<Customers />} />
         <Route path="community" element={<Community />} />
@@ -111,6 +114,7 @@ function App() {
               <Route path="home" element={<DashboardMain />} />
               <Route path="Contracts" element={<Contracts />} />
               <Route path="Deposits" element={<AccountDeposits />} />
+              <Route path="markets" element={<Markets />} />
             </Route>
 
 
