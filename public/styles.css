@@ -1,5 +1,6 @@
 body{
-    font-family: 'Montserrat', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Montserrat', sans-serif;
     background-color: #024959;
     color: white;
   }

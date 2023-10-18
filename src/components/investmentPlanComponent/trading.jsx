@@ -67,12 +67,14 @@ const Trading = () => {
   }
   return (
     <>
-      <div style={{ marginTop: "30px" }}>Trading</div>
-      <div>bunch of stuff under trading investment</div>
+      
+      <div style={{ padding: "20px"}}> <Typography fontSize="15px" lineHeight="1.7">
+      By trading investment we mean creating a platform by which our investors can invest on our abilty to stocks trading. Quivas trade variety of stocks AAPL, TSLA, AMZN, WMT and many more. Stock trading refers to any buying and selling of stocks The stock market offers different financial instruments, such as shares, bonds, mutual funds, and derivatives. This provides investors with a wide choice of products in which to invest and trade. In addition to providing investment choices, this flexibility is beneficial in mitigating the risks inherent to stock investing by enabling diversification of investment portfolios  making greater returns in comparatively shorter time periods. And with our expertise and group of traders we have created a short-term, low risk high return strategy to maximize our presence in the stock market providing our investors a percentage return for their commitment and trust.
+      </Typography> </div>
 
       <Box>
         <Box>
-          <Typography style={{ paddingTop: "20px" }}>
+          <Typography style={{ padding: "20px" }}>
             Select a preferred Trading Investment plan{" "}
           </Typography>
 
@@ -87,7 +89,7 @@ const Trading = () => {
               "& > div": { gridColumn: isNonMobile ? undefined : "span 3" },
             }}
           >
-            <Box>
+            <Box sx={{ marginLeft: "35%"}} >
               <Button
                 onClick={handleBasicPlan}
                 sx={{ width: "50%", padding: "1em" }}
@@ -98,7 +100,7 @@ const Trading = () => {
               </Button>
             </Box>
 
-            <Box>
+            <Box sx={{ marginLeft: "35%"}} >
               <Button
                 onClick={handleStandardPlan}
                 sx={{ width: "50%", padding: "1em" }}
@@ -107,7 +109,7 @@ const Trading = () => {
               </Button>
             </Box>
 
-            <Box>
+            <Box sx={{ marginLeft: "35%"}}>
               <Button
                 onClick={handleSpecialPlan}
                 sx={{ width: "50%", padding: "1em" }}

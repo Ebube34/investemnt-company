@@ -61,11 +61,11 @@ const Foregin = () => {
   
   return (
     <>
-      <div style={{ marginTop: "30px" }}>Foregin</div>
-      <div>bunch of nothing under Foregin</div>
+      
+      <div style={{ padding: "20px", fontSize: "15px", lineHeight: "1.7"}}>The foregin exchange market where currencies are traded is the largest financial market in the world. Currencies are traded worldwide in the major financial centers of Frankfurt, Hong Kong, London, New York, Paris, Singapore, Sydney, Tokyo, and Zurich. the FX market is the only truly continuous and nonstop trading market in the world. The market is primarily traded via spot, forword and futures markets. But here in Quivas we focus only on the spot market where curriencies are bougth and sold based on their trading prices. with our Underlining strategies to go long or short on any currency pair we capitalize on the the high liquidity of the market providing consistent profit. We have investment plans in place for you to invest in foregin exchange market with potential returns.  </div>
       <Box>
         <Box>
-          <Typography style={{ paddingTop: "20px" }}>
+          <Typography style={{ padding: "20px" }}>
             Select a preferred Foregin Exchange Investment plan{" "}
           </Typography>
 
@@ -80,7 +80,7 @@ const Foregin = () => {
               "& > div": { gridColumn: isNonMobile ? undefined : "span 3" },
             }}
           >
-            <Box>
+            <Box sx={{ marginLeft: "35%"}}>
               <Button
                 onClick={handleBasicPlan}
                 sx={{ width: "50%", padding: "1em" }}
@@ -91,7 +91,7 @@ const Foregin = () => {
               </Button>
             </Box>
 
-            <Box>
+            <Box sx={{ marginLeft: "35%"}}>
               <Button
                 onClick={handleStandardPlan}
                 sx={{ width: "50%", padding: "1em" }}
@@ -100,7 +100,7 @@ const Foregin = () => {
               </Button>
             </Box>
 
-            <Box>
+            <Box sx={{ marginLeft: "35%"}}>
               <Button
                 onClick={handleSpecialPlan}
                 sx={{ width: "50%", padding: "1em" }}

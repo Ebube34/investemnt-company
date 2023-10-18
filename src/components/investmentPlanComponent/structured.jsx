@@ -61,11 +61,11 @@ const Structured = () => {
   }
   return (
     <>
-      <div style={{ marginTop: "30px" }}>Structured</div>
-      <div>bunch of nothing under Structured</div>
+      
+      <div style={{ padding: "20px", fontSize: "15px", lineHeight: "1.7"}}>Structured investments offer access to formula-based returns tailored to a particular market outlook. They provide exposure to the performance of an underlying asset—such as equity indexes, equity securities, baskets of securities, commodities, without ownership of that asset. These securities provide a less aggressive and stable investment strategies and overall less risk with some potential for capital appreciation. We invest in structured products providing yearly returns and worse case getting our money back, providing our investors percentage gains on their capital trust. </div>
       <Box>
         <Box>
-          <Typography style={{ paddingTop: "20px" }}>
+          <Typography style={{ padding: "20px" }}>
             Select a structured brokerage plan{" "}
           </Typography>
 
@@ -80,7 +80,7 @@ const Structured = () => {
               "& > div": { gridColumn: isNonMobile ? undefined : "span 3" },
             }}
           >
-            <Box>
+            <Box sx={{ marginLeft: "35%"}}>
               <Button
                 onClick={handleBasicPlan}
                 sx={{ width: "50%", padding: "1em" }}
@@ -91,7 +91,7 @@ const Structured = () => {
               </Button>
             </Box>
 
-            <Box>
+            <Box sx={{ marginLeft: "35%"}}>
               <Button
                 onClick={handleStandardPlan}
                 sx={{ width: "50%", padding: "1em" }}
@@ -100,7 +100,7 @@ const Structured = () => {
               </Button>
             </Box>
 
-            <Box>
+            <Box sx={{ marginLeft: "35%"}}>
               <Button
                 onClick={handleSpecialPlan}
                 sx={{ width: "50%", padding: "1em" }}

@@ -37,7 +37,6 @@ const Crypto = () => {
     setBasicPlanContent("Basic Plan");
     setBasicPlanPercentage("13% increase per month");
     setMinimumAmount("Minimum starting capital $200");
-    console.log("i was clicked");
   }
   
 
@@ -68,11 +67,11 @@ const Crypto = () => {
   }
   return (
     <>
-      <div style={{ marginTop: "30px" }}>crypto</div>
-      <div>bunch of nothing under crypto</div>
+      
+      <div style={{ padding: "20px", fontSize: "15px", lineHeight: "1.7"}} >Cryptocurrency is a digital payment system that doesn't rely on banks to verify transactions. It's a peer-to-peer system that can enable anyone anywhere to send and receive payments. Instead of being physical money carried around and exchanged in the real world. Here in Quivas not only do we accept cryptocurrency as a means of payment we are also in the market. We trade varieties of crypto Bitcoin, Ethereum, Doge and many more. We have our eyes on various ICO listed upcomming tokens, and under the rader tokens, geting daily returns for our investors. Behind many of the most popular currencies, including bitcoin and litecoin, is an algorithm called prove of work. Under prove of work miners around the world compete against each other to find the encrypted solution on the block, we are also in the minning pool, computing and validating transactions, providing solutions to various blockchain to earn rewards of cryptocurrency. We also provide staking benefits for your capital. Staking offers crypto holders a way of putting their digital assets to work and earn passive income without needing to sell them. We as major crypto holders have various staking options with exchanges and companies with the aim of providing our investors a risk free staking rewards. We optimize the crypto market providing you the best returns for your capital.</div>
       <Box>
         <Box>
-          <Typography style={{ paddingTop: "20px" }}>
+          <Typography style={{ padding: "20px" }}>
             Select a preferred Cryptocurrency Investment plan
           </Typography>
 
@@ -87,7 +86,7 @@ const Crypto = () => {
               "& > div": { gridColumn: isNonMobile ? undefined : "span 3" },
             }}
           >
-            <Box>
+            <Box sx={{ marginLeft: "35%"}}>
               <Button
                 onClick={handleBasicPlan}
                 sx={{ width: "50%", padding: "1em" }}
@@ -98,7 +97,7 @@ const Crypto = () => {
               </Button>
             </Box>
 
-            <Box>
+            <Box sx={{ marginLeft: "35%"}}>
               <Button
                 onClick={handleStandardPlan}
                 sx={{ width: "50%", padding: "1em" }}
@@ -107,7 +106,7 @@ const Crypto = () => {
               </Button>
             </Box>
 
-            <Box>
+            <Box sx={{ marginLeft: "35%"}}>
               <Button
                 onClick={handleSpecialPlan}
                 sx={{ width: "50%", padding: "1em" }}
