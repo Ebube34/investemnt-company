@@ -17,15 +17,13 @@ function BuildWealthBox(props) {
         setIsMousedOver(false);
     }
 
-    function handleRequest() {
-        setSendRequest(navigate(props.linkName));
-    }
+   
     
   
   
     return(
         <>
-            <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}  style={{cursor: isMousedOver ? "pointer" : ""}} onClick={handleRequest}   className="build-wealth-box">
+            <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}  style={{cursor: isMousedOver ? "pointer" : ""}}   className="build-wealth-box">
                 <img className="Build-wealth-img" src={props.imgSrc} alt="Build-wealth" /> 
                 <div className="wealth-text-box">
                     <p>{props.paragraph}</p>
