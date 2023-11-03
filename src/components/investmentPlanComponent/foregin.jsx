@@ -16,9 +16,15 @@ const Foregin = () => {
   const [specialPlanPercentage, setSpecialPlanPercentage] = useState("");
   const [standardPlanPercentage, setStandardPlanPercentage] = useState("");
   const [basicPlanPercentage, setBasicPlanPercentage] = useState("");
-  const [minnimumAmount, setMinimumAmount] = useState("the");
+  const [minnimumAmount, setMinimumAmount] = useState("");
+  const [basicPlanPercentageValue, setBasicPlanPercentageValue] = useState(Number);
+  const [standardPlanPercentageValue, setStandardPlanPercentageValue] = useState(Number);
+  const [specialPlanPercentageValue, setSpecialPlanPercentageValue] = useState(Number);
 
   const foreignExchangePlan = "Foreign Exchange Investment";
+  const basicPlanMinimumAmount = 300;
+  const standardPlanMinimumAmount = 2000;
+  const specialPlanMinimumAmount = 5000;
 
   function handleBasicPlan() {
     setIsStandardPlanClick(false);
@@ -30,8 +36,11 @@ const Foregin = () => {
     setStandardPlanPercentage("");
     setBasicPlanClick(true);
     setBasicPlanContent("Basic Plan");
-    setBasicPlanPercentage("10% increase per month");
-    setMinimumAmount("Minimum starting capital $100");
+    setBasicPlanPercentage("11% increase per month");
+    setMinimumAmount("Minimum starting capital $300");
+    setBasicPlanPercentageValue(11)
+    setSpecialPlanPercentageValue(null)
+    setStandardPlanPercentageValue(null)
   }
   function handleSpecialPlan() {
     setIsStandardPlanClick(false);
@@ -42,8 +51,11 @@ const Foregin = () => {
     setBasicPlanPercentage("");
     setSpecialPlanClicked(true);
     setSpecialPlanContent("Special Plan");
-    setSpecialPlanPercentage("16% increase per month");
-    setMinimumAmount("Minimum starting capital $2000");
+    setSpecialPlanPercentage("23% increase per month");
+    setMinimumAmount("Minimum starting capital $5000");
+    setBasicPlanPercentageValue(null);
+    setSpecialPlanPercentageValue(23);
+    setStandardPlanPercentageValue(null);
   }
 
   function handleStandardPlan() {
@@ -55,8 +67,11 @@ const Foregin = () => {
     setSpecialPlanPercentage("");
     setIsStandardPlanClick(true);
     setStandardPlanContent("Standard Plan");
-    setStandardPlanPercentage("13% increase per month");
-    setMinimumAmount("Minimum starting capital $500");
+    setStandardPlanPercentage("17% increase per month");
+    setMinimumAmount("Minimum starting capital $2000");
+    setBasicPlanPercentageValue(null);
+    setSpecialPlanPercentageValue(null);
+    setStandardPlanPercentageValue(17);
   }
   
   return (
@@ -115,33 +130,39 @@ const Foregin = () => {
       <Box>
         {isBasicPlanClicked ? (
           <BasicPlan
-            basicPlanText="bunch of stuff on Foreign Exchange investment, basic Plan"
+            basicPlanText="Foregin exchange basic plan offers you +11% of your starting capital per month. with minumum starting capital at 300 USD"
             basicPlanInputText={foreignExchangePlan}
             basicPlanInputText2={basicPlanContent}
             basicPlanInputText3={basicPlanPercentage}
             basicPlanInputText4={minnimumAmount}
+            percentageValue={basicPlanPercentageValue}
+            minmumAmountValue={basicPlanMinimumAmount}
           />
         ) : (
           ""
         )}
         {isStandardPlanClicked ? (
           <StandardPlan
-            standardPlanText="bunch of stuff on Foreign Exchange investment, standard Plan"
+            standardPlanText="Foregin exchange standard plan offers you +17% of your starting capital per month. with minumum starting capital at 2000 USD"
             standardPlanInputText={foreignExchangePlan}
             standardPlanInputText2={standardPlanContent}
             standardPlanInputText3={standardPlanPercentage}
             standardPlanInputText4={minnimumAmount}
+            percentageValue={standardPlanPercentageValue}
+            minmumAmountValue={standardPlanMinimumAmount}
           />
         ) : (
           ""
         )}
         {isSpecialPlanClicked ? (
           <SpecialPlan
-            specialPlanText="bunch of stuff on Foreign Exchange investment, special plan"
+            specialPlanText="Foregin exchange special plan offers you +22% of your starting capital per month. with minumum starting capital at 5000 USD"
             specialPlanInputText={foreignExchangePlan}
             specialPlanInputText2={specialPlanContent}
             specialPlanInputText3={specialPlanPercentage}
             specialPlanInputText4={minnimumAmount}
+            percentageValue={specialPlanPercentageValue}
+            minmumAmountValue={specialPlanMinimumAmount}
           />
         ) : (
           ""

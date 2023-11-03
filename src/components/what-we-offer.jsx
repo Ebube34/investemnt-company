@@ -14,7 +14,7 @@ function WhatWeOffer() {
         content="With bitcoin, ethereum and popular altcoins, create a portifio with more secure high returns"
        />
         <InvestmentPlans 
-        heading="Trade Investment plans"
+        heading="Trade Investment plans" 
         content="earn percentage gains from our trading of commodities and stocks" 
           
         />

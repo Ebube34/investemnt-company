@@ -22,7 +22,7 @@ function Register() {
 
     const configuration = {
       method: "post",
-      url: "https://fx-backend-sever.onrender.com/register",
+      url: "http://localhost:8000/register", // https://fx-backend-sever.onrender.com/
       data: {
         firstName,
         lastName,

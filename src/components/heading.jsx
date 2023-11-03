@@ -12,7 +12,7 @@ function Heading({ images }) {
       >
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <h2 class="heading-text">Take your investing to the next level</h2>
+            <h2 class="heading-text">Take your investing to the next level</h2> 
             <p>Invest with ease using crypto from all round the world</p>
             <ButtonMain
               classname="heading-button"

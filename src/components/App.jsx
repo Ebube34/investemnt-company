@@ -48,9 +48,9 @@ import DashboardMain from "../scenes/dashboardmain";
 import Layout from "../scenes/layout";
 import Contracts from "../scenes/contracts";
 import AccountDeposits from "../scenes/accountDeposits";
-import GoogleTranslate from "./googleTranslate";
 import Markets from "../scenes/markets";
-
+import ActiveContracts from "../scenes/activeContracts";
+import GoogleTranslate from "./GoogleTranslate.jsx";
 
 
 
@@ -62,8 +62,7 @@ function App() {
   <div>
     <BrowserRouter>
     <ThemeProvider theme={theme}>
-    <GoogleTranslate />
-     
+     <GoogleTranslate />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="contact" element={<Contact />} />
@@ -90,7 +89,7 @@ function App() {
         <Route path="Could-Inflation-make-a-comeback?" element={<Article4 />} />
         <Route path="buying-a-home" element={<BuyingAHome />} />
         <Route path="How-do-i-start-investing-when-i'm-scared-to-lose-money" element={<BuildWealth1 />} />
-        <Route path="What-is-Hedging" element={<BuildWealth2 />} />
+        <Route path="What-is-Hedging" element={<BuildWealth2 />} /> 
         <Route path="What-is-Crypto-and-how-does-it-work" element={<BuildWealth3 />} />
         <Route path="The-Power-of-compound-interest-calculator" element={<BuildWealth4 />} />
         <Route path="cryptocurrency" element={<Cryptocurrency />} />
@@ -105,7 +104,7 @@ function App() {
         <Route path="overview" element={<Overview />} />
         <Route path="/confirm/:confirmationCode" element={<Wellcome />}/>
         <Route path="/forgot-password" element={<ForgotPassword /> } />
-        <Route element={<Layout />}>
+        <Route element={<Layout />}> 
         
               <Route
                 path="dashboard"
@@ -115,6 +114,7 @@ function App() {
               <Route path="Contracts" element={<Contracts />} />
               <Route path="Deposits" element={<AccountDeposits />} />
               <Route path="markets" element={<Markets />} />
+              <Route path="active-contracts" element={<ActiveContracts />} />
             </Route>
 
 

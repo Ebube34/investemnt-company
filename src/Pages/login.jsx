@@ -23,7 +23,7 @@ function Login() {
 
     const configurations = {
       method: "post",
-      url: "https://fx-backend-sever.onrender.com/login",
+      url: "http://localhost:8000/login", // https://fx-backend-sever.onrender.com/
       data: {
         email,
         password,
@@ -31,11 +31,11 @@ function Login() {
     };
     axios(configurations)
       .then((result) => {
-        setLogin(true);
         cookies.set("TOKEN", result.data.token, {
           path: "/",
         });
         localStorage.setItem("userDetails", JSON.stringify(result.data));
+        setLogin(true);
         setEmail("");
         setPassword("");
         setProcess(false);
@@ -43,12 +43,10 @@ function Login() {
         window.location.reload(true);
       })
       .catch((error) => {
-        
         setProcess(false);
         setNewError(true);
-        setErrorContent(error.message);
+        setErrorContent(error.response.data);
         setPassword("");
-        
       });
   };
 
@@ -103,8 +101,9 @@ function Login() {
 
         {newError ? (
           <p className="text-danger">invalid attempt to login try again</p>
-        ) : ""
-        } 
+        ) : (
+          ""
+        )}
         {<p className="text-danger">{errorContent}</p>}
       </div>
       <Footer />

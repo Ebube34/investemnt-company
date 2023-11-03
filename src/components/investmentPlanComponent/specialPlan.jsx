@@ -4,14 +4,24 @@ import { Typography, useTheme } from "@mui/material";
 const SpecialPlan = (props) => {
   const theme = useTheme();
   const [userAmount, setUserAmount] = useState("");
+
+
+  const percentage = props.percentageValue;
+  const minimumAmountValue = props.minmumAmountValue;
   return (
     <>
-      <div>
-        <p>{props.specialPlanText}</p>
+     <div>
+        <p style={{ padding: "10px"}}>{props.specialPlanText}</p>
+        <ul >
+          <li style={{ padding: "7px"}}>Profits will be credited to your account at the end of each month.</li>
+          <li style={{ padding: "7px"}}>Starting capital invested will be returned at the end of each contract.</li>
+          <li style={{ padding: "7px"}}>Contracts can be terminated at any point after purchase.</li>
+          <li style={{ padding: "7px 5px 0 5px"}}>Contracts are automatically terminated one year after purchase.</li>
+        </ul>
       </div>
 
-      <div className="containerRegister">
-        <form className="register">
+      <div   className="containerRegister">
+        <form  className="register">
           <input
             className="inputElement"
             type="text"

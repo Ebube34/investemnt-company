@@ -1,14 +1,19 @@
-body{
-    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Montserrat', sans-serif;
+
+/* @import url('https://fonts.googleapis.com/css2?family=Mohave:wght@500&family=Philosopher&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Montserrat&family=Noto+Serif&family=Open+Sans&family=Young+Serif&display=swap'); */
+
+
+
+/* body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Open Sans',  sans-serif;
     background-color: #024959;
     color: white;
-  }
+  } */
   
   
   
   /* general  */
-  a {
+  /* a {
     text-decoration: none;
     color: white;
   }
@@ -24,11 +29,11 @@ body{
     max-width: 1220px;
     margin: 0 auto;
     
-  }
+  } */
   
   /* Header section  */
   
-  .header {
+  /* .header {
     display: flex;
     }
     .header-logo {
@@ -97,11 +102,11 @@ body{
         height: 45px;
         font-size: 18px;
         border: 1px solid #012E40;
-    }
+    } */
 
 /* header part 2 */
 
-.header-2 {
+/* .header-2 {
   display: flex;
   justify-content: space-between;
   padding: 0 30px;
@@ -160,7 +165,7 @@ z-index: 1;
 }
 .toggle-menu-bar-ul > li .pages-sub-menu-2 > ul > li {
   padding: 10px 0 15px 0px;
-}
+} 
 
 
 
@@ -174,12 +179,12 @@ z-index: 1;
  .header{
    display: none;
  }
-}
+} */
 
 
 /* Heading */
 
-.body-slide{
+/* .body-slide{
   padding: 4em 0 4em 2em;
   position: relative;
  
@@ -213,13 +218,13 @@ z-index: 1;
 .slide-indicators > button{
   border: none;
   margin: 20px;
-}
+} */
 
 
 
 /* first box */
 
-.box{
+/* .box{
   margin: 20px 0 20px 0;
 }
 .first-box {
@@ -499,12 +504,12 @@ footer{
 .copyright{
   padding: 1em;
   opacity: 0.5;
-}
+} */
 
 
 /* Register page styles */
 
-.containerRegister{
+/* .containerRegister{
   margin: 10% auto;
  padding: 20px 0;
  text-align: center;
@@ -567,17 +572,17 @@ font-size: 18px;
 .button--loading::after {
   content: "";
   position: absolute;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  border: 5px solid transparent;
+  border: 3px solid transparent;
   border-top-color: #ffffff;
   border-radius: 50%;
-  animation: button-loading-spinner 1s ease infinite;
+  animation: button-loading-spinner 1.5s ease infinite;
 }
 
 @keyframes button-loading-spinner {
@@ -613,9 +618,13 @@ font-size: 18px;
     .whatsapp-contact > i {
       font-size: 1.3em;
       padding: 0.1em 0.5em 0 0;
-    }
+    } */
 
+/* dashboard */
 
+/* .number-font {
+  font-family: 'Mohave', sans-serif;
+} */
 
 
 

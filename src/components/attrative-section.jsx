@@ -9,8 +9,8 @@ function Attrative() {
   
     return (
         <>
-            <section class="attrative-section">
-                <div class="row">
+            <section className="attrative-section">
+                <div className="row">
                 <AttrativeBox content="Over 2m investors "/>
                 <AttrativeBox content="12 years of Excellence" />
                 <AttrativeBox content="24/7 Customer Service" />

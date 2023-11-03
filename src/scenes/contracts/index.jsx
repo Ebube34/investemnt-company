@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Box, useMediaQuery, Typography, useTheme } from "@mui/material";
 import Trading from "../../components/investmentPlanComponent/trading";
 import Crypto from "../../components/investmentPlanComponent/crypto";
 import Foregin from "../../components/investmentPlanComponent/foregin";
 import Structured from "../../components/investmentPlanComponent/structured";
+import { useGetUserQuery } from "../../state/api"
 import DashboardHeading from "../../components/dashboard-heading";
 
 
@@ -14,7 +15,20 @@ const Contracts = () => {
   const [ isTradingClicked, setIsTradingClicked ] = useState(false);
   const [ isForeginExchangeClicked, setIsForeginExchangeClicked ] = useState(false);
   const [ isStructuredInvestmentClicked, setIsStructuredInvestmentClicked ] = useState(false);
+  const [ userId, setUserId ] = useState(""); 
+ 
+  const { data } = useGetUserQuery(userId);
   
+  
+  useEffect(() => {
+    const localStorageItems = JSON.parse(localStorage.getItem("userDetails"));
+
+    if (localStorageItems) {
+      setUserId(localStorageItems.userId);
+    } 
+  }, []);
+
+
 
 
   function handleCryptoClick() {
@@ -73,7 +87,7 @@ const Contracts = () => {
             fullWidth="100%"
             onClick={handleCryptoClick}
           >
-            <Typography sx={{ color: isCryptoClicked ? theme.palette.secondary[300] : theme.palette.primary[500] }}>
+            <Typography fontFamily="Noto Serif, serif" sx={{ color: isCryptoClicked ? theme.palette.secondary[100] : theme.palette.primary[500], fontWeight: "600", fontSize: "1.2rem" }}>
               Cryptocurrency Investment 
             </Typography>
 
@@ -92,7 +106,7 @@ const Contracts = () => {
             fullWidth="100%"
             onClick={handleTradingClick}
           >
-            <Typography sx={{ color: isTradingClicked ? theme.palette.secondary[300] : theme.palette.primary[500] }}>
+            <Typography fontFamily="Noto Serif, serif" sx={{ color: isTradingClicked ? theme.palette.secondary[100] : theme.palette.primary[500], fontWeight: "600", fontSize: "1.2rem" }}>
               Trading Investment 
             </Typography>
           </Button>
@@ -109,7 +123,7 @@ const Contracts = () => {
             fullWidth="100%"
             onClick={handleForeignExchangeClick}
           >
-            <Typography sx={{ color: isForeginExchangeClicked ? theme.palette.secondary[300] : theme.palette.primary[500] }}>
+            <Typography fontFamily="Noto Serif, serif" sx={{ color: isForeginExchangeClicked ? theme.palette.secondary[100] : theme.palette.primary[500], fontWeight: "600", fontSize: "1.2rem" }}>
             Foreign Exchange Investment 
             </Typography>
           </Button>
@@ -127,7 +141,7 @@ const Contracts = () => {
             onClick={handleStructuredInvestmentClick}
             
           >
-            <Typography sx={{ color: isStructuredInvestmentClicked ? theme.palette.secondary[300] : theme.palette.primary[500] }}>
+            <Typography fontFamily="Noto Serif, serif" sx={{ color: isStructuredInvestmentClicked ? theme.palette.secondary[100] : theme.palette.primary[500], fontWeight: "600", fontSize: "1.2rem" }}>
               Structured Investment Brokerage 
             </Typography>
           </Button>
@@ -138,7 +152,7 @@ const Contracts = () => {
 
 {/* second part of contract page */}
       <Box>
-          {isCryptoClicked ? <Crypto /> : ""}
+          {isCryptoClicked ? <Crypto userId={userId} userData={data || {}} /> : ""}
           {isTradingClicked ? <Trading /> : ""}
           {isForeginExchangeClicked ? <Foregin /> : ""}
           {isStructuredInvestmentClicked ? <Structured /> : ""}

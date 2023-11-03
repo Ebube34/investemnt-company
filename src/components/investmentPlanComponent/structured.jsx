@@ -18,8 +18,14 @@ const Structured = () => {
   const [standardPlanPercentage, setStandardPlanPercentage] = useState("");
   const [basicPlanPercentage, setBasicPlanPercentage] = useState("");
   const [minnimumAmount, setMinimumAmount] = useState("");
+  const [basicPlanPercentageValue, setBasicPlanPercentageValue] = useState(Number);
+  const [standardPlanPercentageValue, setStandardPlanPercentageValue] = useState(Number);
+  const [specialPlanPercentageValue, setSpecialPlanPercentageValue] = useState(Number);
 
   const structuredBrokeragePlan = "Structured Investment Brokerage";
+  const basicPlanMinimumAmount = 100;
+  const standardPlanMinimumAmount = 600;
+  const specialPlanMinimumAmount = 2500;
 
   function handleBasicPlan() {
     setIsStandardPlanClick(false);
@@ -30,8 +36,11 @@ const Structured = () => {
     setStandardPlanPercentage("");
     setBasicPlanClick(true);
     setBasicPlanContent("Basic Plan");
-    setBasicPlanPercentage("13% increase per month");
-    setMinimumAmount("Minimum starting capital $200");
+    setBasicPlanPercentage("7% increase per month");
+    setMinimumAmount("Minimum starting capital $100");
+    setBasicPlanPercentageValue(7);
+    setSpecialPlanPercentageValue(null);
+    setStandardPlanPercentageValue(null);
   }
 
   function handleSpecialPlan() {
@@ -43,8 +52,11 @@ const Structured = () => {
     setBasicPlanPercentage("");
     setSpecialPlanClicked(true);
     setSpecialPlanContent("Special Plan");
-    setSpecialPlanPercentage("22% increase per month");
-    setMinimumAmount("Minimum starting capital $5000");
+    setSpecialPlanPercentage("19% increase per month");
+    setMinimumAmount("Minimum starting capital $2500");
+    setBasicPlanPercentageValue(null);
+    setSpecialPlanPercentageValue(19);
+    setStandardPlanPercentageValue(null);
   }
 
   function handleStandardPlan() {
@@ -56,8 +68,11 @@ const Structured = () => {
     setSpecialPlanPercentage("");
     setIsStandardPlanClick(true);
     setStandardPlanContent("Standard Plan");
-    setStandardPlanPercentage("17% increase per month");
-    setMinimumAmount("Minimum starting capital $1000");
+    setStandardPlanPercentage("14% increase per month");
+    setMinimumAmount("Minimum starting capital $600");
+    setBasicPlanPercentageValue(null);
+    setSpecialPlanPercentageValue(null);
+    setStandardPlanPercentageValue(14);
   }
   return (
     <>
@@ -115,22 +130,26 @@ const Structured = () => {
       <Box>
         {isBasicPlanClicked ? (
           <BasicPlan
-            basicPlanText="bunch of stuff on Structured Investment Brokerage, basic Plan"
+            basicPlanText="Standard plan offers you +7% of your starting capital per month. with minumum starting capital at 100 USD"
             basicPlanInputText={structuredBrokeragePlan}
             basicPlanInputText2={basicPlanContent}
             basicPlanInputText3={basicPlanPercentage}
             basicPlanInputText4={minnimumAmount}
+            percentageValue={basicPlanPercentageValue}
+            minmumAmountValue={basicPlanMinimumAmount}
           />
         ) : (
           ""
         )}
         {isStandardPlanClicked ? (
           <StandardPlan
-            standardPlanText="bunch of stuff on Structured Investment Brokerage, standard Plan"
+            standardPlanText="Standard plan offers you +19% of your starting capital per month. with minumum starting capital at 2500 USD"
             standardPlanInputText={structuredBrokeragePlan}
             standardPlanInputText2={standardPlanContent}
             standardPlanInputText3={standardPlanPercentage}
             standardPlanInputText4={minnimumAmount}
+            percentageValue={standardPlanPercentageValue}
+            minmumAmountValue={standardPlanMinimumAmount}
           />
         ) : (
           ""
@@ -142,6 +161,8 @@ const Structured = () => {
             specialPlanInputText2={specialPlanContent}
             specialPlanInputText3={specialPlanPercentage}
             specialPlanInputText4={minnimumAmount}
+            percentageValue={specialPlanPercentageValue}
+            minmumAmountValue={specialPlanMinimumAmount}
           />
         ) : (
           ""

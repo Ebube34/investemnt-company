@@ -2,9 +2,9 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 
 export const api = createApi({
-    baseQuery: fetchBaseQuery({ baseUrl: "https://fx-backend-sever.onrender.com" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000" }),
     reducerPath: "adminApi",
-    tagTypes: ["User"],
+    tagTypes: ["User", "Contracts"],
     endpoints: (build) => ({
         getUser: build.query({
          query: (id) => `general/user/${id}`,

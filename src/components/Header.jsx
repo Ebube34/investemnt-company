@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import SubMenuPages1 from "./pages-sub-menu";
 import { Outlet, Link } from "react-router-dom";
 import { SubMenuPages2 } from "./pages-sub-menu";
-import ResourcesMenuPages2 from "./resources-sub-menu";
+import ResourcesMenuPages2 from "../landing page cp/resources-sub-menu";
 import ButtonMain from "./button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 
 function Header() {
   const [pagesIsMousedOver, setPagesMouseOver] = useState(false);
