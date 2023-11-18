@@ -1,34 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Box, useMediaQuery } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import DashboardNavbar from "../../components/dashboardNavbar";
 import DashboardSidebar from "../../components/dashboardSidebar";
-import { useGetUserQuery } from "../../state/api";
 import { CssBaseline } from "@mui/material";
-import Cookies from "universal-cookie";
-import Login from "../../Pages/login";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import CryptoJS from "crypto-js";
+import { useGetUserQuery } from "../../state/api";
 
 
-const cookies = new Cookies();
+
+
 
 const Layout = () => {
+  const token = Cookies.get("Token");
+  const navigate = useNavigate();
   const isNotMobile = useMediaQuery("(min-width: 600px)");
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
-  const [userId, setUserId] = useState("");
-  const token = cookies.get("TOKEN");
 
-  useEffect(() => {
-    const localStorageItems = JSON.parse(localStorage.getItem("userDetails"));
-
-    if (localStorageItems) {
-      setUserId(localStorageItems.userId);
-    } 
-  }, []);
-
-  const { data } = useGetUserQuery(userId);
-  
+  const secretPass = "Xkhzg478tYUAEQivas65";
+  const decrptToken = CryptoJS.AES.decrypt(token, secretPass);
+   const userId =  JSON.parse(decrptToken.toString(CryptoJS.enc.Utf8));
+  const { data } =  useGetUserQuery(userId);
 
   if (token) {
+
     return (
       <>
       <CssBaseline />
@@ -44,7 +41,7 @@ const Layout = () => {
             <DashboardNavbar
             user={ data || {}}
               isSideBarOpen={isSideBarOpen}
-              setIsSideBarOpen={setIsSideBarOpen}
+              setIsSideBarOpen={setIsSideBarOpen} 
             />
           </Box>
         </Box>
@@ -52,9 +49,7 @@ const Layout = () => {
       </>
     )
   } else {
-    return (
-      <Login />
-    )
+    return navigate("/login");
   };
 };
 

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 
 
 
 function BuildWealthBox(props) {
 
     const [isMousedOver, setIsMousedOver] = useState(false);
-    const [ setSendRequest] = useState("");
-    const navigate = useNavigate();
+    
 
     function handleMouseOver() {
         setIsMousedOver(true);

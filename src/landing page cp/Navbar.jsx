@@ -3,30 +3,12 @@ import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
 import { FiUser, FiChevronDown, FiChevronRight } from "react-icons/fi";
 import logo from "../assets/logo.png";
 import ResourcesMenuPages2 from "./resources-sub-menu";
-
-const Menu = () => (
-  <>
-    <p>
-      <a href="#home">Home</a>
-    </p>
-    <p>
-      <a href="#wgpt3">What is GPT3?</a>
-    </p>
-    <p>
-      <a href="#possibility">Open AI</a>
-    </p>
-    <p>
-      <a href="#features">Case Studies</a>
-    </p>
-    <p>
-      <a href="#blog">Library</a>
-    </p>
-  </>
-);
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [resourcesIsClicked, setResourcesClick] = useState(false);
+  const navigate = useNavigate();
 
   function handleResourcesClick() {
     if (resourcesIsClicked === false) {
@@ -40,29 +22,31 @@ const Navbar = () => {
     <div className="gpt3__navbar">
       <div className="gpt3__navbar-links">
         <div>
-          <img src={logo} alt="hoobank" className="w-[134px] h-[50px]" />
+          <img src={logo} alt="Quivas" className="w-[134px] h-[50px]" />
         </div>
         <div className="gpt3__navbar-links_container">
           <p>
-            <a href="#home">Home</a>
+            <Link to="/">Home</Link>
           </p>
           <p>
-            <a href="#wgpt3">Dashboard</a>
+            <Link>Dashboard</Link>
           </p>
           <p>
-            <a href="#possibility">Investment</a>
+            <Link>Investment</Link>
           </p>
           <p>
-            <a href="#features">Resources </a>
+            <Link>Resources</Link>
           </p>
           <p>
-            <a href="#blog">About us</a>
+            <Link>About us</Link>
           </p>
         </div>
       </div>
       <div className="gpt3__navbar-sign">
-        <p>Sign in</p>
-        <button type="button">Sign up</button>
+        <p onClick={() => navigate("/login")}>Sign in</p>
+        <button onClick={() => navigate("/register")} type="button">
+          Sign up
+        </button>
       </div>
       <div className="gpt3__navbar-menu">
         <FiUser style={{ marginRight: "20px" }} color="#fff" size={30} />
@@ -83,17 +67,17 @@ const Navbar = () => {
           <div className="gpt3__navbar-menu_container scale-up-center">
             <div className="gpt3__navbar-menu_container-links">
               <p>
-                <a href="#home">Home</a>
+                <Link to="/">Home</Link>
               </p>
               <p>
-                <a href="#wgpt3">Dashboard</a>
+                <Link>Dashboard</Link>
               </p>
               <p>
-                <a href="#possibility">Investment</a>
+                <Link>Investment</Link>
               </p>
               <p className="new_styles">
                 <p onClick={handleResourcesClick}>
-                  <a href="#features">Resources </a>
+                  <Link>Resources</Link>
                   {resourcesIsClicked ? <ResourcesMenuPages2 /> : ""}
                 </p>
                 <p onClick={handleResourcesClick}>
@@ -101,19 +85,22 @@ const Navbar = () => {
                 </p>
               </p>
               <p>
-                <a href="#">Our Team</a>
+                <Link>Our Team</Link>
               </p>
               <p>
-                <a href="#blog">About us</a>
+                <Link>About us</Link>
               </p>
             </div>
             <div className="gpt3__navbar-menu_container-links-sign">
-              <p>Sign in</p>
-              <button type="button">Sign up</button>
+              <p onClick={() => navigate("/login")}>Sign in</p>
+              <button onClick={() => navigate("/register")} type="button">
+                Sign up
+              </button>
             </div>
           </div>
         )}
       </div>
+      <Outlet />
     </div>
   );
 };

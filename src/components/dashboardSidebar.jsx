@@ -31,65 +31,69 @@ import {
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "../components/flexBetween.jsx";
-import profileImage from "../pictures/user-account.png";
-import { CssBaseline } from "@mui/material";
+import { logo, userProfile } from '../assets';
+
 
 const navItems = [
   {
-    text: "Home",
+    text: "Dashboard",
     icon: <HomeOutlined />,
   },
   {
-    text: "Client Facing",
+    text: "",
     icon: null,
   },
   {
-    text: "Contracts",
+    text: "Contract",
     icon: <ShoppingCartOutlined />,
   },
   {
-    text: "Markets",
+    text: "Market",
     icon: <PublicOutlined />,
     
   },
   {
-    text: "Transactions",
+    text: "Activity",
     icon: <ReceiptLongOutlined />,
   },
   {
-    text: "Deposits",
+    text: "Deposit",
     icon: <Groups2Outlined />,
   },
   {
-    text: "Sales",
+    text: "",
     icon: null,
   },
   {
-    text: "Overview",
+    text: "Withdraw",
     icon: <PointOfSaleOutlined />,
   },
   {
-    text: "Daily",
+    text: "Loan Request",
     icon: <TodayOutlined />,
   },
   {
-    text: "Monthly",
+    text: "Calender",
     icon: <CalendarMonthOutlined />,
   },
   {
-    text: "Breakdown",
+    text: "FAQs",
     icon: <PieChartOutlined />,
   },
   {
-    text: "Management",
+    text: "",
     icon: null,
   },
   {
-    text: "Admin",
+    text: "KYC",
     icon: <AdminPanelSettingsOutlined />,
   },
   {
-    text: "Performance",
+    text: "Geography",
+    icon: <AdminPanelSettingsOutlined />,
+  },
+  {
+    text: "Info",
     icon: <TrendingUpOutlined />,
   },
 ];
@@ -105,13 +109,29 @@ const DashboardSidebar = ({
   const [active, setActive] = useState("");
   const navigate = useNavigate();
   const theme = useTheme();
+  const [ userFirstName, setUserFirstName ] = useState("");
+
+  const [Loading, setIsLoading ] = useState(true);
+
+
 
   useEffect(() => {
     setActive(pathname.substring(1));
-  }, [pathname]);
+
+    if (user === null || user === undefined){
+      setIsLoading(true);
+    } else if (Object.keys(user).length === 0) {
+      setIsLoading(true);
+    }  else {
+      const name = user.firstName;
+      setIsLoading(false);
+      const newName = name[0].toUpperCase() + name.slice(1);
+      setUserFirstName(newName);
+    }
+  }, [pathname, user]);
   return (
     <>
-      <CssBaseline />
+  
       <Box component="nav">
         {isSideBarOpen && (
           <Drawer
@@ -122,8 +142,8 @@ const DashboardSidebar = ({
             sx={{
               width: drawerWidth,
               "& .MuiDrawer-paper": {
-                color: theme.palette.secondary[200],
-                backgroundColor: theme.palette.background.alt,
+                color: theme.palette.secondary[100],
+                backgroundColor: theme.palette.primary[700],
                 boxSizing: "border-box",
                 borderWidth: isNotMobible ? 0 : "2px",
                 width: drawerWidth,
@@ -131,12 +151,10 @@ const DashboardSidebar = ({
             }}
           >
             <Box width="100%">
-              <Box m="1.5rem 2rem 2rem 3rem">
+              <Box m="1.5rem 2rem 2rem 1rem">
                 <FlexBetween color={theme.palette.secondary.main}>
                   <Box display="flex" alignItems="center" gap="0.5rem">
-                    <Typography variant="h4" fontWeight="bold">
-                      EbubeFx
-                    </Typography>
+                  <img src={logo} alt="Quivas" className="w-[124px] h-[50px]" />
                   </Box>
                   
                     <IconButton
@@ -146,6 +164,30 @@ const DashboardSidebar = ({
                     </IconButton>
                  
                 </FlexBetween>
+                <Box mt="30px" mb="25px">
+                <Box display="flex" justifyContent="center" alignItems="center">
+                <img
+                  alt="profile-user"
+                  width="90px"
+                  height="90px"
+                  src={userProfile}
+                  style={{ cursor: "pointer", borderRadius: "50%" }}
+                />
+              </Box>
+              <Box textAlign="center">
+                <Typography
+                  variant="h2"
+                  color={theme.palette.grey[100]}
+                  fontWeight="bold"
+                  sx={{ m: "10px 0 0 0" }}
+                >
+                  {Loading ? ( <div className="spinner-div"><p className="spinner-p"></p></div>) : userFirstName}
+                </Typography>
+                <Typography variant="h5" color={theme.palette.secondary[500]}>
+                   
+                </Typography>
+              </Box>
+                </Box>
               </Box>
               <List>
                 {navItems.map(({ text, icon }) => {
@@ -208,7 +250,7 @@ const DashboardSidebar = ({
                 <Box
                   component="img"
                   alt="profile"
-                  src={profileImage}
+                  src={userProfile}
                   height="40px"
                   width="40px"
                   borderRadius="50%"

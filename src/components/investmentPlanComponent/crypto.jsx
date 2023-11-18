@@ -7,10 +7,8 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import BasicPlan from "./basicPlan";
-import StandardPlan from "./standardPlan";
-import SpecialPlan from "./specialPlan";
 
-const Crypto = ({ userId, userData  }) => {
+const Crypto = (userId, walletBalance) => {
   const theme = useTheme();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
   const [isBasicPlanClicked, setBasicPlanClick] = useState(false);
@@ -23,11 +21,12 @@ const Crypto = ({ userId, userData  }) => {
   const [standardPlanPercentage, setStandardPlanPercentage] = useState("");
   const [basicPlanPercentage, setBasicPlanPercentage] = useState("");
   const [minnimumAmount, setMinimumAmount] = useState("");
-  const [basicPlanPercentageValue, setBasicPlanPercentageValue] = useState(Number);
-  const [standardPlanPercentageValue, setStandardPlanPercentageValue] = useState(Number);
-  const [specialPlanPercentageValue, setSpecialPlanPercentageValue] = useState(Number);
-  
-
+  const [basicPlanPercentageValue, setBasicPlanPercentageValue] =
+    useState(Number);
+  const [standardPlanPercentageValue, setStandardPlanPercentageValue] =
+    useState(Number);
+  const [specialPlanPercentageValue, setSpecialPlanPercentageValue] =
+    useState(Number);
 
   const cryptoPlan = "Cryptocurrency investment";
   const basicPlanMinimumAmount = 200;
@@ -49,7 +48,6 @@ const Crypto = ({ userId, userData  }) => {
     setSpecialPlanPercentageValue(null);
     setStandardPlanPercentageValue(null);
   }
-  
 
   function handleSpecialPlan() {
     setIsStandardPlanClick(false);
@@ -84,18 +82,38 @@ const Crypto = ({ userId, userData  }) => {
   }
   return (
     <>
-      
-      <div style={{ padding: "40px 0 20px 10px", fontSize: "1rem", lineHeight: "1.8", fontFamily: "Montserrat, sans-serif", opacity: "0.7", letterSpacing: "0.02rem"}} >Cryptocurrency is a digital payment system that doesn't rely on banks to verify transactions. A peer-to-peer system that can enable anyone anywhere to send and receive payments. Instead of being physical money carried around and exchanged in the real world. Here in Quivas not only do we accept cryptocurrency as a means of payment we are also in the market. We trade varieties of crypto. Bitcoin, Ethereum and many more. We have our eyes on various ICO listed tokens with daily returns for our investors. Also behind many of the most popular currencies, is an algorithm called prove of work. Under prove of work miners around the world compete against each other to find the encrypted solution on the blockchain, we are also in the minning pool, computing and validating transactions, providing solutions to various blockchain to earn rewards of cryptocurrency. We also provide staking benefits for your capital. Staking offers crypto holders a way of putting their digital assets to work and earn passive income without needing to sell them. We as major crypto holders have various staking options with exchanges. Aim of providing our investors a risk free staking rewards. We optimize the crypto market providing you the best returns for your capital.</div>
-      <Box >
+      <div style={{ padding: "40px 0 20px 10px", opacity: "0.6" }}>
+        <Typography variant="h5" sx={{ wordSpacing: "1px" }} lineHeight="1.7">
+          Cryptocurrency a digital payment system that do not rely on banks to
+          verify transactions. A peer-to-peer system that can enable anyone
+          anywhere to send and receive payments. Quivas do not only accept
+          cryptocurrency as a means of payment but more importantly we trade
+          varieties of crypto. Bitcoin, Ethereum and many more. We have our eyes
+          on various ICO listed tokens with daily returns for our investors.
+          Behind many of the most popular currencies, is an algorithm called
+          prove of work. Under prove of work miners around the world compete
+          against each other to find the encrypted solution on the blockchain,
+          we are also in the minning pool, computing and validating
+          transactions, providing solutions to various blockchain to earn
+          rewards of cryptocurrency. We provide staking benefits for your
+          capital. We as major crypto holders have various staking options with
+          exchanges with the aim of providing our investors a risk free staking
+          rewards. We optimize the crypto market providing you the best returns
+          for your capital.
+        </Typography>
+      </div>
+      <Box>
         <Box>
-          <Typography fontFamily="Montserrat, sans-serif" sx={{ p: "30px 0 0 10px", opacity: "0.7", fontSize: "1rem" }}>
+          <Typography
+            sx={{ p: "30px 0 0 10px", opacity: "0.6", fontSize: "1rem" }}
+          >
             Select preferred Cryptocurrency investment plan
           </Typography>
 
           <Box
             mt="20px"
             display="grid"
-            gridTemplateColumns="repeat(2, minmax(0, 1fr))"
+            gridTemplateColumns="repeat(3, minmax(0, 1fr))"
             justifyContent="space-between"
             rowGap=""
             columnGap="1.33%"
@@ -107,9 +125,14 @@ const Crypto = ({ userId, userData  }) => {
               <Button
                 onClick={handleBasicPlan}
                 fullWidth
-                sx={{p: "10px 0", m: "10px 0"}}
+                sx={{ p: "10px 0", m: "10px 0" }}
               >
-                <Typography fontFamily="Noto Serif, serif" sx={{ fontWeight: "600", opacity: "0.7", color: theme.palette.secondary[100]}}>
+                <Typography
+                  sx={{
+                    opacity: "0.5",
+                    color: theme.palette.secondary[100],
+                  }}
+                >
                   Basic Plan
                 </Typography>
               </Button>
@@ -119,9 +142,16 @@ const Crypto = ({ userId, userData  }) => {
               <Button
                 onClick={handleStandardPlan}
                 fullWidth
-                sx={{p: "10px 0", m: "10px 0"}}
+                sx={{ p: "10px 0", m: "10px 0" }}
               >
-                <Typography fontFamily="Noto Serif, serif" sx={{ fontWeight: "600", opacity: "0.7", color: theme.palette.secondary[100]}}>Standard Plan</Typography>
+                <Typography
+                  sx={{
+                    opacity: "0.5",
+                    color: theme.palette.secondary[100],
+                  }}
+                >
+                  Standard Plan
+                </Typography>
               </Button>
             </Box>
 
@@ -129,9 +159,16 @@ const Crypto = ({ userId, userData  }) => {
               <Button
                 onClick={handleSpecialPlan}
                 fullWidth
-                sx={{p: "10px 0", m: "10px 0"}}
+                sx={{ p: "10px 0", m: "10px 0" }}
               >
-                <Typography fontFamily="Noto Serif, serif" sx={{ fontWeight: "600", opacity: "0.7", color: theme.palette.secondary[100]}}>Special Plan</Typography>
+                <Typography
+                  sx={{
+                    opacity: "0.5",
+                    color: theme.palette.secondary[100],
+                  }}
+                >
+                  Special Plan
+                </Typography>
               </Button>
             </Box>
           </Box>
@@ -142,44 +179,53 @@ const Crypto = ({ userId, userData  }) => {
         {isBasicPlanClicked ? (
           <BasicPlan
             investmentPlanText="Basic plan offers you +10% of your starting capital per month. with minumum starting capital at 200 USD."
-           investmentType={cryptoPlan}
+            investmentType={cryptoPlan}
             investmentPlan={basicPlanContent}
             percentageProfitText={basicPlanPercentage}
             minimumAmountText={minnimumAmount}
             percentageProfitValue={basicPlanPercentageValue}
             minmumAmountValue={basicPlanMinimumAmount}
+            walletBalance={walletBalance}
             userId={userId}
-            userData={userData}
+            rating="3"
           />
         ) : (
           ""
         )}
-        {/* {isStandardPlanClicked ? (
-          <StandardPlan
-            standardPlanText="Our standard plan offers you with +15% of your starting capital per month. with minumum starting capital at 1000 USD."
-            standardPlanInputText={cryptoPlan}
-            standardPlanInputText2={standardPlanContent}
-            standardPlanInputText3={standardPlanPercentage}
-            standardPlanInputText4={minnimumAmount}
-            percentageValue={standardPlanPercentageValue}
+
+        {isStandardPlanClicked ? (
+          <BasicPlan
+            investmentPlanText="Our standard plan offers you with +15% of your starting capital per month. with minumum starting capital at 1000 USD."
+            investmentType={cryptoPlan}
+            investmentPlan={standardPlanContent}
+            percentageProfitText={standardPlanPercentage}
+            minimumAmountText={minnimumAmount}
+            percentageProfitValue={standardPlanPercentageValue}
             minmumAmountValue={standardPlanMinimumAmount}
+            rating="4"
+            walletBalance={walletBalance}
+            userId={userId}
           />
         ) : (
           ""
         )}
+
         {isSpecialPlanClicked ? (
-          <SpecialPlan
-            specialPlanText="Our special plan offers you with +20% of your starting capital per month. with minumum starting capital at 5000 USD."
-            specialPlanInputText={cryptoPlan}
-            specialPlanInputText2={specialPlanContent}
-            specialPlanInputText3={specialPlanPercentage}
-            specialPlanInputText4={minnimumAmount}
-            percentageValue={specialPlanPercentageValue}
+          <BasicPlan
+            investmentPlanText="Our special plan offers you with +20% of your starting capital per month. with minumum starting capital at 5000 USD."
+            investmentType={cryptoPlan}
+            investmentPlan={specialPlanContent}
+            percentageProfitText={specialPlanPercentage}
+            minimumAmountText={minnimumAmount}
+            percentageProfitValue={specialPlanPercentageValue}
             minmumAmountValue={specialPlanMinimumAmount}
+            rating="5"
+            walletBalance={walletBalance}
+            userId={userId}
           />
         ) : (
           ""
-        )} */}
+        )}
       </Box>
     </>
   );

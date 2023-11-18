@@ -23,11 +23,11 @@ const BuyAPlan = ({
   return (
     <>
    <Box
-            height="700px"
+            height="900px"
             width="100%"
             sx={{ backgroundColor: "RGB(0, 0, 0, 0.7)", visibility: isDepositButton ? "visible" : "hidden" }}
             position="absolute"
-            top="45%"
+            top="20%"
             zIndex="1"
             
           >
@@ -40,11 +40,12 @@ const BuyAPlan = ({
             >
               <Box>
                 <Box
-                  sx={{ backgroundColor: theme.palette.secondary[200] }}
+                  sx={{ backgroundColor: theme.palette.secondary[100] }}
                   height=""
                   padding="0 0 25px 0"
+                 
                 >
-                    <Box paddingTop="10px">
+                    <Box paddingTop="10px" >
                   <Box
                     component="img"
                     alt="remove"
@@ -53,12 +54,13 @@ const BuyAPlan = ({
                     width="23px"
                     borderRadius="50%"
                     marginLeft="87%"
-                    sx={{ objectFit: "cover" }}
+                    sx={{ objectFit: "cover", cursor: "pointer",  }}
                     onClick={handleDepositClick}
+                    
                   />
                   </Box>
 
-                <Box>
+                <Box display="flex" justifyContent="center">
                   <Box
                     component="img"
                     alt="Bitcoin"
@@ -67,7 +69,7 @@ const BuyAPlan = ({
                     width="50px"
                     borderRadius="50%"
                   
-                    sx={{ objectFit: "cover" }}
+                    sx={{ objectFit: "cover" }} 
                   />
                   </Box>
                 </Box>

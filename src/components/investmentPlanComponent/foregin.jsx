@@ -1,10 +1,14 @@
-import { Box, Button, Typography, useTheme, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import React, { useState } from "react";
 import BasicPlan from "./basicPlan";
-import StandardPlan from "./standardPlan";
-import SpecialPlan from "./specialPlan";
 
-const Foregin = () => {
+const Foregin = (userId, walletBalance) => {
   const theme = useTheme();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
   const [isBasicPlanClicked, setBasicPlanClick] = useState(false);
@@ -17,9 +21,12 @@ const Foregin = () => {
   const [standardPlanPercentage, setStandardPlanPercentage] = useState("");
   const [basicPlanPercentage, setBasicPlanPercentage] = useState("");
   const [minnimumAmount, setMinimumAmount] = useState("");
-  const [basicPlanPercentageValue, setBasicPlanPercentageValue] = useState(Number);
-  const [standardPlanPercentageValue, setStandardPlanPercentageValue] = useState(Number);
-  const [specialPlanPercentageValue, setSpecialPlanPercentageValue] = useState(Number);
+  const [basicPlanPercentageValue, setBasicPlanPercentageValue] =
+    useState(Number);
+  const [standardPlanPercentageValue, setStandardPlanPercentageValue] =
+    useState(Number);
+  const [specialPlanPercentageValue, setSpecialPlanPercentageValue] =
+    useState(Number);
 
   const foreignExchangePlan = "Foreign Exchange Investment";
   const basicPlanMinimumAmount = 300;
@@ -28,7 +35,7 @@ const Foregin = () => {
 
   function handleBasicPlan() {
     setIsStandardPlanClick(false);
-    setSpecialPlanClicked(false); 
+    setSpecialPlanClicked(false);
 
     setSpecialPlanContent("");
     setStandardPlanContent("");
@@ -38,9 +45,9 @@ const Foregin = () => {
     setBasicPlanContent("Basic Plan");
     setBasicPlanPercentage("11% increase per month");
     setMinimumAmount("Minimum starting capital $300");
-    setBasicPlanPercentageValue(11)
-    setSpecialPlanPercentageValue(null)
-    setStandardPlanPercentageValue(null)
+    setBasicPlanPercentageValue(11);
+    setSpecialPlanPercentageValue(null);
+    setStandardPlanPercentageValue(null);
   }
   function handleSpecialPlan() {
     setIsStandardPlanClick(false);
@@ -73,14 +80,32 @@ const Foregin = () => {
     setSpecialPlanPercentageValue(null);
     setStandardPlanPercentageValue(17);
   }
-  
+
   return (
     <>
-      
-      <div style={{ padding: "20px", fontSize: "15px", lineHeight: "1.7"}}>The foregin exchange market where currencies are traded is the largest financial market in the world. Currencies are traded worldwide in the major financial centers of Frankfurt, Hong Kong, London, New York, Paris, Singapore, Sydney, Tokyo, and Zurich. the FX market is the only truly continuous and nonstop trading market in the world. The market is primarily traded via spot, forword and futures markets. But here in Quivas we focus only on the spot market where curriencies are bougth and sold based on their trading prices. with our Underlining strategies to go long or short on any currency pair we capitalize on the the high liquidity of the market providing consistent profit. We have investment plans in place for you to invest in foregin exchange market with potential returns.  </div>
+      <div style={{ padding: "40px 0 50px 10px", opacity: "0.6" }}>
+        {" "}
+        <Typography variant="h5" sx={{ wordSpacing: "1px" }} lineHeight="1.7">
+          The foregin exchange market where currencies are traded is the largest
+          financial market in the world. Currencies are traded worldwide in the
+          major financial centers of Frankfurt, Hong Kong, London, New York,
+          Paris, Singapore, Sydney, Tokyo, and Zurich. the FX market is the only
+          truly continuous and nonstop trading market in the world. The market
+          is primarily traded via spot, forword and futures markets. But here in
+          Quivas we focus only on the spot market where curriencies are bougth
+          and sold based on their trading prices. with our Underlining
+          strategies to go long or short on any currency pair we capitalize on
+          the the high liquidity of the market providing consistent profit. We
+          have investment plans in place for you to invest in foregin exchange
+          market with potential returns.
+        </Typography>{" "}
+      </div>
+
       <Box>
         <Box>
-          <Typography style={{ padding: "20px" }}>
+          <Typography
+            style={{ p: "50px 0 0 10px", opacity: "0.6", fontSize: "1rem" }}
+          >
             Select a preferred Foregin Exchange Investment plan{" "}
           </Typography>
 
@@ -93,34 +118,39 @@ const Foregin = () => {
             columnGap="1.33%"
             sx={{
               "& > div": { gridColumn: isNonMobile ? undefined : "span 3" },
+              opacity: "0.7",
             }}
           >
-            <Box sx={{ marginLeft: "35%"}}>
+            <Box sx={{ marginLeft: "35%" }}>
               <Button
                 onClick={handleBasicPlan}
                 sx={{ width: "50%", padding: "1em" }}
               >
-                <Typography sx={{ color: theme.palette.primary[400] }}>
+                <Typography sx={{ color: theme.palette.secondary[100] }}>
                   Basic Plan
                 </Typography>
               </Button>
             </Box>
 
-            <Box sx={{ marginLeft: "35%"}}>
+            <Box sx={{ marginLeft: "35%" }}>
               <Button
                 onClick={handleStandardPlan}
                 sx={{ width: "50%", padding: "1em" }}
               >
-                <Typography>Standard Plan</Typography>
+                <Typography sx={{ color: theme.palette.secondary[100] }}>
+                  Standard Plan
+                </Typography>
               </Button>
             </Box>
 
-            <Box sx={{ marginLeft: "35%"}}>
+            <Box sx={{ marginLeft: "35%" }}>
               <Button
                 onClick={handleSpecialPlan}
                 sx={{ width: "50%", padding: "1em" }}
               >
-                <Typography>Special Plan</Typography>
+                <Typography sx={{ color: theme.palette.secondary[100] }}>
+                  Special Plan
+                </Typography>
               </Button>
             </Box>
           </Box>
@@ -130,39 +160,48 @@ const Foregin = () => {
       <Box>
         {isBasicPlanClicked ? (
           <BasicPlan
-            basicPlanText="Foregin exchange basic plan offers you +11% of your starting capital per month. with minumum starting capital at 300 USD"
-            basicPlanInputText={foreignExchangePlan}
-            basicPlanInputText2={basicPlanContent}
-            basicPlanInputText3={basicPlanPercentage}
-            basicPlanInputText4={minnimumAmount}
-            percentageValue={basicPlanPercentageValue}
+            investmentPlanText="Foregin exchange basic plan offers you +11% of your starting capital per month. with minumum starting capital at 300 USD"
+            investmentType={foreignExchangePlan}
+            investmentPlan={basicPlanContent}
+            percentageProfitText={basicPlanPercentage}
+            minimumAmountText={minnimumAmount}
+            percentageProfitValue={basicPlanPercentageValue}
             minmumAmountValue={basicPlanMinimumAmount}
+            walletBalance={walletBalance}
+            rating="3"
+            userId={userId}
           />
         ) : (
           ""
         )}
         {isStandardPlanClicked ? (
-          <StandardPlan
-            standardPlanText="Foregin exchange standard plan offers you +17% of your starting capital per month. with minumum starting capital at 2000 USD"
-            standardPlanInputText={foreignExchangePlan}
-            standardPlanInputText2={standardPlanContent}
-            standardPlanInputText3={standardPlanPercentage}
-            standardPlanInputText4={minnimumAmount}
-            percentageValue={standardPlanPercentageValue}
+          <BasicPlan
+            investmentPlanText="Foregin exchange standard plan offers you +17% of your starting capital per month. with minumum starting capital at 2000 USD"
+            investmentType={foreignExchangePlan}
+            investmentPlan={standardPlanContent}
+            percentageProfitText={standardPlanPercentage}
+            minimumAmountText={minnimumAmount}
+            percentageProfitValue={standardPlanPercentageValue}
             minmumAmountValue={standardPlanMinimumAmount}
+            walletBalance={walletBalance}
+            rating="4"
+            userId={userId}
           />
         ) : (
           ""
         )}
         {isSpecialPlanClicked ? (
-          <SpecialPlan
-            specialPlanText="Foregin exchange special plan offers you +22% of your starting capital per month. with minumum starting capital at 5000 USD"
-            specialPlanInputText={foreignExchangePlan}
-            specialPlanInputText2={specialPlanContent}
-            specialPlanInputText3={specialPlanPercentage}
-            specialPlanInputText4={minnimumAmount}
-            percentageValue={specialPlanPercentageValue}
+          <BasicPlan
+            investmentPlanText="Foregin exchange special plan offers you +22% of your starting capital per month. with minumum starting capital at 5000 USD"
+            investmentType={foreignExchangePlan}
+            investmentPlan={specialPlanContent}
+            percentageProfitText={specialPlanPercentage}
+            minimumAmountText={minnimumAmount}
+            percentageProfitValue={specialPlanPercentageValue}
             minmumAmountValue={specialPlanMinimumAmount}
+            walletBalance={walletBalance}
+            rating="5"
+            userId={userId}
           />
         ) : (
           ""

@@ -8,16 +8,15 @@ const DashboardHeading = ({ title, subTitle }) => {
     <Box>
         <Typography 
         variant="h2" 
-        color={theme.palette.secondary[100]} 
+        color="#fff" 
         fontWeight="bold" 
-        fontFamily="Alegreya, serif"
         sx={{ mb: "5px"}}>
             {title}
         </Typography>
         <Typography 
-        variant="h6"
+        variant="h5"
         fontFamily = {theme.typography.fontFamily}
-         color={theme.palette.secondary[300]}>
+         color={theme.palette.secondary[100]} sx={{ opacity: "0.5"}}>
             {subTitle}
         </Typography>
     </Box>
@@ -25,3 +24,5 @@ const DashboardHeading = ({ title, subTitle }) => {
 }
 
 export default DashboardHeading;
+
+

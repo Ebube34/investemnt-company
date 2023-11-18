@@ -1,17 +1,18 @@
 import React from "react";
-import Login from "./login";
 import Layout from "../scenes/layout";
-import Cookies from "universal-cookie";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
-const cookies = new Cookies();
+
+
 
 const Dashboard = () => {
-  const token = cookies.get("TOKEN");
-
+  const navigate = useNavigate();
+  const token = Cookies.get("Token");
   if (token) {
     return <Layout />;
   } else {
-    return <Login />;
+    navigate("/login");
   }
 };
 

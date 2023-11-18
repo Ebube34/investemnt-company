@@ -34,6 +34,7 @@ import buildWealth01 from "./Build-wealth-1.webp";
 import buildWealth02 from "./build-wealth-2.jpg";
 import buildWealth03 from "./build-wealth-3.jpg";
 import buildWealth04 from "./build-wealth-4.png";
+import userProfile from './user-profile-img.png';
 
 
 export {
@@ -73,4 +74,5 @@ export {
   buildWealth02,
   buildWealth03,
   buildWealth04,
+  userProfile,
 };

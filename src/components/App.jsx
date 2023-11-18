@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+import React, { useMemo} from "react";
+
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "../Pages/home";
 import Contact from "../Pages/contact";
@@ -51,6 +52,11 @@ import AccountDeposits from "../scenes/accountDeposits";
 import Markets from "../scenes/markets";
 import ActiveContracts from "../scenes/activeContracts";
 import GoogleTranslate from "./GoogleTranslate.jsx";
+import Withdrawals from "../scenes/withdrawals/index.js";
+import Activity from "../scenes/activity/index.js";
+import Calendar from "../scenes/calender/index.js";
+import FAQ from "../scenes/faq/index.js";
+import Geography from "../scenes/geography/index.js";
 
 
 
@@ -58,8 +64,10 @@ import GoogleTranslate from "./GoogleTranslate.jsx";
 function App() {
   const mode = useSelector((state) => state.global.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+
  return (
   <div>
+
     <BrowserRouter>
     <ThemeProvider theme={theme}>
      <GoogleTranslate />
@@ -69,13 +77,13 @@ function App() {
         <Route path="about" element={<About />}/>
         <Route path="reviews" element={<Reviews />} />
         <Route path="investment" element={<Investment />} />
-        <Route path="resourses" element={<Resources />} />
-        <Route path="FAQs" element={<FAQs />}/>
+        <Route path="resourses" element={<Resources />} /> 
+        <Route path="FAQsmain" element={<FAQs />}/>
         <Route path="terms-and-conditions" element={<TermsAndCondtion />} />
         <Route path="login" element={<Login />} />
         <Route path="our-team" element={<OurTeam />} />
         <Route path="register" element={<Register />} />
-        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="user-dashboard" element={<Dashboard />} />
         <Route path="roadmap" element={<Roadmap />} />
         <Route path="customers" element={<Customers />} />
         <Route path="community" element={<Community />} />
@@ -103,18 +111,23 @@ function App() {
         <Route path="policy" element={<Policy />} />
         <Route path="overview" element={<Overview />} />
         <Route path="/confirm/:confirmationCode" element={<Wellcome />}/>
-        <Route path="/forgot-password" element={<ForgotPassword /> } />
+        <Route path="/reset-password" element={<ForgotPassword /> } />
         <Route element={<Layout />}> 
         
               <Route
-                path="dashboard"
-                element={<Navigate to="home" replace />}
+                path="user-dashboard"
+                element={<Navigate to="dashboard" replace />}
               />
-              <Route path="home" element={<DashboardMain />} />
-              <Route path="Contracts" element={<Contracts />} />
-              <Route path="Deposits" element={<AccountDeposits />} />
-              <Route path="markets" element={<Markets />} />
+              <Route path="Dashboard" element={<DashboardMain />} />
+              <Route path="Contract" element={<Contracts />} />
+              <Route path="Deposit" element={<AccountDeposits />} />
+              <Route path="market" element={<Markets />} />
               <Route path="active-contracts" element={<ActiveContracts />} />
+              <Route path="withdraw" element={<Withdrawals />} />
+              <Route path="Activity" element={<Activity />} />
+              <Route path="calender" element={<Calendar />} />
+              <Route path="faqs" element={<FAQ />} />
+              <Route path="geography" element={<Geography />} />
             </Route>
 
 
@@ -122,6 +135,7 @@ function App() {
       </Routes>
       </ThemeProvider>
     </BrowserRouter>
+
   </div>
  )
 }

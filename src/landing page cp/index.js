@@ -8,6 +8,7 @@ import BuildWealth from "./build-wealth-section";
 import Testimonials from "./Testimonials";
 import CTA from "./CTA";
 import Footer from "./Footer";
+import Country from "./selectCountry";
 
 export {
     Navbar,
@@ -19,6 +20,7 @@ export {
     Testimonials,
     BuildWealth,
     CTA,
-    Footer
+    Footer,
+    Country,
 }
 

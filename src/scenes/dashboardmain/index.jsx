@@ -1,38 +1,29 @@
-import React, { useState, useEffect } from "react";
-import Cookies from "universal-cookie";
-import Login from "../../Pages/login";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import Dashboardmaincomponent from "../../components/dashboardmaincomponent";
+import Cookies from "js-cookie";
+import CryptoJS from "crypto-js";
 import { useGetUserQuery } from "../../state/api";
 
-const cookies = new Cookies();
 
 
-const DashboardMain = () => {
-  
-  const token = cookies.get("TOKEN");
-  const [userId, setUserId] = useState("");
-  
 
 
-  useEffect(() => {
-    const localStorageItems = JSON.parse(localStorage.getItem("userDetails"));
 
-    if (localStorageItems) {
-      setUserId(localStorageItems.userId);
-    } 
-  }, []);
-
+const DashboardMain =  () => {
+  const navigate = useNavigate();
+  const token = Cookies.get("Token");
+  const secretPass = "Xkhzg478tYUAEQivas65";
+  const decrptToken = CryptoJS.AES.decrypt(token, secretPass);
+  const userId =  JSON.parse(decrptToken.toString(CryptoJS.enc.Utf8));
   const { data } = useGetUserQuery(userId);
-  
- 
- 
 
   if (token) {
     return (
-     <Dashboardmaincomponent user={ data || {}} />
+     <Dashboardmaincomponent user={data || {}} />
     );
   } else {
-    return <Login />;
+    return navigate("/login");
   }
 };
 

@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
-import { useGetUserQuery } from "../../state/api";
+import React, { useState } from "react";
 import {
   Box,
   Card,
@@ -16,11 +14,12 @@ import {
 } from "@mui/material";
 import DashboardHeading from "../../components/dashboard-heading";
 import FlexBetween from "../../components/flexBetween";
-const cookies = new Cookies();
+import Cookies from "js-cookie";
+import { useGetUserQuery } from "../../state/api";
+import CryptoJS from "crypto-js";
 
-const setUserId = JSON.parse(localStorage.getItem("userDetails"));
 
-const ActiveContract = ({
+const ActiveContractMain = ({
   _id,
   investmentType,
   investmentPlan,
@@ -49,16 +48,14 @@ const ActiveContract = ({
         <Typography
           sx={{
             fontSize: 18,
-            fontFamily: "Montserrat, sans-serif",
-            mb: "0.2rem",
+            mb: "1rem",
           }}
-          color={theme.palette.secondary[700]}
+          color={theme.palette.secondary[800]}
           gutterBottom
         >
           {investmentType}
         </Typography>
         <Typography
-          sx={{ fontFamily: "Montserrat, sans-serif" }}
           variant="h4"
           component="div"
         >
@@ -67,18 +64,18 @@ const ActiveContract = ({
         <Typography
           className="text-success"
           sx={{ fontSize: 18, mb: "1.5rem", fontFamily: "Mohave, sans-serif" }}
-          color={theme.palette.secondary[400]}
+          color={theme.palette.secondary[600]}
         >
           ${Number(capital).toFixed(2)}
         </Typography>
         <Rating value={rating} />
-        <Typography sx={{ fontFamily: "Open Sans, sans-serif", fontSize: 16 }}>
+        <Typography sx={{  fontSize: 16 }}>
           +{percentageProfit}%
         </Typography>
         <Typography
-          className="text-success"
+          className="text-green-600"
           sx={{ fontSize: 18, mb: "1.5rem", fontFamily: "Mohave, sans-serif" }}
-          color={theme.palette.secondary[400]}
+          color={theme.palette.secondary[600]}
         >
           ${Number(capitalPlusProfit).toFixed(2)}
         </Typography>
@@ -105,34 +102,31 @@ const ActiveContract = ({
             <Typography>Contract Id </Typography>
             <Typography>{_id}</Typography>
           </FlexBetween>
-
           <FlexBetween>
             <Typography padding="5px 0 0 0">
-              Profit at the end of the month
+              Montly profit
             </Typography>
             <Typography padding="5px 0 0 0">
-              <span style={{ fontFamily: "Mohave, sans-serif" }}>
+              <span >
                 ${Number(profitPerMonth).toFixed(2)}
               </span>
             </Typography>
           </FlexBetween>
           <FlexBetween>
-            <Typography padding="5px 0 0 0">Date of purchase</Typography>
+            <Typography padding="5px 0 0 0">purchased</Typography>
             <Typography padding="5px 0 0 0">{dateOfPurchase}</Typography>
           </FlexBetween>
           <FlexBetween>
           <Typography padding="5px 0 0 0">
-            Next Payment Date
+            Next Payment
           </Typography>
           <Typography padding="5px 0 0 0">
           {dateOfPayment}
           </Typography>
           </FlexBetween>
-
           <Box>
             <Button
               sx={{
-                fontFamily: "Noto Serif, serif",
                 m: "50px 0 0 0",
                 color: theme.palette.primary[500],
                 fontWeight: "600",
@@ -150,30 +144,28 @@ const ActiveContract = ({
   );
 };
 
+
+
 const ActiveContracts = () => {
-  
-  const token = cookies.get("TOKEN");
+  const token = Cookies.get("Token")
   const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
 
-  const [ mainUserId, setMainUserId ] = useState(null);
- 
-  useEffect(() => {
-    setMainUserId(setUserId.userId)
-  }, [])
-
-  const { data, isLoading } = useGetUserQuery(mainUserId);
- 
+  const secretPass = "Xkhzg478tYUAEQivas65";
+  const decrptToken = CryptoJS.AES.decrypt(token, secretPass);
+   const userId =  JSON.parse(decrptToken.toString(CryptoJS.enc.Utf8));
+  const { data } = useGetUserQuery(userId);
 
   if (token) {
+    
     return (
       <>
-        <Box m="1.5rem 2.5rem">
+      <Box m="1.5rem 2.5rem">
           <DashboardHeading
-            title="Active Contracts"
-            subTitle="Your list of contracts"
+            title="Active Contract"
+            subTitle="Your contracts"
           />
-          {data || !isLoading ? (
+          { 
             <Box
               mt="20px"
               display="grid"
@@ -185,7 +177,7 @@ const ActiveContracts = () => {
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 2" },
               }}
             >
-              {data.activeContracts.map(
+              {data && data.activeContracts.map(
                 ({
                   _id,
                   investmentType,
@@ -198,7 +190,7 @@ const ActiveContracts = () => {
                   dateOfPayment,
                   rating,
                 }) => (
-                  <ActiveContract
+                  <ActiveContractMain
                     key={_id}
                     _id={_id}
                     investmentType={investmentType}
@@ -214,21 +206,12 @@ const ActiveContracts = () => {
                 )
               )}
             </Box>
-          ) : (
-            <>
-              <Box>
-                <Typography>
-                  Loading...Check your internet connection and refresh while you
-                  wait
-                </Typography>
-              </Box>
-            </>
-          )}
+        }
         </Box>
       </>
     );
   } else {
-    navigate("/login");
+   return navigate("/login");
   }
 };
 

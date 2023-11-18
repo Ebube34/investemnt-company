@@ -1,154 +1,227 @@
-import React, { useState } from 'react';
-import {
-    Button,
-    Box,
-    Typography,
-    useTheme,
-  } from "@mui/material";
+import React, { useState } from "react";
+import { Button, Box, Typography, useTheme, TextField } from "@mui/material";
+import { Formik } from "formik";
+import * as yup from "yup";
+import axios from "axios";
+import { Bounce, toast } from "react-toastify";
 
 const CryptoAddress = ({
-    cancelLogo,
-    cryptoLogo,
-    cryptoAddressText,
-    cryptoAddressImg,
-    isConfirmClicked,
-    priceOfCrypto,
-    minimumDepositAmount,
-    handleCryptoSentClick,
-    handleRemoveClick,
-    isCryptoSent,
-    isCryptoSentLast,
-    cryptoSentButtonText,
+  cancelLogo,
+  cryptoLogo,
+  cryptoAddressText,
+  cryptoAddressImg,
+  isConfirmClicked,
+  priceOfCrypto,
+  minimumDepositAmount,
+  handleRemoveClick,
+  cryptoSentButtonText,
+  userId
 }) => {
-    const theme = useTheme();
-    const [isCopied, setIsCopied] = useState(false);
-    
+  const theme = useTheme();
+  const [isCopied, setIsCopied] = useState(false);
+  const [process, setProcess] = useState(false);
 
-    async function copyTextToClipboard(text) {
-        if ("clipboard" in navigator) {
-          return await navigator.clipboard.writeText(text);
-        } else {
-          return document.execCommand("copy", true, text);
-        }
-      }
-    
-      const handleCopyClick = () => {
-        copyTextToClipboard(cryptoAddressText)
-          .then(() => {
-            setIsCopied(true);
-            setTimeout(() => {
-              setIsCopied(false);
-            }, 2000);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      };
+  async function copyTextToClipboard(text) {
+    if ("clipboard" in navigator) {
+      return await navigator.clipboard.writeText(text);
+    } else {
+      return document.execCommand("copy", true, text);
+    }
+  }
 
-     
+  const handleCopyClick = () => {
+    copyTextToClipboard(cryptoAddressText)
+      .then(() => {
+        setIsCopied(true);
+        setTimeout(() => {
+          setIsCopied(false);
+        }, 2000);
+      })
+      .catch((err) => {
+        
+      });
+  };
 
-    
+  const initialValues = {
+    amountDeposited: "",
+  };
+
+  const checkoutSchema = yup.object().shape({
+    amountDeposited: yup.number().required("required"),
+  });
   return (
     <>
+      <Box
+        height="200px"
+        width="100%"
+        position="absolute"
+        top="20%"
+        zIndex="3"
+        sx={{ visibility: isConfirmClicked ? "visible" : "hidden" }}
+      >
         <Box
-            height="200px"
-            width="100%"
-            position="absolute"
-            top="45%"
-            zIndex="3"
-            sx={{ visibility: isConfirmClicked ? "visible" : "hidden" }}
-          >
+          position="relative"
+          zIndex="4"
+          sx={{ backgroundColor: "white" }}
+          marginTop="100px"
+          border="2px solid white"
+        >
+          <Box>
             <Box
-              position="relative"
-              zIndex="4"
-              sx={{ backgroundColor: "white" }}
-              
-              marginTop="100px"
-              border="2px solid white"
+              sx={{ backgroundColor: theme.palette.secondary[100] }}
+              height=""
+              padding="0 0 25px 0"
             >
-              <Box>
+              <Box paddingTop="10px">
                 <Box
-                  sx={{ backgroundColor: theme.palette.secondary[100] }}
-                  height=""
-                  padding="0 0 25px 0"
-                >
-                  <Box paddingTop="10px">
-                    <Box
-                      component="img"
-                      alt="remove"
-                      src={cancelLogo}
-                      height="23px"
-                      width="23px"
-                      borderRadius="50%"
-                      marginLeft="87%"
-                      sx={{ objectFit: "cover" }}
-                      onClick={handleRemoveClick}
-                    />
-                  </Box>
-
-                  <Box>
-                    <Box
-                      component="img"
-                      alt="Bitcoin"
-                      src={cryptoLogo}
-                      height="50px"
-                      width="50px"
-                      borderRadius="50%"
-                      sx={{ objectFit: "cover" }}
-                    />
-                  </Box>
-                </Box>
+                  component="img"
+                  alt="remove"
+                  src={cancelLogo}
+                  height="23px"
+                  width="23px"
+                  borderRadius="50%"
+                  marginLeft="87%"
+                  sx={{ objectFit: "cover" }}
+                  onClick={handleRemoveClick}
+                />
               </Box>
 
-              <Box color="black">
-                <Typography padding="10px 0 5px 0">{priceOfCrypto }</Typography>
-                <Typography>copy the address or scan the QR code:</Typography>
-                <Box color="black">
-                  <input  type="text" value={cryptoAddressText} readOnly style={{ width: "60%", border: "0"}} />
-                  <Button onClick={handleCopyClick}>
-                    <span>{isCopied ? "Copied" : "Copy"}</span>
-                  </Button>
-                </Box>
-                <Box padding="10px 0 10px 0">
-                  <Box
-                    component="img"
-                    alt="Tether address"
-                    src={cryptoAddressImg}
-                    sx={{ objectFit: "cover" }}
-                    height="200px"
-                    width="200px"
-                  />
-                </Box>
+              <Box display="flex" justifyContent="center">
+                <Box
+                  component="img"
+                  alt="Bitcoin"
+                  src={cryptoLogo}
+                  height="50px"
+                  width="50px"
+                  borderRadius="50%"
+                  sx={{ objectFit: "cover" }}
+                />
               </Box>
-
-              <Box padding="15px" sx={{ backgroundColor: "RGB(33, 41, 92)" }}>
-                <Typography paddingBottom="15px">Minimum deposit amount is {minimumDepositAmount}</Typography>
-                <Typography>
-                  Please note that the exchange rate at the completion of the
-                  transaction may differ slightly from the above. 
-                </Typography>
-              </Box>
-
-              <Box  margin="40px 0 10px 0">
-                <Button onClick={handleCryptoSentClick} sx={{ color: "RGB(255, 255, 255, 0.8)", backgroundColor: "RGB(33, 41, 92)" }}>
-                  I have sent {cryptoSentButtonText} to the address above
-                </Button>
-              </Box>
-
-              <Box>
-                <Typography sx={{ visibility: isCryptoSent ? "visible" : "hidden" }} color="green">
-                  Please wait while we confirm your transaction...
-                </Typography>
-                <Typography sx={{ visibility: isCryptoSentLast ? "visible" : "hidden" }} color="red">
-                  Kindly contact our customer support for confrimation.
-                </Typography>
-              </Box>
-            
             </Box>
-       
           </Box>
-    </>
-  )
-}
 
-export default CryptoAddress
+          <Box color="black">
+            <Typography padding="10px 0 5px 0">{priceOfCrypto}</Typography>
+            <Typography>copy the address or scan the QR code:</Typography>
+            <Box color="black">
+              <input
+                type="text"
+                value={cryptoAddressText}
+                readOnly
+                style={{ width: "50%", border: "0" }}
+              />
+              <Button onClick={handleCopyClick}>
+                <span>{isCopied ? "Copied" : "Copy"}</span>
+              </Button>
+            </Box>
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              padding="10px 0 10px 0"
+            >
+              <Box
+                component="img"
+                alt="Tether address"
+                src={cryptoAddressImg}
+                sx={{ objectFit: "cover" }}
+                height="200px"
+                width="200px"
+              />
+            </Box>
+          </Box>
+
+          <Box padding="15px" sx={{ backgroundColor: "RGB(33, 41, 92)" }}>
+            <Typography paddingBottom="15px">
+              Minimum deposit amount is {minimumDepositAmount}
+            </Typography>
+            <Typography>
+              Please note that the exchange rate at the completion of the
+              transaction may differ slightly from the above.
+            </Typography>
+          </Box>
+
+          <Box margin="40px 0 10px 0">
+            <Formik
+              initialValues={initialValues}
+              validationSchema={checkoutSchema}
+              onSubmit={(values, {resetForm}) => {
+                setProcess(true)
+                resetForm({ values: "" }); 
+
+                if (values.amountDeposited < 50) {
+                  setProcess(false)
+                  toast.error("minimum deposit ammount is 50 USD", {transition: Bounce});
+                } else {
+                  const configuration = {
+                    method: "post",
+                url: "https://fx-backend-sever.onrender.com/deposits", 
+                data: {
+                  amount: values.amountDeposited,
+                  network: cryptoSentButtonText,
+                  address: cryptoAddressText,
+                  userId
+                },
+                  }
+                  
+                  axios(configuration).then(() => {
+                    toast.warning("Transaction Pending, contact customer support for confirmation", {transition: Bounce});
+                    setProcess(false);
+                  }).catch((err) => {
+                    toast.error(`${err.response.data.message}`, {transition: Bounce});
+                    setProcess(false)
+                  })
+                }
+              }}
+            >
+              {({
+                values,
+                touched,
+                errors,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+              }) => (
+                <form onSubmit={handleSubmit}>
+                  <TextField
+                    fullWidth
+                    variant="filled"
+                    sx={{
+                      backgroundColor: theme.palette.primary[400],
+                      mb: "2rem",
+                    }}
+                    label="Deposit ammount in USD"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={
+                      !!touched.amountDeposited && !!errors.amountDeposited
+                    }
+                    helperText={
+                      touched.amountDeposited && errors.amountDeposited
+                    }
+                    name="amountDeposited"
+                    type={"number"}
+                    value={values.amountDeposited}
+                  />
+                  <Button
+                    sx={{
+                      
+                      color: "RGB(255, 255, 255, 0.8)",
+                      backgroundColor: "RGB(33, 41, 92)",
+                    }}
+                    type="submit"
+                    onClick={handleSubmit}
+                  >
+                    { process ? "please wait..." : `I have sent ${cryptoSentButtonText} to the address above`}
+                  </Button>
+                </form>
+              )}
+            </Formik>
+          </Box>
+        </Box>
+      </Box>
+    </>
+  );
+};
+
+export default CryptoAddress;

@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap'); 
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -16,6 +17,9 @@
   --font-family: 'Manrope', sans-serif;
   --color-text: #81AFDD;
   --color-subtext: #FF8A71;
+}
+body {
+  background: #00040F;
 }
 
 * {
@@ -226,12 +230,13 @@
   }  
 }
 
-.goog-te-gadget-simple{
-  display: flex;
-}
+
 .goog-te-gadget-simple > span > a > img {
   display: none;
 }
+
+
+
 
 
 /* Navbar styles */
@@ -299,6 +304,7 @@
 
   display: none;
   position: relative;
+  z-index: 2;
 }
 
 .gpt3__navbar-menu svg {
@@ -776,4 +782,74 @@ font-family: "Poppins", sans-serif;
     height: 120px;
   }
 
+}
+
+/* register  */
+
+.sign-up_heading {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+select {
+  width: 100%;
+  outline: 0;
+  height: 50px;
+  border-radius: 7px;
+  background: #21242E;
+  color: #fff;
+  opacity: 0.8;
+
+}
+option {
+  width: 100%;
+}
+
+
+.registerButton {
+  padding: 0.5rem 1rem;
+  color: #fff;
+  background: #FF4820;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+
+/* spinner Component Styles  */
+.spinner-div{
+  position: relative;
+  padding-bottom: 30px;
+  opacity: 0.5;
+}
+.spinner-p{
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid transparent;
+  
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: button-loading-spinner 1.5s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
 }
