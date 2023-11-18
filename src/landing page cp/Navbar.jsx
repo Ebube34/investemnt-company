@@ -49,7 +49,7 @@ const Navbar = () => {
         </button>
       </div>
       <div className="gpt3__navbar-menu">
-        <FiUser style={{ marginRight: "20px" }} color="#fff" size={30} />
+        <FiUser onClick={() => navigate("/login")} style={{ marginRight: "20px" }} color="#fff" size={30} />
         {toggleMenu ? (
           <RiCloseLine
             color="#fff"

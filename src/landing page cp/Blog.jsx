@@ -6,7 +6,7 @@ import styles from "../style";
 const Blog = () => (
   <div className="gpt3__blog" id="blog">
     <div className="gpt3__blog-heading">
-      <h2 className={styles.heading2} style={{ fontWeight: "600"}}>Latest news <br /> from the financial world.</h2>
+      <h2 className={styles.heading2} style={{ fontWeight: "600"}}>Latest news <br /> </h2>
     </div>
     <div className="gpt3__blog-container">
       <div className="gpt3__blog-container_groupA">
