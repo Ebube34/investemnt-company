@@ -94,7 +94,7 @@ const columns = [
         </Typography>
           <Box
             mt="40px"
-            height="45vh"
+            height="65vh"
             sx={{
               "& .MuiDataGrid-root": {
                 border: "none",
@@ -138,7 +138,7 @@ const columns = [
 
         <Box
             mt="40px"
-            height="45vh"
+            height="65vh"
             sx={{
               "& .MuiDataGrid-root": {
                 border: "none",
