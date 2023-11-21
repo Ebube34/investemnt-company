@@ -7,9 +7,14 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import BasicPlan from "./basicPlan";
+import { useGetContractsQuery } from "../../state/api";
+import { getUserId } from "../getUserId";
 
-const Crypto = (userId, walletBalance) => {
+const Crypto = () => {
   const theme = useTheme();
+  const userId = getUserId();
+  const { data } = useGetContractsQuery(userId);
+
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
   const [isBasicPlanClicked, setBasicPlanClick] = useState(false);
   const [basicPlanContent, setBasicPlanContent] = useState("");
@@ -27,11 +32,14 @@ const Crypto = (userId, walletBalance) => {
     useState(Number);
   const [specialPlanPercentageValue, setSpecialPlanPercentageValue] =
     useState(Number);
+    
 
   const cryptoPlan = "Cryptocurrency investment";
   const basicPlanMinimumAmount = 200;
   const standardPlanMinimumAmount = 1000;
   const specialPlanMinimumAmount = 5000;
+
+ 
 
   function handleBasicPlan() {
     setIsStandardPlanClick(false);
@@ -185,7 +193,7 @@ const Crypto = (userId, walletBalance) => {
             minimumAmountText={minnimumAmount}
             percentageProfitValue={basicPlanPercentageValue}
             minmumAmountValue={basicPlanMinimumAmount}
-            walletBalance={walletBalance}
+            walletBalanceData={data || {}}
             userId={userId}
             rating="3"
           />
@@ -203,7 +211,7 @@ const Crypto = (userId, walletBalance) => {
             percentageProfitValue={standardPlanPercentageValue}
             minmumAmountValue={standardPlanMinimumAmount}
             rating="4"
-            walletBalance={walletBalance}
+            walletBalanceData={data || {}}
             userId={userId}
           />
         ) : (
@@ -220,7 +228,7 @@ const Crypto = (userId, walletBalance) => {
             percentageProfitValue={specialPlanPercentageValue}
             minmumAmountValue={specialPlanMinimumAmount}
             rating="5"
-            walletBalance={walletBalance}
+            walletBalanceData={data || {}}
             userId={userId}
           />
         ) : (

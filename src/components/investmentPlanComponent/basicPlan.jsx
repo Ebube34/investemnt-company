@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import {  Box, useMediaQuery, Button } from "@mui/material";
+import { Box, useMediaQuery, Button } from "@mui/material";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { Bounce, toast } from "react-toastify";
@@ -9,7 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.minimal.css";
 import TextField from "@mui/material/TextField";
 import styles from "../../style";
-
+import DashboardFooter from "../DashboardFooter";
+import { useEffect } from "react";
+import ReactLoading from "react-loading"; 
 
 const BasicPlan = ({
   investmentPlanText,
@@ -19,15 +21,25 @@ const BasicPlan = ({
   minimumAmountText,
   percentageProfitValue,
   minmumAmountValue,
- walletBalance,
+  walletBalanceData,
   userId,
-  rating
+  rating,
 }) => {
   const [successful, setSuccessful] = useState(false);
   const [errorContent, setErrorContent] = useState(``);
   const [process, setProcess] = useState(false);
   const isNonMobile = useMediaQuery("(min-width:600px)");
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    if (walletBalanceData === null || walletBalanceData === undefined) {
+      setLoading(true);
+    } else if (Object.keys(walletBalanceData).length === 0) {
+      setLoading(true);
+    } else {
+      setLoading(false);
+    }
+  }, [walletBalanceData]);
 
   const initialValues = {
     investmentType: investmentType,
@@ -68,8 +80,8 @@ const BasicPlan = ({
           setProcess(true);
           setSuccessful(false);
           setErrorContent(``);
-          resetForm({values: ""})
-          console.log(userId.walletBalance);
+          resetForm({ values: "" });
+
           if (values.capitalAmount < minmumAmountValue) {
             setProcess(false);
             values.capitalAmount = "";
@@ -79,7 +91,28 @@ const BasicPlan = ({
             toast.error(
               "Capital should be equal to or more than the minimum amount"
             );
-          } else if (values.capitalAmount > userId.walletBalance) {
+          } else if (Object.keys(walletBalanceData).length === 0) {
+            setProcess(false);
+            values.capitalAmount = "";
+            setErrorContent(
+              "Can't access account balance, check your internet conectivity and try again"
+            );
+            toast.error(
+              "Can't access account balance, check your internet conectivity and try again"
+            );
+          } else if (
+            walletBalanceData === null ||
+            walletBalanceData === undefined
+          ) {
+            setProcess(false);
+            values.capitalAmount = "";
+            setErrorContent(
+              "Can't access account balance, check your internet conectivity and try again"
+            );
+            toast.error(
+              "Can't access account balance, check your internet conectivity and try again"
+            );
+          } else if (values.capitalAmount > walletBalanceData.walletBalance) {
             setProcess(false);
             values.capitalAmount = "";
             setErrorContent(
@@ -109,14 +142,18 @@ const BasicPlan = ({
                 setProcess(false);
                 setSuccessful(true);
                 toast(
-                  `Congrats purchase completed ${<Link to="/active-contracts">View contracts</Link>}`,
+                  `Congrats purchase completed ${(
+                    <Link to="/active-contracts">View contracts</Link>
+                  )}`
                 );
               })
               .catch((error) => {
                 values.capitalAmount = "";
                 setProcess(false);
                 setErrorContent(error.response.data.message);
-                toast.error(`${error.response.data.message}`, {transition: Bounce});
+                toast.error(`${error.response.data.message}`, {
+                  transition: Bounce,
+                });
               });
           }
         }}
@@ -186,11 +223,26 @@ const BasicPlan = ({
                 placeholder={values.minimumAmountText}
               />
               <Box
-                sx={{  gridColumn: "span 4", textAlign: "center", gap: "0rem", }}
+                sx={{ gridColumn: "span 4", textAlign: "center", gap: "0rem" }}
               >
-                  <p className={`${styles.paragraph}`}>
-                    wallet balance {" "} { (<p>${Number(userId.walletBalance).toFixed(2)}</p>) } 
-                  </p>
+                <p className={`${styles.paragraph}`}>
+                  wallet balance{" "}
+                  {loading ? (
+                    <div
+                      style={{ display: "flex", justifyContent: "center" }}
+                      className="spinner-div"
+                    >
+                      <ReactLoading
+                        type={"spinningBubbles"}
+                        color={"#1CEEEB"}
+                        height={20}
+                        width={20}
+                      />
+                    </div>
+                  ) : (
+                    <p>${Number(walletBalanceData.walletBalance).toFixed(2)}</p>
+                  )}
+                </p>
               </Box>
               <TextField
                 fullWidth
@@ -207,47 +259,44 @@ const BasicPlan = ({
                 error={!!touched.capitalAmount && errors.capitalAmount}
                 helperText={touched.capitalAmount && errors.capitalAmount}
               />
-              
             </Box>
-            <Box display="flex" justifyContent="center" mt="2rem" >
-                <Button
-                  sx={{
-                    width: "170px",
-                    height: "60px",
-                    borderRadius: "10px",
-                    fontSize: "15px",
-                    border: "3px solid #171B25",
-                    color: "#fff",
-                    opacity: "0.6",
-                    letterSpacing: "1.5px",
-                    fontWeight: "bold",
-                  }}
-                  type="submit"
-                >
-                  {process ? "Please wait..." : "Purchase"}
-                </Button>
-
-               
-              </Box>
-              {successful ? (
-                <p style={{ textAlign: "center" }} className="text-green-600">
-                  Contract purchased and registered successfully{" "}
-                  <span>
-                    <Link to="/active-contracts">View contract</Link>
-                  </span>
-                </p>
-              ) : (
-                ""
-              )}
-
-              <p style={{ textAlign: "center" }} className="text-red-600">
-                {errorContent}
+            <Box display="flex" justifyContent="center" mt="2rem">
+              <Button
+                sx={{
+                  width: "170px",
+                  height: "60px",
+                  borderRadius: "10px",
+                  fontSize: "15px",
+                  border: "3px solid #171B25",
+                  color: "#fff",
+                  opacity: "0.6",
+                  letterSpacing: "1.5px",
+                  fontWeight: "bold",
+                }}
+                type="submit"
+              >
+                {process ? "Please wait..." : "Purchase"}
+              </Button>
+            </Box>
+            {successful ? (
+              <p style={{ textAlign: "center" }} className="text-green-600">
+                Contract purchased and registered successfully{" "}
+                <span>
+                  <Link to="/active-contracts">View contract</Link>
+                </span>
               </p>
+            ) : (
+              ""
+            )}
+
+            <p style={{ textAlign: "center" }} className="text-red-600">
+              {errorContent}
+            </p>
           </form>
-          
         )}
-        
       </Formik>
+      <DashboardFooter />
+      <Outlet />
     </>
   );
 };

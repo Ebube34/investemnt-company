@@ -11,9 +11,11 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import ReactLoading from 'react-loading';
 
 
-const Dashboardmaincomponent = ({ user }) => {
+
+const Dashboardmaincomponent = ({ user }) => { 
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -74,7 +76,7 @@ const Dashboardmaincomponent = ({ user }) => {
       <Box display="flex" justifyContent="space-between" mt="2px">
         <Typography variant="h5" sx={{ color: theme.palette.secondary[500] }}>
         {loading ? (
-                  <div className="spinner-div"><p className="spinner-p"></p></div>
+                  <div className="spinner-div"><ReactLoading type={"spinningBubbles"} color={"#1CEEEB"} height={20} width={20} /></div>
                   
                 ) : (
                   `$${Number(user.walletBalance).toFixed(2)}`
@@ -110,7 +112,7 @@ const Dashboardmaincomponent = ({ user }) => {
       <Box display="flex" justifyContent="space-between" mt="2px">
         <Typography variant="h5" sx={{ color: theme.palette.secondary[500],  }}>
         {loading ? (
-                  <div className="spinner-div"><p className="spinner-p"></p></div>
+                  <div className="spinner-div"><ReactLoading type={"spinningBubbles"} color={"#1CEEEB"} height={20} width={20} /></div>
                   
                 ) : (
                   `$${Number(user.earnings).toFixed(2)}`
@@ -146,7 +148,7 @@ const Dashboardmaincomponent = ({ user }) => {
       <Box display="flex" justifyContent="space-between" mt="2px">
         <Typography variant="h5" sx={{ color: theme.palette.secondary[500] }}>
         {loading ? (
-                  <div className="spinner-div"><p className="spinner-p"></p></div>
+                  <div className="spinner-div"><ReactLoading type={"spinningBubbles"} color={"#1CEEEB"} height={20} width={20} /></div>
                   
                 ) : (
                   `$${Number(user.capitalInvested).toFixed(2)}`
@@ -182,7 +184,7 @@ const Dashboardmaincomponent = ({ user }) => {
       <Box display="flex" justifyContent="space-between" mt="2px">
         <Typography variant="h5" sx={{ color: theme.palette.secondary[500] }}>
         {loading ? (
-                  <div className="spinner-div"><p className="spinner-p"></p></div>
+                  <div className="spinner-div"><ReactLoading type={"spinningBubbles"} color={"#1CEEEB"} height={20} width={20} /></div>
                   
                 ) : (
                   `$${Number(user.totalEarnings).toFixed(2)}`
@@ -219,7 +221,7 @@ const Dashboardmaincomponent = ({ user }) => {
       <Box display="flex" justifyContent="space-between" mt="2px">
         <Typography variant="h5" sx={{ color: theme.palette.secondary[500] }}>
         {loading ? (
-                  <div className="spinner-div"><p className="spinner-p"></p></div>
+                  <div className="spinner-div"><ReactLoading type={"spinningBubbles"} color={"#1CEEEB"} height={20} width={20} /></div>
                   
                 ) : (
                   `${Number(user.noOfActiveContracts)}`
@@ -229,209 +231,6 @@ const Dashboardmaincomponent = ({ user }) => {
     </Box>
         </Box>
         </Box>
-      {/* <Box
-        mt="20px"
-        display="grid"
-        gridTemplateColumns="repeat(2, minmax(0, 1fr))"
-        justifyContent="space-between"
-        rowGap="20px"
-        columnGap="1.33%"
-        sx={{
-          "& > div": { gridColumn: isNonMobile ? undefined : "span 2" },
-        }}
-      >
-        <Box
-          sx={{
-            backgroundImage: "none",
-            backgroundColor: theme.palette.background.alt,
-            borderRadius: "1rem",
-            padding: "1.5rem",
-          }}
-        >
-          <FlexBetween>
-            <Box textAlign="center">
-              <Typography
-                variant="h2"
-                sx={{
-                  color: theme.palette.secondary[200],
-                  fontFamily: "Mohave, sans-serif",
-                }}
-              >
-                {loading ? (
-                  <div className="spinner-div"><p className="spinner-p"></p></div>
-                  
-                ) : (
-                  `$${Number(user.walletBalance).toFixed(2)}`
-                )}
-              </Typography>
-              <Typography
-                sx={{ opacity: "0.5", fontFamily: "Noto Serif, serif" }}
-                variant="h5"
-              >
-                WALLET BALANCE
-              </Typography>
-            </Box>
-
-            <IconButton sx={{ fontSize: "350px" }}>
-              <AccountBalanceWalletOutlinedIcon
-                sx={{ color: theme.palette.secondary[200] }}
-                style={{ fontSize: "3rem" }}
-              />
-            </IconButton>
-          </FlexBetween>
-        </Box>
-        <Box
-          sx={{
-            backgroundImage: "none",
-            backgroundColor: theme.palette.background.alt,
-            borderRadius: "1rem",
-            padding: "1.5rem",
-          }}
-        >
-          <FlexBetween>
-            <Box textAlign="center">
-              <Typography
-                variant="h2"
-                sx={{
-                  color: theme.palette.secondary[200],
-                  fontFamily: "Mohave, sans-serif",
-                }}
-              >
-                {loading ? ( <div className="spinner-div"><p className="spinner-p"></p></div>) : `$${Number(user.earnings).toFixed(2)}` }
-              </Typography>
-              <Typography
-                sx={{ opacity: "0.5", fontFamily: "Noto Serif, serif" }}
-                variant="h5"
-              >
-                EARNINGS
-              </Typography>
-            </Box>
-
-            <IconButton sx={{ fontSize: "350px" }}>
-              <AccountBalanceWalletOutlinedIcon
-                sx={{ color: theme.palette.secondary[200] }}
-                style={{ fontSize: "3rem" }}
-              />
-            </IconButton>
-          </FlexBetween>
-        </Box>
-        <Box
-          sx={{
-            backgroundImage: "none",
-            backgroundColor: theme.palette.background.alt,
-            borderRadius: "1rem",
-            padding: "1.5rem",
-          }}
-        >
-          <FlexBetween>
-            <Box textAlign="center">
-              <Typography
-                variant="h2"
-                sx={{
-                  color: theme.palette.secondary[200],
-                  fontFamily: "Mohave, sans-serif",
-                }}
-              >
-               {loading ? ( <div className="spinner-div"><p className="spinner-p"></p></div>) : `$${Number(user.capitalInvested).toFixed(2)}` }
-               
-              </Typography>
-              <Typography
-                sx={{ opacity: "0.5", fontFamily: "Noto Serif, serif" }}
-                variant="h5"
-              >
-                CAPITAL INVESTED
-              </Typography>
-            </Box>
-
-            <IconButton sx={{ fontSize: "350px" }}>
-              <AccountBalanceWalletOutlinedIcon
-                sx={{ color: theme.palette.secondary[200] }}
-                style={{ fontSize: "3rem" }}
-              />
-            </IconButton>
-          </FlexBetween>
-        </Box>
-        <Box
-          sx={{
-            backgroundImage: "none",
-            backgroundColor: theme.palette.background.alt,
-            borderRadius: "1rem",
-            padding: "1.5rem",
-          }}
-        >
-          <FlexBetween>
-            <Box textAlign="center">
-              <Typography
-                variant="h2"
-                sx={{
-                  color: theme.palette.secondary[200],
-                  fontFamily: "Mohave, sans-serif",
-                }}
-              >
-              {loading ? ( <div className="spinner-div"><p className="spinner-p"></p></div>) : `$${Number(user.totalEarnings).toFixed(2)}` }
-                
-              </Typography>
-              <Typography
-                sx={{ opacity: "0.5", fontFamily: "Noto Serif, serif" }}
-                variant="h5"
-              >
-                TOTAL EARNINGS
-              </Typography>
-            </Box>
-
-            <IconButton sx={{ fontSize: "350px" }}>
-              <AccountBalanceWalletOutlinedIcon
-                sx={{ color: theme.palette.secondary[200] }}
-                style={{ fontSize: "3rem" }}
-              />
-            </IconButton>
-          </FlexBetween>
-        </Box>
-        <Box
-          sx={{
-            backgroundImage: "none",
-            backgroundColor: theme.palette.background.alt,
-            borderRadius: "1rem",
-            padding: "1.5rem",
-          }}
-        >
-          <FlexBetween>
-            <Box textAlign="center"  onClick={() => navigate("/active-contracts")}>
-              <Typography
-                variant="h2"
-                sx={{
-                  color: theme.palette.secondary[200],
-                  fontFamily: "Mohave, sans-serif",
-                }}
-               
-              >
-               {loading ? ( <div className="spinner-div"><p className="spinner-p"></p></div>) : `${user.noOfActiveContracts}` }
-                
-              </Typography>
-              <Typography
-                sx={{
-                  opacity: "0.5",
-                  fontFamily: "Noto Serif, serif",
-                }}
-                variant="h5"
-              >
-             
-                ACTIVE CONTRACT
-              </Typography>
-            </Box>
-
-            <IconButton sx={{ fontSize: "350px" }} onClick={() => navigate("/active-contracts")}>
-              <AssignmentIndOutlinedIcon
-                sx={{ color: theme.palette.secondary[200] }}
-                style={{ fontSize: "3rem" }}
-              />
-            </IconButton>
-          </FlexBetween>
-        </Box>
-      </Box> */}
-
-
-
 
       {/* part two of dashboard */}
       <Box
@@ -452,10 +251,10 @@ const Dashboardmaincomponent = ({ user }) => {
               borderRadius: "50px",
               backgroundColor: theme.palette.background.alt,
               backgroundImage: "none",
-              letterSpacing: "2px",
+              letterSpacing: "1.5px",
             }}
             fullWidth="100%"
-            onClick={() => navigate("/deposits")}
+            onClick={() => navigate("/deposit")}
           >
             <Typography sx={{ color: theme.palette.primary[100] }}>
               New Deposit
@@ -468,15 +267,16 @@ const Dashboardmaincomponent = ({ user }) => {
             sx={{
               padding: "1.5em",
               borderRadius: "50px",
-              backgroundColor: theme.palette.secondary[300],
+              backgroundColor: theme.palette.secondary[600],
               backgroundImage: "none",
-              letterSpacing: "1.5px",
+              letterSpacing: "2px",
+              
             }}
             fullWidth="100%"
-            onClick={() => navigate("/contracts")}
+            onClick={() => navigate("/contract")}
           >
-            <Typography sx={{ color: theme.palette.primary[400] }}>
-              CREATE A PLAN
+            <Typography sx={{ color: theme.palette.primary[600] }}>
+              Buy A PLAN
             </Typography>
           </Button>
         </Box>

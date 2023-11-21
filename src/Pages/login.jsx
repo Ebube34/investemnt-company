@@ -2,25 +2,25 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
-import { Box, Button } from "@mui/material"; 
+import { Box, Button } from "@mui/material";
 import { Formik } from "formik";
-import * as yup from "yup"; 
+import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Navbar } from "../landing page cp";
 import styles from "../style";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "react-toastify/dist/ReactToastify.minimal.css"
+import "react-toastify/dist/ReactToastify.minimal.css";
 import FilledInput from "@mui/material/FilledInput";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import CryptoJS from "crypto-js";
+import DashboardFooter from "../components/DashboardFooter";
 import Cookies from "js-cookie";
 
 function Login() {
-  
   const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [showPassword, setShowPassword] = useState(false);
@@ -42,7 +42,6 @@ function Login() {
     password: yup.string().required("required"),
   });
 
-
   return (
     <>
       <div className="bg-primary w-full overflow-hidden">
@@ -57,6 +56,10 @@ function Login() {
           pauseOnHover
           theme="dark"
           transition={Bounce}
+          style={{
+            height: "150px",
+            position: "fixed",
+          }}
         />
 
         <Navbar />
@@ -73,9 +76,8 @@ function Login() {
             onSubmit={(values, { resetForm }) => {
               setProcess(true);
               setLogedIn(false);
-              resetForm({ values: "" }); 
+              resetForm({ values: "" });
               setErrorMessage("");
-              
 
               const configuration = {
                 method: "post",
@@ -92,21 +94,21 @@ function Login() {
                   const secretPass = "Xkhzg478tYUAEQivas65";
 
                   const data = CryptoJS.AES.encrypt(
-                    JSON.stringify(_id), 
+                    JSON.stringify(_id),
                     secretPass
                   ).toString();
 
-                  Cookies.set("Token", data, {path: "/", expires: 3})
-                 
+                  Cookies.set("Token", data, { path: "/", expires: 3 });
+
                   setLogedIn(true);
                   setProcess(false);
                   toast(`Welcome ${result.data.name}`);
                   navigate("/dashboard");
-                  window.location.reload(true); 
+                  window.location.reload(true);
                 })
                 .catch((error) => {
-                  setProcess(false)
-                  setLogedIn(false)
+                  setProcess(false);
+                  setLogedIn(false);
                   setErrorMessage(error.response.data.message);
                   toast.error(`${error.response.data.message}`);
                 });
@@ -175,8 +177,21 @@ function Login() {
                       gridColumn: "span 4",
                     }}
                   />
-                  <Box sx={{ gridColumn: "span 4", textAlign: "center", gap: "0px"}}>
-                  <p style={{ cursor: "pointer"}} onClick={() => navigate("/reset-password")} className={`${styles.paragraph}`}>Forgot Password?</p> </Box>
+                  <Box
+                    sx={{
+                      gridColumn: "span 4",
+                      textAlign: "center",
+                      gap: "0px",
+                    }}
+                  >
+                    <p
+                      style={{ cursor: "pointer" }}
+                      onClick={() => navigate("/reset-password")}
+                      className={`${styles.paragraph}`}
+                    >
+                      Forgot Password?
+                    </p>{" "}
+                  </Box>
                 </Box>
                 <Box display="flex" justifyContent="center" mt="1rem">
                   <Button
@@ -189,7 +204,7 @@ function Login() {
                       color: "#fff",
                       opacity: "0.6",
                       letterSpacing: "1.5px",
-                      fontWeight: "bold",                    
+                      fontWeight: "bold",
                     }}
                     type="submit"
                   >
@@ -197,21 +212,25 @@ function Login() {
                   </Button>
                 </Box>
 
-                {logedIn ? (<p style={{textAlign: "center"}} className="text-green-600">
-                      registration successful. Check your email for verification
-                    </p>) : ""}
+                {logedIn ? (
+                  <p style={{ textAlign: "center" }} className="text-green-600">
+                    registration successful. Check your email for verification
+                  </p>
+                ) : (
+                  ""
+                )}
 
-                    <p style={{textAlign: "center"}} className="text-red-600">{errorMessage}</p>
+                <p style={{ textAlign: "center" }} className="text-red-600">
+                  {errorMessage}
+                </p>
               </form>
             )}
           </Formik>
         </Box>
+        <DashboardFooter />
       </div>
     </>
   );
- }
-
+}
 
 export default Login;
-
-

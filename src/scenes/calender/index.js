@@ -13,13 +13,13 @@ import {
   useTheme,
 } from "@mui/material";
 import DashboardHeading from "../../components/dashboard-heading";
-import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
+import DashboardFooter from "../../components/DashboardFooter";
+
+
+
 
 const Calendar = () => {
   const theme = useTheme();
-  const navigate = useNavigate();
-  const token = Cookies.get("Token");
   const [currentEvents, setCurrentEvents] = useState([]);
 
   const handleDateClick = (selected) => {
@@ -48,8 +48,8 @@ const Calendar = () => {
     }
   };
 
-  if (token) {
     return (
+      <>
       <Box m="20px">
         <DashboardHeading title="Calender" subTitle="create events for personal use" />
           <Box height="40px"></Box>
@@ -123,10 +123,11 @@ const Calendar = () => {
           </Box>
         </Box>
       </Box>
+      <DashboardFooter />
+      </>
     );
-  } else {
-    navigate("/login")
-  }
+  
+
 };
 
 export default Calendar;

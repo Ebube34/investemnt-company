@@ -15,6 +15,7 @@ import { Navbar, Country } from "../landing page cp";
 import styles from "../style";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import DashboardFooter from "../components/DashboardFooter";
 
 function Register() {
   const isNonMobile = useMediaQuery("(min-width:600px)");
@@ -76,6 +77,10 @@ function Register() {
           draggable
           pauseOnHover
           theme="dark"
+          style={{
+            height: "150px",
+            position: "fixed",
+          }}
         />
         <Navbar />
         <Box mt="3rem">
@@ -328,6 +333,7 @@ function Register() {
             )}
           </Formik>
         </Box>
+        <DashboardFooter />
       </div>
     </>
   );

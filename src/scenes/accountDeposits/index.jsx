@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Box, useMediaQuery, useTheme } from "@mui/material";
 import DashboardHeading from "../../components/dashboard-heading";
+import DashboardFooter from "../../components/DashboardFooter";
 import BitcoinLogo from "../../pictures/bitcoin-logo.png";
 import EthereumLogo from "../../pictures/ethereum-logo.png";
 import TronLogo from "../../pictures/tron-logo.png";
@@ -27,15 +28,13 @@ import CryptoAddress from "../../components/depositsComponents/CryptoAddress";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.minimal.css";
-import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
-import CryptoJS from "crypto-js";
+import { getUserId } from "../../components/getUserId";
 
 const AccountDeposits = () => {
   const theme = useTheme();
-  const token = Cookies.get("Token");
-  const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
+  const userId = getUserId();
+ 
 
   const [isDepositButton, setDepositButton] = useState(false);
   const [isSecondDepositButton, setSecondDepositButton] = useState(false);
@@ -259,10 +258,8 @@ const AccountDeposits = () => {
     setLitecoinConfirm(false);
   };
 
-  if (token) {
-    const secretPass = "Xkhzg478tYUAEQivas65";
-    const decrptToken = CryptoJS.AES.decrypt(token, secretPass);
-    const userId = JSON.parse(decrptToken.toString(CryptoJS.enc.Utf8));
+  
+   
     return (
       <>
         <ToastContainer
@@ -880,11 +877,9 @@ const AccountDeposits = () => {
             </Box>
           </Box>
         </Box>
+        <DashboardFooter />
       </>
     );
-  } else {
-    navigate("/login");
-  }
 };
 
 export default AccountDeposits;

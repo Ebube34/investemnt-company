@@ -824,32 +824,6 @@ option {
 
 /* spinner Component Styles  */
 .spinner-div{
-  position: relative;
-  padding-bottom: 30px;
-  opacity: 0.5;
-}
-.spinner-p{
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  border: 3px solid transparent;
-  
-  border-top-color: #ffffff;
-  border-radius: 50%;
-  animation: button-loading-spinner 1.5s ease infinite;
-}
+  padding-top: 5px;
 
-@keyframes button-loading-spinner {
-  from {
-    transform: rotate(0turn);
-  }
-  to {
-    transform: rotate(1turn);
-  }
 }

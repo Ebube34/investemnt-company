@@ -17,6 +17,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import CryptoJS from "crypto-js";
 import Cookies from "js-cookie";
+import DashboardFooter from "../components/DashboardFooter";
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -66,6 +67,10 @@ function ForgotPassword() {
           pauseOnHover
           theme="dark"
           transition={Bounce}
+          style={{
+            height: "150px",
+            position: "fixed",
+          }}
         />
         <Navbar />
         <Box mt="3rem">
@@ -248,6 +253,7 @@ function ForgotPassword() {
             )}
           </Formik>
         </Box>
+        <DashboardFooter />
       </div>
     </>
   );

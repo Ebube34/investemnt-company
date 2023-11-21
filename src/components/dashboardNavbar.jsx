@@ -8,15 +8,13 @@ import {
   IconButton,
   Menu,
   Toolbar,
-
   MenuItem,
 } from "@mui/material";
-import Cookies from "universal-cookie";
+import Cookies from "js-cookie";
 import { CssBaseline } from "@mui/material";
 
-const cookies = new Cookies();
 
-const DashboardNavbar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
+const DashboardNavbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
 
   const [anchorEL, setAnchorEl] = useState(null);
 
@@ -26,7 +24,7 @@ const DashboardNavbar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
   const handleClose = () => setAnchorEl(null);
 
   const handleLogout = () => {
-    cookies.remove("TOKEN", { path: "/" });
+    Cookies.remove("Token", { path: "/" });
     window.location.href = "/";
   };
 
@@ -47,7 +45,7 @@ const DashboardNavbar = ({ user, isSideBarOpen, setIsSideBarOpen }) => {
             </IconButton>
           </FlexBetween>
 
-          <FlexBetween gap="1rem">
+          <FlexBetween gap="">
             <PersonIcon sx={{ color: "#fff", fontSize: "30px" }} />
             <FlexBetween>
               <Menu

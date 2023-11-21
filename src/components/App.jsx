@@ -57,6 +57,8 @@ import Activity from "../scenes/activity/index.js";
 import Calendar from "../scenes/calender/index.js";
 import FAQ from "../scenes/faq/index.js";
 import Geography from "../scenes/geography/index.js";
+import PrivateRoutes from "./PrivateRoutes.jsx";
+import PublicRoutes from "./PublicRoutes.jsx";
 
 
 
@@ -80,7 +82,9 @@ function App() {
         <Route path="resourses" element={<Resources />} /> 
         <Route path="FAQsmain" element={<FAQs />}/>
         <Route path="terms-and-conditions" element={<TermsAndCondtion />} />
+        <Route element={<PublicRoutes />}>
         <Route path="login" element={<Login />} />
+        </Route>
         <Route path="our-team" element={<OurTeam />} />
         <Route path="register" element={<Register />} />
         <Route path="user-dashboard" element={<Dashboard />} />
@@ -112,26 +116,24 @@ function App() {
         <Route path="overview" element={<Overview />} />
         <Route path="/confirm/:confirmationCode" element={<Wellcome />}/>
         <Route path="/reset-password" element={<ForgotPassword /> } />
+        <Route element={<PrivateRoutes />}>
         <Route element={<Layout />}> 
-        
-              <Route
-                path="user-dashboard"
-                element={<Navigate to="dashboard" replace />}
-              />
-              <Route path="Dashboard" element={<DashboardMain />} />
-              <Route path="Contract" element={<Contracts />} />
-              <Route path="Deposit" element={<AccountDeposits />} />
-              <Route path="market" element={<Markets />} />
-              <Route path="active-contracts" element={<ActiveContracts />} />
-              <Route path="withdraw" element={<Withdrawals />} />
-              <Route path="Activity" element={<Activity />} />
-              <Route path="calender" element={<Calendar />} />
-              <Route path="faqs" element={<FAQ />} />
-              <Route path="geography" element={<Geography />} />
-            </Route>
-
-
-
+        <Route
+          path="user-dashboard"
+          element={<Navigate to="dashboard" replace />}
+        />
+        <Route path="Dashboard" element={<DashboardMain />} />
+        <Route path="Contract" element={<Contracts />} />
+        <Route path="Deposit" element={<AccountDeposits />} />
+        <Route path="market" element={<Markets />} />
+        <Route path="active-contracts" element={<ActiveContracts />} />
+        <Route path="withdraw" element={<Withdrawals />} />
+        <Route path="Activity" element={<Activity />} />
+        <Route path="calender" element={<Calendar />} />
+        <Route path="faqs" element={<FAQ />} />
+        <Route path="geography" element={<Geography />} />
+      </Route>
+        </Route>
       </Routes>
       </ThemeProvider>
     </BrowserRouter>

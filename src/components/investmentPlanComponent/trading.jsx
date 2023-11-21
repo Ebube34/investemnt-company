@@ -7,10 +7,14 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import BasicPlan from "./basicPlan";
+import { useGetContractsQuery } from "../../state/api";
+import { getUserId } from "../getUserId";
 
-const Trading = (userId, walletBalance) => {
+const Trading = () => {
   const theme = useTheme();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
+  const userId = getUserId();
+  const { data } = useGetContractsQuery(userId);
   const [isBasicPlanClicked, setBasicPlanClick] = useState(false);
   const [basicPlanContent, setBasicPlanContent] = useState("");
   const [isStandardPlanClicked, setIsStandardPlanClick] = useState(false);
@@ -32,6 +36,7 @@ const Trading = (userId, walletBalance) => {
   const basicPlanMinimumAmount = 100;
   const standardPlanMinimumAmount = 700;
   const specialPlanMinimumAmount = 3000;
+
   function handleBasicPlan() {
     setIsStandardPlanClick(false);
     setSpecialPlanClicked(false);
@@ -113,35 +118,56 @@ const Trading = (userId, walletBalance) => {
             display="grid"
             gridTemplateColumns="repeat(3, minmax(0, 1fr))"
             justifyContent="space-between"
-            rowGap="20px"
+            rowGap=""
             sx={{
               "& > div": { gridColumn: isNonMobile ? undefined : "span 3" },
             }}
           >
-            <Box sx={{ marginLeft: "35%" }}>
-              <Button onClick={handleBasicPlan}>
+            <Box>
+              <Button
+                onClick={handleBasicPlan}
+                fullWidth
+                sx={{ p: "10px 0", m: "10px 0" }}
+              >
                 <Typography
-                  sx={{ opacity: "0.5", color: theme.palette.secondary[100] }}
+                  sx={{
+                    opacity: "0.5",
+                    color: theme.palette.secondary[100],
+                  }}
                 >
                   Basic Plan
                 </Typography>
               </Button>
             </Box>
 
-            <Box sx={{ marginLeft: "35%" }}>
-              <Button onClick={handleStandardPlan}>
+            <Box>
+              <Button
+                onClick={handleStandardPlan}
+                fullWidth
+                sx={{ p: "10px 0", m: "10px 0" }}
+              >
                 <Typography
-                  sx={{ opacity: "0.5", color: theme.palette.secondary[100] }}
+                  sx={{
+                    opacity: "0.5",
+                    color: theme.palette.secondary[100],
+                  }}
                 >
                   Standard Plan
                 </Typography>
               </Button>
             </Box>
 
-            <Box sx={{ marginLeft: "35%" }}>
-              <Button onClick={handleSpecialPlan}>
+            <Box>
+              <Button
+                onClick={handleSpecialPlan}
+                fullWidth
+                sx={{ p: "10px 0", m: "10px 0" }}
+              >
                 <Typography
-                  sx={{ opacity: "0.5", color: theme.palette.secondary[100] }}
+                  sx={{
+                    opacity: "0.5",
+                    color: theme.palette.secondary[100],
+                  }}
                 >
                   Special Plan
                 </Typography>
@@ -161,7 +187,7 @@ const Trading = (userId, walletBalance) => {
             minimumAmountText={minnimumAmount}
             percentageProfitValue={basicPlanPercentageValue}
             minmumAmountValue={basicPlanMinimumAmount}
-            walletBalance={walletBalance}
+            walletBalanceData={data || {}}
             rating="3"
             userId={userId}
           />
@@ -177,7 +203,7 @@ const Trading = (userId, walletBalance) => {
             minimumAmountText={minnimumAmount}
             percentageProfitValue={standardPlanPercentageValue}
             minmumAmountValue={standardPlanMinimumAmount}
-            walletBalance={walletBalance}
+            walletBalanceData={data || {}}
             rating="4"
             userId={userId}
           />
@@ -193,7 +219,7 @@ const Trading = (userId, walletBalance) => {
             minimumAmountText={minnimumAmount}
             percentageProfitValue={specialPlanPercentageValue}
             minmumAmountValue={specialPlanMinimumAmount}
-            walletBalance={walletBalance}
+            walletBalanceData={data || {}}
             rating="5"
             userId={userId}
           />

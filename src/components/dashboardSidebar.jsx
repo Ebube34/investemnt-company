@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Box,
-  Divider,
   Drawer,
   IconButton,
   List,
@@ -13,7 +12,6 @@ import {
   useTheme,
 } from "@mui/material";
 import {
-  SettingsOutlined,
   ChevronLeft,
   ChevronRightOutlined,
   HomeOutlined,
@@ -31,8 +29,9 @@ import {
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "../components/flexBetween.jsx";
-import { logo, userProfile } from '../assets';
-
+import { logo, userProfile } from "../assets";
+import { ClickAwayListener } from "@mui/base/ClickAwayListener";
+import ReactLoading from "react-loading";
 
 const navItems = [
   {
@@ -50,7 +49,6 @@ const navItems = [
   {
     text: "Market",
     icon: <PublicOutlined />,
-    
   },
   {
     text: "Activity",
@@ -109,20 +107,22 @@ const DashboardSidebar = ({
   const [active, setActive] = useState("");
   const navigate = useNavigate();
   const theme = useTheme();
-  const [ userFirstName, setUserFirstName ] = useState("");
+  const [userFirstName, setUserFirstName] = useState("");
 
-  const [Loading, setIsLoading ] = useState(true);
+  const [Loading, setIsLoading] = useState(true);
 
-
+  const handleClickaway = () => {
+    setIsSideBarOpen(false);
+  };
 
   useEffect(() => {
     setActive(pathname.substring(1));
 
-    if (user === null || user === undefined){
+    if (user === null || user === undefined) {
       setIsLoading(true);
     } else if (Object.keys(user).length === 0) {
       setIsLoading(true);
-    }  else {
+    } else {
       const name = user.firstName;
       setIsLoading(false);
       const newName = name[0].toUpperCase() + name.slice(1);
@@ -131,152 +131,141 @@ const DashboardSidebar = ({
   }, [pathname, user]);
   return (
     <>
-  
       <Box component="nav">
         {isSideBarOpen && (
-          <Drawer
-            open={isSideBarOpen}
-            onClose={() => setIsSideBarOpen(false)}
-            variant="persistent"
-            anchor="left"
-            sx={{
-              width: drawerWidth,
-              "& .MuiDrawer-paper": {
-                color: theme.palette.secondary[100],
-                backgroundColor: theme.palette.primary[700],
-                boxSizing: "border-box",
-                borderWidth: isNotMobible ? 0 : "2px",
+          <ClickAwayListener onClickAway={handleClickaway}>
+            <Drawer
+              open={isSideBarOpen}
+              onClose={() => setIsSideBarOpen(false)}
+              variant="persistent"
+              anchor="left"
+              sx={{
                 width: drawerWidth,
-              },
-            }}
-          >
-            <Box width="100%">
-              <Box m="1.5rem 2rem 2rem 1rem">
-                <FlexBetween color={theme.palette.secondary.main}>
-                  <Box display="flex" alignItems="center" gap="0.5rem">
-                  <img src={logo} alt="Quivas" className="w-[124px] h-[50px]" />
-                  </Box>
-                  
+                "& .MuiDrawer-paper": {
+                  color: theme.palette.secondary[100],
+                  backgroundColor: theme.palette.primary[700],
+                  boxSizing: "border-box",
+                  borderWidth: isNotMobible ? 0 : "2px",
+                  width: drawerWidth,
+                },
+              }}
+            >
+              <Box width="100%">
+                <Box m="1.5rem 2rem 2rem 1rem">
+                  <FlexBetween color={theme.palette.secondary.main}>
+                    <Box display="flex" alignItems="center" gap="0.5rem">
+                      <img
+                        src={logo}
+                        alt="Quivas"
+                        className="w-[124px] h-[50px]"
+                      />
+                    </Box>
+
                     <IconButton
                       onClick={() => setIsSideBarOpen(!isSideBarOpen)}
                     >
-                      <ChevronLeft sx={{ ml: "auto" }}  />
+                      <ChevronLeft sx={{ ml: "auto" }} />
                     </IconButton>
-                 
-                </FlexBetween>
-                <Box mt="30px" mb="25px">
-                <Box display="flex" justifyContent="center" alignItems="center">
-                <img
-                  alt="profile-user"
-                  width="90px"
-                  height="90px"
-                  src={userProfile}
-                  style={{ cursor: "pointer", borderRadius: "50%" }}
-                />
-              </Box>
-              <Box textAlign="center">
-                <Typography
-                  variant="h2"
-                  color={theme.palette.grey[100]}
-                  fontWeight="bold"
-                  sx={{ m: "10px 0 0 0" }}
-                >
-                  {Loading ? ( <div className="spinner-div"><p className="spinner-p"></p></div>) : userFirstName}
-                </Typography>
-                <Typography variant="h5" color={theme.palette.secondary[500]}>
-                   
-                </Typography>
-              </Box>
-                </Box>
-              </Box>
-              <List>
-                {navItems.map(({ text, icon }) => {
-                  if (!icon) {
-                    return (
-                      <Typography key={text} sx={{ m: "2.5rem 0 1rem 3rem" }}>
-                        {text}
-                      </Typography>
-                    );
-                  }
-
-                  const lcText = text.toLowerCase();
-                  return (
-                    <ListItem key={text} disablePadding>
-                      <ListItemButton
-                        onClick={() => {
-                          navigate(`/${lcText}`);
-                          setActive(lcText);
-                        }}
-                        sx={{
-                          backgroundColor:
-                            active === lcText
-                              ? theme.palette.secondary[300]
-                              : "transparent",
-                          color:
-                            active === lcText
-                              ? theme.palette.primary[600]
-                              : theme.palette.secondary[100],
-                        }}
+                  </FlexBetween>
+                  <Box mt="30px" mb="25px">
+                    <Box
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <img
+                        alt="profile-user"
+                        width="90px"
+                        height="90px"
+                        src={userProfile}
+                        style={{ cursor: "pointer", borderRadius: "50%" }}
+                      />
+                    </Box>
+                    <Box textAlign="center">
+                      <Typography
+                        variant="h2"
+                        color={theme.palette.grey[100]}
+                        fontWeight="bold"
+                        sx={{ m: "10px 0 0 0" }}
                       >
-                        <ListItemIcon
+                        {Loading ? (
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                            }}
+                            className="spinner-div"
+                          >
+                            <ReactLoading
+                              type={"spinningBubbles"}
+                              color={"#1CEEEB"}
+                              height={20}
+                              width={20}
+                            />
+                          </div>
+                        ) : (
+                          userFirstName
+                        )}
+                      </Typography>
+                      <Typography
+                        variant="h5"
+                        color={theme.palette.secondary[500]}
+                      ></Typography>
+                    </Box>
+                  </Box>
+                </Box>
+                <List>
+                  {navItems.map(({ text, icon }) => {
+                    if (!icon) {
+                      return (
+                        <Typography key={text} sx={{ m: "2.5rem 0 1rem 3rem" }}>
+                          {text}
+                        </Typography>
+                      );
+                    }
+
+                    const lcText = text.toLowerCase();
+                    return (
+                      <ListItem key={text} disablePadding>
+                        <ListItemButton
+                          onClick={() => {
+                            navigate(`/${lcText}`);
+                            setActive(lcText);
+                          }}
                           sx={{
-                            ml: "2rem",
+                            backgroundColor:
+                              active === lcText
+                                ? theme.palette.secondary[300]
+                                : "transparent",
                             color:
                               active === lcText
                                 ? theme.palette.primary[600]
-                                : theme.palette.secondary[200],
+                                : theme.palette.secondary[100],
                           }}
                         >
-                          {icon}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                        {active === lcText && (
-                          <ChevronRightOutlined sx={{ ml: "auto" }} />
-                        )}
-                      </ListItemButton>
-                    </ListItem>
-                  );
-                })}
-              </List>
-            </Box>
-
-            <Box bottom="2rem">
-              <Divider />
-              <FlexBetween
-                textTransform="none"
-                gap="1rem"
-                m="1.5rem 2rem 0 3rem"
-              >
-                <Box
-                  component="img"
-                  alt="profile"
-                  src={userProfile}
-                  height="40px"
-                  width="40px"
-                  borderRadius="50%"
-                  sx={{ objectFit: "cover" }}
-                />
-                <Box textAlign="left">
-                  <Typography
-                    fontWeight="bold"
-                    fontSize="0.9rem"
-                    sx={{ color: theme.palette.secondary[100] }}
-                  >
-                    {user.firstName}
-                  </Typography>
-                  <Typography
-                    fontSize="0.8rem"
-                    sx={{ color: theme.palette.secondary[200] }}
-                  >
-                    {user.email}
-                  </Typography>
-                </Box>
-                <SettingsOutlined
-                  sx={{ color: theme.palette.secondary[200], fontSize: "25px" }}
-                />
-              </FlexBetween>
-            </Box>
-          </Drawer>
+                          <ListItemIcon
+                            sx={{
+                              ml: "2rem",
+                              color:
+                                active === lcText
+                                  ? theme.palette.primary[600]
+                                  : theme.palette.secondary[200],
+                            }}
+                          >
+                            {icon}
+                          </ListItemIcon>
+                          <ListItemText primary={text} />
+                          {active === lcText && (
+                            <ChevronRightOutlined sx={{ ml: "auto" }} />
+                          )}
+                        </ListItemButton>
+                      </ListItem>
+                    );
+                  })}
+                </List>
+              </Box>
+            </Drawer>
+          </ClickAwayListener>
         )}
       </Box>
     </>
