@@ -55,7 +55,7 @@ const BasicPlan = ({
   });
   return (
     <>
-      <div style={{ opacity: "0.6", padding: "2rem 2rem" }}>
+      <div style={{ opacity: "0.6", padding: "1rem 1rem" }}>
         <p style={{ padding: "20px 0 20px 10px" }}>{investmentPlanText}</p>
         <ul>
           <li style={{ padding: "10px" }}>
