@@ -20,6 +20,8 @@ const CryptoAddress = ({
   const theme = useTheme();
   const [isCopied, setIsCopied] = useState(false);
   const [process, setProcess] = useState(false);
+  const [deposited, setDeposited ] = useState(false);
+  const [ errorMessage, setErrorMessage ] = useState("")
 
   async function copyTextToClipboard(text) {
     if ("clipboard" in navigator) {
@@ -38,7 +40,7 @@ const CryptoAddress = ({
         }, 2000);
       })
       .catch((err) => {
-        
+        window.alert(err)
       });
   };
 
@@ -165,11 +167,14 @@ const CryptoAddress = ({
                   }
                   
                   axios(configuration).then(() => {
-                    toast.warning("Transaction Pending, contact customer support for confirmation", {transition: Bounce});
+                    toast.warning("Deposit amount Pending, contact customer support for confirmation", {transition: Bounce});
                     setProcess(false);
+                    setDeposited(true);
                   }).catch((err) => {
                     toast.error(`${err.response.data.message}`, {transition: Bounce});
-                    setProcess(false)
+                    setProcess(false);
+                    setDeposited(false)
+                    setErrorMessage(`${err.response.data.message}`)
                   })
                 }
               }}
@@ -204,19 +209,33 @@ const CryptoAddress = ({
                     value={values.amountDeposited}
                   />
                   <Button
-                    sx={{
-                      
-                      color: "RGB(255, 255, 255, 0.8)",
-                      backgroundColor: "RGB(33, 41, 92)",
+                    sx={{  
+                      height: "60px",
+                      borderRadius: "10px",
+                      backgroundColor: theme.palette.primary[400],
+                      color: process ? "black" : "#fff",
                     }}
                     type="submit"
-                    onClick={handleSubmit}
+
                   >
                     { process ? "please wait..." : `I have sent ${cryptoSentButtonText} to the address above`}
-                  </Button>
+                  </Button> 
                 </form>
+              
               )}
+             
             </Formik>
+            {deposited ? (
+                  <p style={{ textAlign: "center" }} className="text-green-600">
+                    Transaction currently under review, contact customer support
+                  </p>
+                ) : (
+                  ""
+                )}
+
+                <p style={{ textAlign: "center" }} className="text-red-600">
+                  {errorMessage}
+                </p>
           </Box>
         </Box>
       </Box>

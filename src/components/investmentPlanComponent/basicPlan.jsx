@@ -11,7 +11,8 @@ import TextField from "@mui/material/TextField";
 import styles from "../../style";
 import DashboardFooter from "../DashboardFooter";
 import { useEffect } from "react";
-import ReactLoading from "react-loading"; 
+import ReactLoading from "react-loading";
+
 
 const BasicPlan = ({
   investmentPlanText,
@@ -54,7 +55,7 @@ const BasicPlan = ({
   });
   return (
     <>
-      <div style={{ opacity: "0.6", padding: "2rem 0" }}>
+      <div style={{ opacity: "0.6", padding: "2rem 2rem" }}>
         <p style={{ padding: "20px 0 20px 10px" }}>{investmentPlanText}</p>
         <ul>
           <li style={{ padding: "10px" }}>
@@ -142,9 +143,7 @@ const BasicPlan = ({
                 setProcess(false);
                 setSuccessful(true);
                 toast(
-                  `Congrats purchase completed ${(
-                    <Link to="/active-contracts">View contracts</Link>
-                  )}`
+                  `investment plan purchace was successful. view in active-contracts`
                 );
               })
               .catch((error) => {
@@ -281,7 +280,7 @@ const BasicPlan = ({
             {successful ? (
               <p style={{ textAlign: "center" }} className="text-green-600">
                 Contract purchased and registered successfully{" "}
-                <span>
+                <span style={{ textDecoration: "underline"}}>
                   <Link to="/active-contracts">View contract</Link>
                 </span>
               </p>

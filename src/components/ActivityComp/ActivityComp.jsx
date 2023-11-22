@@ -35,7 +35,7 @@ const ActivityComp = ({ data, isLoading }) => {
     },
     {
       field: "amount",
-      headerName: "Amount (USD)",
+      headerName: "Amount",
       flex: 0.5,
     },
     {

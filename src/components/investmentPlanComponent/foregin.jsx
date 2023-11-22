@@ -10,6 +10,8 @@ import BasicPlan from "./basicPlan";
 import { useGetContractsQuery } from "../../state/api";
 import { getUserId } from "../getUserId";
 
+
+
 const Foregin = () => {
   const theme = useTheme();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
@@ -88,7 +90,7 @@ const Foregin = () => {
 
   return (
     <>
-      <div style={{ padding: "40px 0 50px 10px", opacity: "0.6" }}>
+      <div style={{ padding: "1.3rem 2rem 1.3rem 2rem", opacity: "0.6" }}>
         {" "}
         <Typography variant="h5" sx={{ wordSpacing: "1px" }} lineHeight="1.7">
           The foregin exchange market where currencies are traded is the largest
@@ -109,7 +111,7 @@ const Foregin = () => {
       <Box>
         <Box>
           <Typography
-            style={{ p: "50px 0 0 10px", opacity: "0.6", fontSize: "1rem" }}
+            style={{ p: "3rem 2rem 1.3rem 2rem", opacity: "0.6", fontSize: "1rem" }}
           >
             Select a preferred Foregin Exchange Investment plan{" "}
           </Typography>
@@ -129,12 +131,13 @@ const Foregin = () => {
               <Button
                 onClick={handleBasicPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0" }}
+                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isBasicPlanClicked ? theme.palette.grey[800] : "none" }}
               >
                 <Typography
                   sx={{
                     opacity: "0.5",
                     color: theme.palette.secondary[100],
+                    
                   }}
                 >
                   Basic Plan
@@ -146,7 +149,7 @@ const Foregin = () => {
               <Button
                 onClick={handleStandardPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0" }}
+                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isStandardPlanClicked ? theme.palette.grey[800] : "none" }}
               >
                 <Typography
                   sx={{
@@ -163,7 +166,7 @@ const Foregin = () => {
               <Button
                 onClick={handleSpecialPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0" }}
+                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isSpecialPlanClicked ? theme.palette.grey[800] : "none" }}
               >
                 <Typography
                   sx={{

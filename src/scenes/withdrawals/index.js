@@ -66,8 +66,8 @@ const Withdrawals = () => {
     <>
       <div>
         <ToastContainer
-          position="top-center"
-          autoClose={5000}
+          position="bottom-center"
+          autoClose={6000}
           hideProgressBar={true}
           newestOnTop={false}
           rtl={false}
@@ -76,8 +76,9 @@ const Withdrawals = () => {
           pauseOnHover
           theme="dark"
           style={{
-            height: "150px",
+            height: "300px",
             position: "fixed",
+            padding: "2rem"
           }}
           transition={Bounce}
         />

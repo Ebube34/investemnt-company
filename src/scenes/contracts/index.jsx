@@ -37,8 +37,8 @@ return (
   <>
   <Box height="40px"></Box>
   <ToastContainer
-      position="top-center"
-      autoClose={5000}
+      position="bottom-center"
+      autoClose={6000}
       hideProgressBar={true}
       newestOnTop={false}
       rtl={false}
@@ -48,8 +48,9 @@ return (
       theme="dark"
       transition={Bounce}
       style={{
-        height: "150px",
-        position: "fixed"
+        height: "300px",
+            position: "fixed",
+            padding: "2rem"
       }}
     />
   <DashboardHeading title="CONTRACT" subTitle="Investment plans" />

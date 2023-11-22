@@ -90,7 +90,7 @@ const Crypto = () => {
   }
   return (
     <>
-      <div style={{ padding: "40px 0 20px 10px", opacity: "0.6" }}>
+      <div style={{ padding: "1.3rem 2rem 1.3rem 2rem", opacity: "0.6" }}>
         <Typography variant="h5" sx={{ wordSpacing: "1px" }} lineHeight="1.7">
           Cryptocurrency a digital payment system that do not rely on banks to
           verify transactions. A peer-to-peer system that can enable anyone
@@ -113,7 +113,7 @@ const Crypto = () => {
       <Box>
         <Box>
           <Typography
-            sx={{ p: "30px 0 0 10px", opacity: "0.6", fontSize: "1rem" }}
+            sx={{ p: "3rem 2rem 1.3rem 2rem", opacity: "0.6", fontSize: "1rem" }}
           >
             Select preferred Cryptocurrency investment plan
           </Typography>
@@ -133,7 +133,8 @@ const Crypto = () => {
               <Button
                 onClick={handleBasicPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0" }}
+                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isBasicPlanClicked ? theme.palette.grey[800] : "none" }}
+                
               >
                 <Typography
                   sx={{
@@ -150,7 +151,7 @@ const Crypto = () => {
               <Button
                 onClick={handleStandardPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0" }}
+                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isStandardPlanClicked ? theme.palette.grey[800] : "none" }}
               >
                 <Typography
                   sx={{
@@ -172,7 +173,7 @@ const Crypto = () => {
                 <Typography
                   sx={{
                     opacity: "0.5",
-                    color: theme.palette.secondary[100],
+                    color: theme.palette.secondary[100], backgroundColor: isSpecialPlanClicked ? theme.palette.grey[800] : "none"
                   }}
                 >
                   Special Plan

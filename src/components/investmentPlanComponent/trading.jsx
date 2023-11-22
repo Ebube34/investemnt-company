@@ -86,7 +86,7 @@ const Trading = () => {
   }
   return (
     <>
-      <div style={{ padding: "40px 0 50px 10px", opacity: "0.6" }}>
+      <div style={{ padding: "1.3rem 2rem 1.3rem 2rem", opacity: "0.6" }}>
         {" "}
         <Typography variant="h5" sx={{ wordSpacing: "1px" }} lineHeight="1.7">
           By trading investment we mean creating a platform where our investors
@@ -108,7 +108,7 @@ const Trading = () => {
       <Box>
         <Box>
           <Typography
-            style={{ p: "50px 0 0 10px", opacity: "0.6", fontSize: "1rem" }}
+            style={{ p: "3rem 2rem 1.3rem 2rem", opacity: "0.6", fontSize: "1rem" }}
           >
             Select a preferred Trading Investment plan{" "}
           </Typography>
@@ -127,7 +127,7 @@ const Trading = () => {
               <Button
                 onClick={handleBasicPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0" }}
+                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isStandardPlanClicked ? theme.palette.grey[800] : "none" }}
               >
                 <Typography
                   sx={{
@@ -144,7 +144,7 @@ const Trading = () => {
               <Button
                 onClick={handleStandardPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0" }}
+                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isStandardPlanClicked ? theme.palette.grey[800] : "none" }}
               >
                 <Typography
                   sx={{
@@ -161,7 +161,7 @@ const Trading = () => {
               <Button
                 onClick={handleSpecialPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0" }}
+                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isSpecialPlanClicked ? theme.palette.grey[800] : "none" }}
               >
                 <Typography
                   sx={{

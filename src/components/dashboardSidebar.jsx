@@ -32,6 +32,8 @@ import FlexBetween from "../components/flexBetween.jsx";
 import { logo, userProfile } from "../assets";
 import { ClickAwayListener } from "@mui/base/ClickAwayListener";
 import ReactLoading from "react-loading";
+import AddCardOutlinedIcon from '@mui/icons-material/AddCardOutlined';
+import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 
 const navItems = [
   {
@@ -44,7 +46,7 @@ const navItems = [
   },
   {
     text: "Contract",
-    icon: <ShoppingCartOutlined />,
+    icon: <InventoryOutlinedIcon />,
   },
   {
     text: "Market",
@@ -56,7 +58,7 @@ const navItems = [
   },
   {
     text: "Deposit",
-    icon: <Groups2Outlined />,
+    icon: <AddCardOutlinedIcon />,
   },
   {
     text: "",

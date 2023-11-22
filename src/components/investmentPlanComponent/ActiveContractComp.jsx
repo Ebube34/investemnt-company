@@ -15,6 +15,7 @@ import FlexBetween from "../../components/flexBetween";
 import { useEffect } from "react";
 import ReactLoading from "react-loading";
 
+
 const ActiveContractMain = ({
   _id,
   investmentType,

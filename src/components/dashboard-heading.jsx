@@ -5,7 +5,7 @@ import React from 'react';
 const DashboardHeading = ({ title, subTitle }) => {
     const theme = useTheme();
   return (
-    <Box>
+    <Box padding="1rem">
         <Typography 
         variant="h2" 
         color="#fff" 
