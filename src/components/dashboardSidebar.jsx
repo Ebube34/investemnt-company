@@ -15,8 +15,6 @@ import {
   ChevronLeft,
   ChevronRightOutlined,
   HomeOutlined,
-  ShoppingCartOutlined,
-  Groups2Outlined,
   ReceiptLongOutlined,
   PublicOutlined,
   PointOfSaleOutlined,
