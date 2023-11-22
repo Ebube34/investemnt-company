@@ -90,7 +90,7 @@ const Foregin = () => {
 
   return (
     <>
-      <div style={{ padding: "1.3rem 2rem 1.3rem 2rem", opacity: "0.6" }}>
+      <div style={{ padding: "1.3rem 1rem 1.3rem 1rem", opacity: "0.6" }}>
         {" "}
         <Typography variant="h5" sx={{ wordSpacing: "1px" }} lineHeight="1.7">
           The foregin exchange market where currencies are traded is the largest
@@ -111,7 +111,7 @@ const Foregin = () => {
       <Box>
         <Box>
           <Typography
-            style={{ p: "3rem 2rem 1.3rem 2rem", opacity: "0.6", fontSize: "1rem" }}
+            style={{ p: "2rem 1rem 1.3rem 1rem", opacity: "0.6", fontSize: "1rem" }}
           >
             Select a preferred Foregin Exchange Investment plan{" "}
           </Typography>

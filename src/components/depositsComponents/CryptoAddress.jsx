@@ -167,7 +167,7 @@ const CryptoAddress = ({
                   }
                   
                   axios(configuration).then(() => {
-                    toast.warning("Deposit amount Pending, contact customer support for confirmation", {transition: Bounce});
+                    toast.warning("Transaction Pending, contact customer support for confirmation", {transition: Bounce});
                     setProcess(false);
                     setDeposited(true);
                   }).catch((err) => {

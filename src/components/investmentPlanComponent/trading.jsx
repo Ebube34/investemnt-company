@@ -86,7 +86,7 @@ const Trading = () => {
   }
   return (
     <>
-      <div style={{ padding: "1.3rem 2rem 1.3rem 2rem", opacity: "0.6" }}>
+      <div style={{ padding: "1.3rem 1rem 1.3rem 1rem", opacity: "0.6" }}>
         {" "}
         <Typography variant="h5" sx={{ wordSpacing: "1px" }} lineHeight="1.7">
           By trading investment we mean creating a platform where our investors
@@ -108,7 +108,7 @@ const Trading = () => {
       <Box>
         <Box>
           <Typography
-            style={{ p: "3rem 2rem 1.3rem 2rem", opacity: "0.6", fontSize: "1rem" }}
+            style={{ p: "2rem 1rem 1.3rem 1rem", opacity: "0.6", fontSize: "1rem" }}
           >
             Select a preferred Trading Investment plan{" "}
           </Typography>

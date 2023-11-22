@@ -90,7 +90,7 @@ const Crypto = () => {
   }
   return (
     <>
-      <div style={{ padding: "1.3rem 2rem 1.3rem 2rem", opacity: "0.6" }}>
+      <div style={{ padding: "1.3rem 1rem 1.3rem 1rem", opacity: "0.6" }}>
         <Typography variant="h5" sx={{ wordSpacing: "1px" }} lineHeight="1.7">
           Cryptocurrency a digital payment system that do not rely on banks to
           verify transactions. A peer-to-peer system that can enable anyone
@@ -113,7 +113,7 @@ const Crypto = () => {
       <Box>
         <Box>
           <Typography
-            sx={{ p: "3rem 2rem 1.3rem 2rem", opacity: "0.6", fontSize: "1rem" }}
+            sx={{ p: "2rem 1rem 1.3rem 1rem", opacity: "0.6", fontSize: "1rem" }}
           >
             Select preferred Cryptocurrency investment plan
           </Typography>
