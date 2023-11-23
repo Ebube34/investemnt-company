@@ -40,7 +40,7 @@ const DashboardNavbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
       >
         <Toolbar sx={{ justifyContent: "space-between",  }}>
           <FlexBetween>
-            <IconButton sx={{ paddingLeft: "2rem"}} onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
+            <IconButton onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
               <MenuIcon sx={{ fontSize: "30px" }} />
             </IconButton>
           </FlexBetween>
@@ -64,10 +64,12 @@ const DashboardNavbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
                   alignItems: "center",
                   textTransform: "none",
                   gap: "0rem",
+                  paddingRight: "-30px",
+                  marginRight: "-16px"
                 }}
               >
                 <ArrowDropDownOutlined
-                  sx={{ color: "#fff", fontSize: "30px", paddingRight: "0", marginRight: "0"  }}
+                  sx={{ color: "#fff", fontSize: "30px"}}
                 />
               </Button>
             </FlexBetween>

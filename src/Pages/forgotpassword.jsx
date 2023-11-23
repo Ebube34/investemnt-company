@@ -57,7 +57,7 @@ function ForgotPassword() {
     <>
       <div className="bg-primary w-full overflow-hidden">
         <ToastContainer
-          position="top-center"
+          position="bottom-center"
           autoClose={5000}
           hideProgressBar={true}
           newestOnTop={false}
@@ -68,7 +68,7 @@ function ForgotPassword() {
           theme="dark"
           transition={Bounce}
           style={{
-            height: "150px",
+            height: "300px",
             position: "fixed",
           }}
         />
@@ -100,7 +100,7 @@ function ForgotPassword() {
               axios(configuration)
                 .then((result) => {
                   const _id = result.data.userId;
-                  const secretPass = "Xkhzg478tYUAEQivas65";
+                  const secretPass = "Xkhzg478tYUAEQivas65"
 
                   const data = CryptoJS.AES.encrypt(
                     JSON.stringify(_id), 
@@ -253,8 +253,8 @@ function ForgotPassword() {
             )}
           </Formik>
         </Box>
-        <DashboardFooter />
       </div>
+      <DashboardFooter />
     </>
   );
 }

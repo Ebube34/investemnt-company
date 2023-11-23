@@ -55,14 +55,14 @@ const BasicPlan = ({
   });
   return (
     <>
-      <div style={{ opacity: "0.6", padding: "1rem 1rem" }}>
+      <div style={{ opacity: "0.6", padding: "1rem 0.3rem" }}>
         <p style={{ padding: "20px 0 20px 10px" }}>{investmentPlanText}</p>
         <ul>
           <li style={{ padding: "10px" }}>
             Earnings will be credited at the end of month.
           </li>
           <li style={{ padding: "10px" }}>
-            Starting capital invested credited at the end of each contract.
+            Capital invested credited at the end of each contract.
           </li>
           <li style={{ padding: "10px" }}>
             Contracts can be terminated at any point after purchase.
@@ -225,7 +225,7 @@ const BasicPlan = ({
                 sx={{ gridColumn: "span 4", textAlign: "center", gap: "0rem" }}
               >
                 <p className={`${styles.paragraph}`}>
-                  wallet balance{" "}
+                  account balance
                   {loading ? (
                     <div
                       style={{ display: "flex", justifyContent: "center" }}

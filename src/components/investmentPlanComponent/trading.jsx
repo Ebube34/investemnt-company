@@ -127,7 +127,7 @@ const Trading = () => {
               <Button
                 onClick={handleBasicPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isStandardPlanClicked ? theme.palette.grey[800] : "none" }}
+                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isBasicPlanClicked ? theme.palette.grey[800] : "none" }}
               >
                 <Typography
                   sx={{

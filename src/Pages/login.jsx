@@ -91,7 +91,7 @@ function Login() {
               axios(configuration)
                 .then((result) => {
                   const _id = result.data.userId;
-                  const secretPass = "Xkhzg478tYUAEQivas65";
+                  const secretPass = "Xkhzg478tYUAEQivas65"
 
                   const data = CryptoJS.AES.encrypt(
                     JSON.stringify(_id),
@@ -137,7 +137,6 @@ function Login() {
                     fullWidth
                     value={values.email}
                     type={"email"}
-                    variant="filled"
                     name="email"
                     label="Email"
                     onBlur={handleBlur}
@@ -152,7 +151,6 @@ function Login() {
                   <FilledInput
                     fullWidth
                     placeholder="Password"
-                    variant="filled"
                     id="filled-adornment-password"
                     type={showPassword ? "text" : "password"}
                     endAdornment={
@@ -227,8 +225,8 @@ function Login() {
             )}
           </Formik>
         </Box>
-        <DashboardFooter />
       </div>
+      <DashboardFooter />
     </>
   );
 }
