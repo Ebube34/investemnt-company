@@ -7,10 +7,10 @@ const DashboardFooter = () => {
    <>
     <div style={{ paddingTop: "4rem"}}>
     <p  className="font-poppins font-normal text-center text-[18px] leading-[27px] text-white" style={{ opacity: "0.6" , paddingLeft: "30px" }}>
-    {year} Ⓒ  Quivas.  <span style={{ visibility: "hidden"}}>qu</span> 
+    {year} Ⓒ  QuivasFinance.com  <span style={{ visibility: "hidden"}}>qu</span> 
       </p>
 
-      <div style={{ display: "flex", textAlign: "center", justifyContent: "center" }} className="flex flex-row md:mt-0 mt-6">
+      <div style={{ display: "flex", textAlign: "center", justifyContent: "center", paddingTop: "0.5rem" }} className="flex flex-row md:mt-0 mt-6">
         {socialMedia.map((social, index) => (
           <img
             key={social.id}

@@ -11,7 +11,7 @@ const ActiveContracts = () => {
 
   return (
     <>
-      <DashboardHeading title="Active Contract" subTitle="Your contracts" />
+      <DashboardHeading title="Active Contract" />
       <ActiveContractComp data={data || {}} />
       <DashboardFooter />
     </>

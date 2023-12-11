@@ -187,6 +187,7 @@ const DashboardSidebar = ({
                         color={theme.palette.grey[100]}
                         fontWeight="bold"
                         sx={{ m: "10px 0 0 0" }}
+                        onClick={() => navigate("/settings")}
                       >
                         {Loading ? (
                           <div

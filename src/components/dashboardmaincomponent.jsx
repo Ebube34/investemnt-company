@@ -17,7 +17,7 @@ import ReactLoading from 'react-loading';
 
 const Dashboardmaincomponent = ({ user }) => { 
   const [loading, setLoading] = useState(true);
-
+ 
   useEffect(() => {
     if (user === undefined || user === null) {
       setLoading(true);
@@ -35,7 +35,7 @@ const Dashboardmaincomponent = ({ user }) => {
   return (
     <>
       <Box height="40px"></Box>
-      <DashboardHeading title="ACCOUNT" subTitle="Welcome to your dashboard" />
+      <DashboardHeading title="ACCOUNT" />
       <Box height="40px"></Box>
       <Box
         display="grid"

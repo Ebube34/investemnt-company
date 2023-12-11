@@ -1,9 +1,14 @@
 import { features } from "../constants";
 import styles, { layout } from "../style";
 import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
-const FeatureCard = ({ icon, title, content, index }) => (
-  <div className={`flex flex-row p-6 rounded-[20px] ${index !== features.length - 1 ? "mb-6" : "mb-0"} feature-card`}>
+const FeatureCard = ({ icon, title, content, index, link }) => {
+  const navigate = useNavigate()
+
+  return (
+    <>
+  <div style={{ cursor: "pointer"}} onClick={() => navigate(link)} className={`flex flex-row p-6 rounded-[20px] ${index !== features.length - 1 ? "mb-6" : "mb-0"} feature-card`}>
     <div className={`w-[64px] h-[64px] rounded-full ${styles.flexCenter} bg-dimBlue`}>
       <img src={icon} alt="star" className="w-[50%] h-[50%] object-contain" />
     </div>
@@ -16,10 +21,12 @@ const FeatureCard = ({ icon, title, content, index }) => (
       </p>
     </div>
   </div>
-);
+    </>
+  )
+};
 
 const Business = () =>  (
-  <section id="features" className={layout.section}>
+  <section id="features" className={layout.section}> 
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
         You handle the money, <br className="sm:block hidden" /> we’ll do the trades.

@@ -275,7 +275,6 @@ const AccountDeposits = () => {
       <Box height="55px"></Box>
       <DashboardHeading
         title="DEPOSIT"
-        subTitle="Our recommended payment systems"
       />
 
       {/* <div>

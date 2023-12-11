@@ -15,8 +15,7 @@ const Markets = () => {
     <>
       <Box padding="20px 0 20px 0">
         <DashboardHeading
-          title="Markets"
-          subTitle="browse the market place. A sneak peak on our traded markets"
+          title="Market"
         />
       </Box>
       <Box>

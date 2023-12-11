@@ -44,7 +44,7 @@ const Footer = () => (
 
     <div className="w-full flex justify-between items-center md:flex-row flex-col pt-6 border-t-[1px]  border-t-[#3F3E45]">
       <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-white" style={{ opacity: "0.6" }}>
-        Copyright Ⓒ {year} Quivas.  <span style={{ visibility: "hidden"}}>qu</span> Crechterwoord K12 182 DK Alknjkcb. <span style={{ visibility: "hidden"}}>qu</span> All Rights Reserved.
+        Copyright Ⓒ {year} QuivasFinance.com  <span style={{ visibility: "hidden"}}>qu</span> Crechterwoord K12 182 DK Alknjkcb. <span style={{ visibility: "hidden"}}>qu</span> All Rights Reserved.
       </p>
 
       <div className="flex flex-row md:mt-0 mt-6">

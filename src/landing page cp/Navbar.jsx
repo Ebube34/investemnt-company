@@ -29,16 +29,19 @@ const Navbar = () => {
             <Link to="/">Home</Link>
           </p>
           <p>
-            <Link>Dashboard</Link>
+            <Link to="/our-strategy">Our Strategy</Link>
           </p>
           <p>
-            <Link>Investment</Link>
+            <Link to="/our-team">Team</Link>
           </p>
           <p>
-            <Link>Resources</Link>
+            <Link to="/investment">Invest</Link>
           </p>
           <p>
-            <Link>About us</Link>
+            <Link to="/contact-us">Contact</Link>
+          </p>
+          <p>
+            <Link to="/about-us">About</Link>
           </p>
         </div>
       </div>
@@ -49,7 +52,12 @@ const Navbar = () => {
         </button>
       </div>
       <div className="gpt3__navbar-menu">
-        <FiUser onClick={() => navigate("/login")} style={{ marginRight: "20px" }} color="#fff" size={30} />
+        <FiUser
+          onClick={() => navigate("/login")}
+          style={{ marginRight: "20px" }}
+          color="#fff"
+          size={30}
+        />
         {toggleMenu ? (
           <RiCloseLine
             color="#fff"
@@ -70,10 +78,10 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
               </p>
               <p>
-                <Link>Dashboard</Link>
+                <Link to="/our-strategy">Our Strategy</Link>
               </p>
               <p>
-                <Link>Investment</Link>
+                <Link to="/our-team">Team</Link>
               </p>
               <p className="new_styles">
                 <p onClick={handleResourcesClick}>
@@ -85,10 +93,13 @@ const Navbar = () => {
                 </p>
               </p>
               <p>
-                <Link>Our Team</Link>
+                <Link to="/investment">Invest</Link>
               </p>
               <p>
-                <Link>About us</Link>
+                <Link to="/contact-us">Contact</Link>
+              </p>
+              <p>
+                <Link to="/about-us">About</Link>
               </p>
             </div>
             <div className="gpt3__navbar-menu_container-links-sign">

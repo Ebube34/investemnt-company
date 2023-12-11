@@ -40,7 +40,7 @@ const ActiveContractMain = ({
       }}
     >
       <CardContent>
-        <Typography
+        <Typography 
           sx={{
             fontSize: 18,
             mb: "1rem",

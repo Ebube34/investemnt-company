@@ -26,6 +26,7 @@ export const features = [
     title: "Rewards",
     content:
       "Our best contracts offer some mouthwatering combinations of essential capital and profit",
+      link: "/investment"
   },
   {
     id: "feature-2",
@@ -33,6 +34,7 @@ export const features = [
     title: "100% Secured",
     content:
       "We take proactive steps make sure your information and transactions are secure.",
+      link: "/shield"
   },
   {
     id: "feature-3",
@@ -40,6 +42,7 @@ export const features = [
     title: "Integrated Support",
     content:
       "Functional support team ready to take on your challenges updating you on our trading plans and services.",
+      link: "/customer-support"
   },
 ];
 

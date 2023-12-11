@@ -82,7 +82,7 @@ const Withdrawals = () => {
           }}
           transition={Bounce}
         />
-        <DashboardHeading title="Withdraw" subTitle="Apply for withdrawal" />
+        <DashboardHeading title="Withdraw" />
         <Box height="50px" />
         <Formik
           initialValues={initialValues}

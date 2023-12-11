@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import Cookies from "js-cookie";
 import { CssBaseline } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 
 const DashboardNavbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
@@ -22,6 +23,7 @@ const DashboardNavbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
 
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     Cookies.remove("Token", { path: "/" });
@@ -46,7 +48,7 @@ const DashboardNavbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
           </FlexBetween>
 
           <FlexBetween style={{ paddingRight: "0", marginRight: "0"}}>
-            <PersonIcon sx={{ color: "#fff", fontSize: "30px" }} />
+            <div onClick={() => navigate("/settings")}><PersonIcon sx={{ color: "#fff", fontSize: "30px" }} /></div>
             <FlexBetween>
               <Menu
                 anchorEl={anchorEL}

@@ -12,7 +12,7 @@ const Geography = () => {
     return (
       <>
         <Box m="20px">
-        <DashboardHeading title="Geography" subTitle="Users around the world" />
+        <DashboardHeading title="OUR USERS" />
           <Box height="40px"></Box>
         <Box
           height="75vh"

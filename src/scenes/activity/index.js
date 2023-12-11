@@ -13,7 +13,7 @@ const Activity = () => {
   return (
     <>
       <Box>
-        <DashboardHeading title="Activity" subTitle="List of transactions" />
+        <DashboardHeading title="Activity" />
         <Box height="30px"></Box>
         <ActivityComp data={data || {}} />
         <DashboardFooter />

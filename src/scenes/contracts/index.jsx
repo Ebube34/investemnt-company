@@ -53,7 +53,7 @@ return (
             padding: "2rem"
       }}
     />
-  <DashboardHeading title="CONTRACT" subTitle="Investment plans" />
+  <DashboardHeading title="CONTRACTS" />
     <Box
       mt="20px"
       display="grid"
