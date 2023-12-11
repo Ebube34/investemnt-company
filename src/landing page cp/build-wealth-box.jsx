@@ -1,25 +1,16 @@
 import React, { useState } from "react";
 
-
-
-
 function BuildWealthBox(props) {
 
     const [isMousedOver, setIsMousedOver] = useState(false);
     
-
     function handleMouseOver() {
         setIsMousedOver(true);
     }
-
     function handleMouseOut() {
         setIsMousedOver(false);
     }
-
    
-    
-  
-  
     return(
         <>
             <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}  style={{cursor: isMousedOver ? "pointer" : ""}}   className="build-wealth-box">
