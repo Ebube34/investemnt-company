@@ -19,7 +19,7 @@ import {
   Portfolio,
   News,
   Shield,
-  CustomerSupport
+  CustomerSupport,
 } from "../Pages/index.js";
 import DashboardMain from "../scenes/dashboardmain";
 import Layout from "../scenes/layout";
@@ -27,7 +27,6 @@ import Contracts from "../scenes/contracts";
 import AccountDeposits from "../scenes/accountDeposits";
 import Markets from "../scenes/markets";
 import ActiveContracts from "../scenes/activeContracts";
-import GoogleTranslate from "./GoogleTranslate.jsx";
 import Withdrawals from "../scenes/withdrawals/index.js";
 import Activity from "../scenes/activity/index.js";
 import Calendar from "../scenes/calender/index.js";
@@ -45,7 +44,6 @@ function App() {
     <div>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
-          <GoogleTranslate />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route element={<PublicRoutes />}>
@@ -87,6 +85,17 @@ function App() {
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
+
+     <div className="support_agent"><p>Need Help?</p></div>
+      <a
+      href="https://wa.me/2348132669129"
+      className="whatsapp_float"
+      target="_blank"
+      rel="noopener noreferrer"
+      >
+      
+        <i className="fa fa-whatsapp whatsapp-icon" style={{ fontSize: "72px", textAlign: "center", color: "#25d366", zIndex: "10"}}></i>
+      </a>
     </div>
   );
 }

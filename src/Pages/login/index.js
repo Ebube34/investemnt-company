@@ -64,7 +64,7 @@ function Login() {
 
         <Navbar />
 
-        <Box mt="3rem">
+        <Box ml="1rem" mr="1rem" mt="3rem">
           <div className="sign-up_heading">
             <h3 className={`${styles.heading2}`}>Login your account</h3>
             <p className={`${styles.paragraph}`}>Enter your details below</p>

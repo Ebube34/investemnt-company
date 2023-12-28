@@ -9,6 +9,9 @@ import Testimonials from "./Testimonials";
 import CTA from "./CTA";
 import Footer from "./Footer";
 import Country from "./selectCountry";
+import InvestmentPlans from "./InvestmentPlans";
+import Clients from "./Clients";
+import Twitter from "./Twitter";
 
 export {
     Navbar,
@@ -22,5 +25,9 @@ export {
     CTA,
     Footer,
     Country,
+    InvestmentPlans,
+    Clients,
+    Twitter,
+
 }
 

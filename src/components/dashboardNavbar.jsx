@@ -14,16 +14,14 @@ import Cookies from "js-cookie";
 import { CssBaseline } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-
 const DashboardNavbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
-
   const [anchorEL, setAnchorEl] = useState(null);
 
   const isOpen = Boolean(anchorEL);
 
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     Cookies.remove("Token", { path: "/" });
@@ -40,15 +38,17 @@ const DashboardNavbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
           boxShadow: "none",
         }}
       >
-        <Toolbar sx={{ justifyContent: "space-between",  }}>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
           <FlexBetween>
             <IconButton onClick={() => setIsSideBarOpen(!isSideBarOpen)}>
               <MenuIcon sx={{ fontSize: "30px" }} />
             </IconButton>
           </FlexBetween>
 
-          <FlexBetween style={{ paddingRight: "0", marginRight: "0"}}>
-            <div onClick={() => navigate("/settings")}><PersonIcon sx={{ color: "#fff", fontSize: "30px" }} /></div>
+          <FlexBetween style={{ paddingRight: "0", marginRight: "0" }}>
+            <div onClick={() => navigate("/settings")}>
+              <PersonIcon sx={{ color: "#fff", fontSize: "30px" }} />
+            </div>
             <FlexBetween>
               <Menu
                 anchorEl={anchorEL}
@@ -67,11 +67,11 @@ const DashboardNavbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
                   textTransform: "none",
                   gap: "0rem",
                   paddingRight: "-30px",
-                  marginRight: "-16px"
+                  marginRight: "-16px",
                 }}
               >
                 <ArrowDropDownOutlined
-                  sx={{ color: "#fff", fontSize: "30px"}}
+                  sx={{ color: "#fff", fontSize: "30px" }}
                 />
               </Button>
             </FlexBetween>

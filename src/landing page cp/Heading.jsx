@@ -1,10 +1,17 @@
 import styles from "../style";
-import { discount, landingPage} from "../assets";
+import { discount, } from "../assets";
 import GetStarted from "./GetStarted";
+import { investVideo2 } from "../videos";
+import { TickerTape } from "react-ts-tradingview-widgets";
+import { Slide } from "react-awesome-reveal";
 
 const Hero = () => {
   return (
+    <>
+ 
     <section id="home" className={`flex md:flex-row flex-col ${styles.paddingY}`}>
+    <video src={investVideo2} autoPlay muted loop></video>
+
       <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
         <div className="flex flex-row items-center py-[6px] px-4 bg-discount-gradient rounded-[10px] mb-2">
           <img src={discount} alt="discount" className="w-[32px] h-[32px]" />
@@ -34,7 +41,7 @@ const Hero = () => {
       </div>
 
       <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
-        <img src={landingPage} alt="billing" className="w-[100%] h-[100%] relative z-[5]" />
+        {/* <img src={landingPage} alt="billing" className="w-[100%] h-[100%] relative z-[5]" /> */}
 
         {/* gradient start */}
         <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink__gradient" />
@@ -43,11 +50,15 @@ const Hero = () => {
         {/* gradient end */}
       </div>
       
-      <div className={`ss:hidden ${styles.flexCenter}`}>
+      <div className={`ss:hidden ${styles.flexCenter}`} style={{ paddingBottom: "2rem"}}>
         <GetStarted />
       </div>
-      
+     <div className="tradingView-w-style">
+     <TickerTape showSymbolLogo colorTheme="dark" />
+     </div>
     </section>
+    </>
+
   );
 };
 

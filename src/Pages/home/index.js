@@ -11,33 +11,40 @@ import {
   Testimonials,
   CTA,
   Footer,
+  InvestmentPlans,
+  Clients,
+  Twitter,
 } from "../../landing page cp";
-import { TickerTape } from "react-ts-tradingview-widgets";
 import CookieConsent from "react-cookie-consent";
 
 function Home() {
   return (
     <>
-      <div className="bg-primary w-full overflow-hidden">
+      <div className=" w-full overflow-hidden"> 
         <Navbar />
 
-        <div className={`bg-primary ${styles.flexStart}`}>
-          <div className={`${styles.boxWidth}`}>
+        <div className={` ${styles.flexStart}`}>
+          <div style={{ marginTop: "6rem", }} className={`${styles.boxWidth}`}>
             <Heading />
+            
           </div>
         </div>
-        <TickerTape showSymbolLogo colorTheme="dark" />
+      
+      
         <div
           style={{ color: "white" }}
           className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}
         >
           <div className={`${styles.boxWidth}`}>
             <Stat />
-            <WhatQuivas />
+           <WhatQuivas />
+            <InvestmentPlans />
             <Business />
             <Blog />
             <Testimonials />
+            <Twitter />
             <CTA />
+            <Clients />
             <BuildWealth />
             <Footer />
             <CookieConsent>This site uses cookies for the best user experience</CookieConsent>

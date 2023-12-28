@@ -11,13 +11,11 @@ import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalance
 import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import ReactLoading from 'react-loading';
+import ReactLoading from "react-loading";
 
-
-
-const Dashboardmaincomponent = ({ user }) => { 
+const Dashboardmaincomponent = ({ user }) => {
   const [loading, setLoading] = useState(true);
- 
+
   useEffect(() => {
     if (user === undefined || user === null) {
       setLoading(true);
@@ -46,44 +44,58 @@ const Dashboardmaincomponent = ({ user }) => {
           "& > div": { gridColumn: isNonMobile ? undefined : "span 12" },
         }}
       >
-
-    
-       {/* ROW 1 */}
-       <Box
+        {/* ROW 1 */}
+        <Box
           gridColumn="span 3"
           backgroundColor={theme.palette.primary[500]}
           display="flex"
           alignItems="center"
           justifyContent="center"
         >
-        <Box width="100%" m="0 30px" >
-      <Box display="flex" justifyContent="space-between">
-        <Box>
-        <IconButton>
-        <AccountBalanceWalletOutlinedIcon
-                sx={{ color: theme.palette.secondary[600], fontSize: "30px" }}
-              />
-              </IconButton>
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            sx={{ color: theme.palette.grey[100], opacity: "0.5", pt: "30px" }}
-          >
-              Account balance
-          </Typography>
-        </Box>
-      </Box>
-      <Box display="flex" justifyContent="space-between" mt="2px">
-        <Typography variant="h5" sx={{ color: theme.palette.secondary[500] }}>
-        {loading ? (
-                  <div className="spinner-div"><ReactLoading type={"spinningBubbles"} color={"#1CEEEB"} height={20} width={20} /></div>
-                  
+          <Box width="100%" m="0 30px">
+            <Box display="flex" justifyContent="space-between">
+              <Box>
+                <IconButton>
+                  <AccountBalanceWalletOutlinedIcon
+                    sx={{
+                      color: theme.palette.secondary[600],
+                      fontSize: "30px",
+                    }}
+                  />
+                </IconButton>
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  sx={{
+                    color: theme.palette.grey[100],
+                    opacity: "0.5",
+                    pt: "30px",
+                  }}
+                >
+                  Account balance
+                </Typography>
+              </Box>
+            </Box>
+            <Box display="flex" justifyContent="space-between" mt="2px">
+              <Typography
+                variant="h5"
+                sx={{ color: theme.palette.secondary[500] }}
+              >
+                {loading ? (
+                  <div className="spinner-div">
+                    <ReactLoading
+                      type={"spinningBubbles"}
+                      color={"#1CEEEB"}
+                      height={20}
+                      width={20}
+                    />
+                  </div>
                 ) : (
                   `$${Number(user.walletBalance).toFixed(2)}`
                 )}
-        </Typography>
-      </Box>
-    </Box>
+              </Typography>
+            </Box>
+          </Box>
         </Box>
         <Box
           gridColumn="span 3"
@@ -92,34 +104,50 @@ const Dashboardmaincomponent = ({ user }) => {
           alignItems="center"
           justifyContent="center"
         >
-        <Box width="100%" m="0 30px">
-      <Box display="flex" justifyContent="space-between">
-        <Box>
-        <IconButton>
-        <AccountBalanceWalletOutlinedIcon
-                sx={{ color: theme.palette.secondary[600], fontSize: "30px" }}
-              />
-              </IconButton>
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            sx={{ color: theme.palette.grey[100] , opacity: "0.5", pt: "30px"}}
-          >
-          Earnings
-          </Typography>
-        </Box>
-      </Box>
-      <Box display="flex" justifyContent="space-between" mt="2px">
-        <Typography variant="h5" sx={{ color: theme.palette.secondary[500],  }}>
-        {loading ? (
-                  <div className="spinner-div"><ReactLoading type={"spinningBubbles"} color={"#1CEEEB"} height={20} width={20} /></div>
-                  
+          <Box width="100%" m="0 30px">
+            <Box display="flex" justifyContent="space-between">
+              <Box>
+                <IconButton>
+                  <AccountBalanceWalletOutlinedIcon
+                    sx={{
+                      color: theme.palette.secondary[600],
+                      fontSize: "30px",
+                    }}
+                  />
+                </IconButton>
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  sx={{
+                    color: theme.palette.grey[100],
+                    opacity: "0.5",
+                    pt: "30px",
+                  }}
+                >
+                  Earnings
+                </Typography>
+              </Box>
+            </Box>
+            <Box display="flex" justifyContent="space-between" mt="2px">
+              <Typography
+                variant="h5"
+                sx={{ color: theme.palette.secondary[500] }}
+              >
+                {loading ? (
+                  <div className="spinner-div">
+                    <ReactLoading
+                      type={"spinningBubbles"}
+                      color={"#1CEEEB"}
+                      height={20}
+                      width={20}
+                    />
+                  </div>
                 ) : (
                   `$${Number(user.earnings).toFixed(2)}`
                 )}
-        </Typography>
-      </Box>
-    </Box>
+              </Typography>
+            </Box>
+          </Box>
         </Box>
         <Box
           gridColumn="span 3"
@@ -128,34 +156,50 @@ const Dashboardmaincomponent = ({ user }) => {
           alignItems="center"
           justifyContent="center"
         >
-        <Box width="100%" m="0 30px">
-      <Box display="flex" justifyContent="space-between">
-        <Box>
-        <IconButton>
-        <AccountBalanceWalletOutlinedIcon
-                sx={{ color: theme.palette.secondary[600], fontSize: "30px" }}
-              />
-              </IconButton>
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            sx={{ color: theme.palette.grey[100], opacity: "0.5", pt: "30px" }}
-          >
-           Total capital 
-          </Typography>
-        </Box>
-      </Box>
-      <Box display="flex" justifyContent="space-between" mt="2px">
-        <Typography variant="h5" sx={{ color: theme.palette.secondary[500] }}>
-        {loading ? (
-                  <div className="spinner-div"><ReactLoading type={"spinningBubbles"} color={"#1CEEEB"} height={20} width={20} /></div>
-                  
+          <Box width="100%" m="0 30px">
+            <Box display="flex" justifyContent="space-between">
+              <Box>
+                <IconButton>
+                  <AccountBalanceWalletOutlinedIcon
+                    sx={{
+                      color: theme.palette.secondary[600],
+                      fontSize: "30px",
+                    }}
+                  />
+                </IconButton>
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  sx={{
+                    color: theme.palette.grey[100],
+                    opacity: "0.5",
+                    pt: "30px",
+                  }}
+                >
+                  Total capital
+                </Typography>
+              </Box>
+            </Box>
+            <Box display="flex" justifyContent="space-between" mt="2px">
+              <Typography
+                variant="h5"
+                sx={{ color: theme.palette.secondary[500] }}
+              >
+                {loading ? (
+                  <div className="spinner-div">
+                    <ReactLoading
+                      type={"spinningBubbles"}
+                      color={"#1CEEEB"}
+                      height={20}
+                      width={20}
+                    />
+                  </div>
                 ) : (
                   `$${Number(user.capitalInvested).toFixed(2)}`
                 )}
-        </Typography>
-      </Box>
-    </Box>
+              </Typography>
+            </Box>
+          </Box>
         </Box>
         <Box
           gridColumn="span 3"
@@ -164,34 +208,50 @@ const Dashboardmaincomponent = ({ user }) => {
           alignItems="center"
           justifyContent="center"
         >
-        <Box width="100%" m="0 30px">
-      <Box display="flex" justifyContent="space-between">
-        <Box>
-        <IconButton>
-        <AccountBalanceWalletOutlinedIcon
-                sx={{ color: theme.palette.secondary[600], fontSize: "30px" }}
-              />
-              </IconButton>
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            sx={{ color: theme.palette.grey[100], pt: "30px", opacity: "0.5" }}
-          >
-           Total earnings 
-          </Typography>
-        </Box>
-      </Box>
-      <Box display="flex" justifyContent="space-between" mt="2px">
-        <Typography variant="h5" sx={{ color: theme.palette.secondary[500] }}>
-        {loading ? (
-                  <div className="spinner-div"><ReactLoading type={"spinningBubbles"} color={"#1CEEEB"} height={20} width={20} /></div>
-                  
+          <Box width="100%" m="0 30px">
+            <Box display="flex" justifyContent="space-between">
+              <Box>
+                <IconButton>
+                  <AccountBalanceWalletOutlinedIcon
+                    sx={{
+                      color: theme.palette.secondary[600],
+                      fontSize: "30px",
+                    }}
+                  />
+                </IconButton>
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  sx={{
+                    color: theme.palette.grey[100],
+                    pt: "30px",
+                    opacity: "0.5",
+                  }}
+                >
+                  Total earnings
+                </Typography>
+              </Box>
+            </Box>
+            <Box display="flex" justifyContent="space-between" mt="2px">
+              <Typography
+                variant="h5"
+                sx={{ color: theme.palette.secondary[500] }}
+              >
+                {loading ? (
+                  <div className="spinner-div">
+                    <ReactLoading
+                      type={"spinningBubbles"}
+                      color={"#1CEEEB"}
+                      height={20}
+                      width={20}
+                    />
+                  </div>
                 ) : (
                   `$${Number(user.totalEarnings).toFixed(2)}`
                 )}
-        </Typography>
-      </Box>
-    </Box>
+              </Typography>
+            </Box>
+          </Box>
         </Box>
         <Box
           gridColumn="span 3"
@@ -200,37 +260,54 @@ const Dashboardmaincomponent = ({ user }) => {
           alignItems="center"
           justifyContent="center"
         >
-        <Box width="100%" m="0 30px">
-      <Box display="flex" justifyContent="space-between">
-        <Box>
-        <IconButton onClick={() => navigate("/active-contracts")}>
-        <AssignmentIndOutlinedIcon
-                sx={{ color: theme.palette.secondary[600], fontSize: "30px" }}
-              />
-              </IconButton>
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            sx={{ color: theme.palette.grey[100], pt: "30px", opacity: "0.5", cursor: "pointer"}}
-            onClick={() => navigate("/active-contracts")}
-          >
-           Active contracts
-          </Typography>
-        </Box>
-      </Box>
-      <Box display="flex" justifyContent="space-between" mt="2px">
-        <Typography variant="h5" sx={{ color: theme.palette.secondary[500] }}>
-        {loading ? (
-                  <div className="spinner-div"><ReactLoading type={"spinningBubbles"} color={"#1CEEEB"} height={20} width={20} /></div>
-                  
+          <Box width="100%" m="0 30px">
+            <Box display="flex" justifyContent="space-between">
+              <Box>
+                <IconButton onClick={() => navigate("/active-contracts")}>
+                  <AssignmentIndOutlinedIcon
+                    sx={{
+                      color: theme.palette.secondary[600],
+                      fontSize: "30px",
+                    }}
+                  />
+                </IconButton>
+                <Typography
+                  variant="h4"
+                  fontWeight="bold"
+                  sx={{
+                    color: theme.palette.grey[100],
+                    pt: "30px",
+                    opacity: "0.5",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => navigate("/active-contracts")}
+                >
+                  Active contracts
+                </Typography>
+              </Box>
+            </Box>
+            <Box display="flex" justifyContent="space-between" mt="2px">
+              <Typography
+                variant="h5"
+                sx={{ color: theme.palette.secondary[500] }}
+              >
+                {loading ? (
+                  <div className="spinner-div">
+                    <ReactLoading
+                      type={"spinningBubbles"}
+                      color={"#1CEEEB"}
+                      height={20}
+                      width={20}
+                    />
+                  </div>
                 ) : (
                   `${Number(user.noOfActiveContracts)}`
                 )}
-        </Typography>
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
       </Box>
-    </Box>
-        </Box>
-        </Box>
 
       {/* part two of dashboard */}
       <Box
@@ -270,7 +347,6 @@ const Dashboardmaincomponent = ({ user }) => {
               backgroundColor: theme.palette.secondary[600],
               backgroundImage: "none",
               letterSpacing: "2px",
-              
             }}
             fullWidth="100%"
             onClick={() => navigate("/contract")}

@@ -1,4 +1,4 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, support, shield, star  } from "../assets";
+import { people01, people02, people03, facebook, instagram, linkedin, twitter,  binance, coinbase, support, shield, star, paxos, tradingView  } from "../assets";
 
 export const navLinks = [
   {
@@ -50,17 +50,17 @@ export const feedback = [
   {
     id: "feedback-1",
     content:
-      "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
+      "This company maintains its top position for exceptional customer service and prompt payments. Kudos to you!",
     name: "Herman Jensen",
-    title: "Founder & Leader",
+    title: "Banker",
     img: people01,
   },
   {
     id: "feedback-2", 
     content:
-      "Money makes your life easier. If you're lucky to have it, you're lucky.",
+      "I've been navigating the investment world since my teenage years, giving me the knack for identifying promising opportunities. Quivas stands out among the rest. Your team is truly impresive",
     name: "Steve Mark",
-    title: "Founder & Leader",
+    title: "Computer Engineer",
     img: people02,
   },
   {
@@ -68,7 +68,7 @@ export const feedback = [
     content:
       "It is usually people in the money business, finance, and international trade that are really rich.",
     name: "Kenn Gallagher",
-    title: "Founder & Leader",
+    title: "Investor",
     img: people03,
   },
 ];
@@ -77,7 +77,7 @@ export const stats = [
   {
     id: "stats-1",
     title: "Users",
-    value: "2800+",
+    value: "11,465+",
   },
   {
     id: "stats-2",
@@ -86,8 +86,8 @@ export const stats = [
   },
   {
     id: "stats-3",
-    title: "Transaction",
-    value: "$60M+",
+    title: "Transactions",
+    value: "$100M+",
   },
 ];
 
@@ -200,7 +200,7 @@ export const socialMedia = [
 export const clients = [
   {
     id: "client-1",
-    logo: airbnb,
+    logo: tradingView,
   },
   {
     id: "client-2",
@@ -212,6 +212,6 @@ export const clients = [
   },
   {
     id: "client-4",
-    logo: dropbox,
+    logo: paxos,
   },
 ];

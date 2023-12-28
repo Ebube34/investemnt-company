@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Slide } from "react-awesome-reveal";
 
 function BuildWealthBox(props) {
 
@@ -13,6 +14,7 @@ function BuildWealthBox(props) {
    
     return(
         <>
+        <Slide duration={1500}>
             <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}  style={{cursor: isMousedOver ? "pointer" : ""}}   className="build-wealth-box">
                 <img className="Build-wealth-img" src={props.imgSrc} alt="Build-wealth" /> 
                 <div className="wealth-text-box">
@@ -21,6 +23,7 @@ function BuildWealthBox(props) {
                     <p>{props.author}</p>
                 </div>
             </div>
+            </Slide>
         </>
     );
 };

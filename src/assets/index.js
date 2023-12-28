@@ -35,6 +35,14 @@ import buildWealth02 from "./build-wealth-2.jpg";
 import buildWealth03 from "./build-wealth-3.jpg";
 import buildWealth04 from "./build-wealth-4.png";
 import userProfile from './user-profile-img.png';
+import InvestmentFeatured from './invest-featured.png';
+import News01 from "./news-001.jpg"
+import News02 from "./news-002.png"
+import News03 from "./news-003.jpg"
+import News04 from "./news-004.jpg"
+import News05 from "./news-005.jpg"
+import tradingView from "./TradingView_Logo_Block.svg"
+import paxos from "./Paxos-logo.svg.png";
 
 
 export {
@@ -75,4 +83,12 @@ export {
   buildWealth03,
   buildWealth04,
   userProfile,
+  InvestmentFeatured,
+  News01,
+  News02,
+  News03,
+  News04,
+  News05,
+  tradingView,
+  paxos
 };

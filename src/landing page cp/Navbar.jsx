@@ -5,6 +5,7 @@ import logo from "../assets/logo.png";
 import ResourcesMenuPages2 from "./resources-sub-menu";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
+
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [resourcesIsClicked, setResourcesClick] = useState(false);
@@ -19,7 +20,9 @@ const Navbar = () => {
   }
 
   return (
-    <div className="gpt3__navbar">
+    
+    <div className="gpt3__navbar" style={{ background: "#171622", position: "fixed", zIndex: "10", width: "100%"}}>
+    
       <div className="gpt3__navbar-links">
         <div>
           <img src={logo} alt="Quivas" className="w-[134px] h-[50px]" />
@@ -28,13 +31,7 @@ const Navbar = () => {
           <p>
             <Link to="/">Home</Link>
           </p>
-          <p>
-            <Link to="/our-strategy">Our Strategy</Link>
-          </p>
-          <p>
-            <Link to="/our-team">Team</Link>
-          </p>
-          <p>
+          <p> 
             <Link to="/investment">Invest</Link>
           </p>
           <p>
@@ -72,16 +69,10 @@ const Navbar = () => {
           />
         )}
         {toggleMenu && (
-          <div className="gpt3__navbar-menu_container scale-up-center">
-            <div className="gpt3__navbar-menu_container-links">
+          <div className="gpt3__navbar-menu_container scale-in-end">
+            <div className="gpt3__navbar-menu_container-links"> 
               <p>
                 <Link to="/">Home</Link>
-              </p>
-              <p>
-                <Link to="/our-strategy">Our Strategy</Link>
-              </p>
-              <p>
-                <Link to="/our-team">Team</Link>
               </p>
               <p className="new_styles">
                 <p onClick={handleResourcesClick}>

@@ -2,6 +2,7 @@ import { features } from "../constants";
 import styles, { layout } from "../style";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
+import { Slide } from "react-awesome-reveal";
 
 const FeatureCard = ({ icon, title, content, index, link }) => {
   const navigate = useNavigate()
@@ -32,7 +33,7 @@ const Business = () =>  (
         You handle the money, <br className="sm:block hidden" /> we’ll do the trades.
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        With the right investment plan, you can improve your financial life, earning rewards while saving money. The foundations to generational wealth.
+        With the right investment plan, you can improve your financial life, earning returns while saving money. The foundations to generational wealth.
       </p>
 
       <Button styles={`mt-10`} content="Get Started" />
@@ -40,7 +41,9 @@ const Business = () =>  (
 
     <div className={`${layout.sectionImg} flex-col`}>
       {features.map((feature, index) => (
+        <Slide duration={1500}>
         <FeatureCard key={feature.id} {...feature} index={index} />
+        </Slide>
       ))}
     </div>
   </section>

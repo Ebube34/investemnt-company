@@ -19,7 +19,7 @@
   --color-subtext: #FF8A71;
 }
 body {
-  background: #00040F;
+  background-color: #050914;
 }
 
 * {
@@ -235,9 +235,90 @@ body {
   display: none;
 }
 
+/* whatsapp icon styles */
+
+.whatsapp_float {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  color: #fff;
+  text-align: center;
+  font-size: 30px;
+  z-index: 100;
+}
+
+.support_agent {
+  position: fixed;
+  width: 100px;
+  height: 30px;
+  bottom: 110px;
+  right: 10px;
+  color: #fff;
+  font-size: 18px;
+  z-index: 100;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.whatsapp-icon {
+  margin-top: 16px;
+}
+
+@media screen and (max-width: 762px) {
+  .whatsapp-icon {
+    margin-top: 10px;
+  }
+
+  .whatsapp_float {
+    bottom: 30px;
+    right: 30px;
+    font-size: 22px;
+  }
+
+  .support_agent {
+    bottom: 100px;
+  }
+}
 
 
+#home {
+  position: relative;
+  background: rgba(15, 21, 37, .7);
+}
 
+#home::before {
+      content: '';
+			position: absolute;
+			inset: 0;
+			background: rgba(15, 21, 37, .8);
+			z-index: -1;
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+
+.twiter-style{
+  height: 500px;
+  overflow-y: scroll;
+  margin: 0 0 4rem 0;
+}
+
+.slide-in-scroll {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+}
+.reveal-on-scroll {
+  transform: translateX(-150%) !important; 
+  opacity: 0 !important;
+}
 
 /* Navbar styles */
 .gpt3__navbar {
@@ -262,6 +343,7 @@ body {
 .gpt3__navbar-links_container {
   display: flex;
   flex-direction: row;
+  padding-left: 13rem;
 }
 
 .gpt3__navbar-sign {
@@ -276,34 +358,37 @@ body {
   color: #fff;
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 25px;
   text-transform: capitalize;
-
-  margin: 0 1rem;
+  margin: 0 1.5rem;
   cursor: pointer;
 }
 
 .gpt3__navbar-sign button,
 .gpt3__navbar-menu_container button {
-  padding: 0.5rem 1rem;
-  color: #fff;
-  background: #FF4820;
+  padding: 1rem 1.5rem;
+  color: #59DCE2;
+  background: transparent;
+  border: 1px solid #59DCE2;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 18px;
   line-height: 25px;
-  border: none;
   outline: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10rem
+}
+
+
+.gpt3__navbar-menu_container button:hover{
+  padding: 1.5rem 1.8rem;
 }
 
 .gpt3__navbar-menu {
   margin-left: 1rem;
-
   display: none;
-  position: relative;
+  
   z-index: 2;
 }
 
@@ -316,21 +401,31 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  background: #34323C;
+  background: #171622;
   text-align: start;
-  padding: 2rem;
+  padding: 2rem 0 2rem 3rem;
   position: absolute;
-  right: 0;
-  top: 40px;
-  margin-top: 1rem;
-  min-width: 200px;
-  border-radius: 10px;
+  left: 0;
+  top: 0;
+  margin-top: 0;
+  min-width: 80%;
+  max-height: 1000px;
+  border-radius: 0;
   box-shadow: 0px 0px 5px rgba(0,0, 0,0.2);
+  z-index: 2;
 }
 
 .gpt3__navbar-menu_container p {
-  margin: 1.5rem 0 1.5rem 0;
+  margin: 2rem 0 2rem 0;
 }
+
+
+
+
+
+
+
+
 
 .new_styles {
   display: flex;
@@ -346,8 +441,8 @@ body {
 }
  
 .pages-sub-menu-2 > ul > li {
-  margin: 1rem 0 1rem 0;
-  font-size: 16px;
+  margin: 1.5rem 0 1.5rem 0;
+  font-size: 19px;
   font-family: 'Manrope', sans-serif;
   padding-left: 10px;
 }
@@ -392,7 +487,22 @@ body {
   }
 }
 
+.tradingView-w-style {
+  display: none;
+}
+.tradingView-w-lg-style {
+  display: block;
+  padding-top: 3rem;
+}
 
+@media screen and (max-width: 850px) {
+.tradingView-w-lg-style {
+  display: none;
+}
+.tradingView-w-style{
+  display: block;
+}
+}
 /* Featurs */
 
 .gpt3__features-container__feature {
@@ -465,11 +575,16 @@ body {
   }
 }
 
+/* InvestmentPlans */
+
+
+
 
 .gpt3__whatgpt3 {
   display: flex;
   flex-direction: column;
   padding: 2rem;
+
 }
 
 .gpt3__whatgpt3-feature {
@@ -489,7 +604,6 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
   margin: 4rem 0 2rem;
 }
 
