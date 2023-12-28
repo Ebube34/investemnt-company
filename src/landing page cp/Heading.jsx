@@ -3,7 +3,7 @@ import { discount, } from "../assets";
 import GetStarted from "./GetStarted";
 import { investVideo2 } from "../videos";
 import { TickerTape } from "react-ts-tradingview-widgets";
-import { Slide } from "react-awesome-reveal";
+
 
 const Hero = () => {
   return (
