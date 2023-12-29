@@ -12,6 +12,7 @@ import Country from "./selectCountry";
 import InvestmentPlans from "./InvestmentPlans";
 import Clients from "./Clients";
 import Twitter from "./Twitter";
+import Button from "./Button";
 
 export {
     Navbar,
@@ -28,6 +29,7 @@ export {
     InvestmentPlans,
     Clients,
     Twitter,
+    Button
 
 }
 

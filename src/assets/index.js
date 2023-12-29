@@ -43,7 +43,11 @@ import News04 from "./news-004.jpg"
 import News05 from "./news-005.jpg"
 import tradingView from "./TradingView_Logo_Block.svg"
 import paxos from "./Paxos-logo.svg.png";
-
+import safeAndSecure from "./safe-and-secure.png"
+import balancedPortfolio from "./balanced-portfolio.png"
+import step01 from "./step-one.png"
+import step02 from "./step-two.png"
+import step03 from "./step-three.png"
 
 export {
   airbnb,
@@ -90,5 +94,10 @@ export {
   News04,
   News05,
   tradingView,
-  paxos
+  paxos,
+  safeAndSecure,
+  balancedPortfolio,
+  step01,
+  step02,
+  step03,
 };

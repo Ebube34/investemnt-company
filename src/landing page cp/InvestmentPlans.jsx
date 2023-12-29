@@ -4,6 +4,7 @@ import styles from "../style";
 import Button from "./Button";
 import { TickerTape } from "react-ts-tradingview-widgets";
 import { Slide } from "react-awesome-reveal";
+import FlexBetween from "../components/flexBetween";
 
 const InvestmentPlans = () => {
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
@@ -34,13 +35,28 @@ const InvestmentPlans = () => {
           </div>
           <div style={{borderBottom: "1px solid #46454C", padding: "2rem 0"}} class="value">
             <h3 className={styles.heading2}>
-              100,000<span>$</span>
+              100,000<span>$</span> - 1,000,000<span>$</span>
             </h3>
+          </div>
+
+          <div style={{ padding: "2rem 0 0 0"}}>
+            <FlexBetween style={{ padding: "0 0 1rem 0"}}>
+              <p className={styles.paragraph}>
+                Monthly profit
+              </p>
+              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>+45% ROI</p>
+            </FlexBetween>
+            <FlexBetween>
+              <p className={styles.paragraph}>
+                Withdraw Capital 
+              </p>
+              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>
+                Available
+              </p>
+            </FlexBetween>
           </div>
           <div style={{ paddingTop: "2rem"}}>
             <ul>
-              <li className={styles.paragraph}>476% ROI</li>
-
               <li className={styles.paragraph}>24/7 Support</li>
             </ul>
           </div>
@@ -57,13 +73,28 @@ const InvestmentPlans = () => {
           </div>
           <div style={{borderBottom: "1px solid #46454C", padding: "2rem 0"}} class="value">
             <h3 className={styles.heading2}>
-              10,000<span>$</span>
+              10,000<span>$</span> - 99,990<span>$</span>
             </h3>
+          </div>
+
+          <div style={{ padding: "2rem 0 0 0"}}>
+            <FlexBetween style={{ padding: "0 0 1rem 0"}}>
+              <p className={styles.paragraph}>
+                Monthly profit
+              </p>
+              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>+32% ROI</p>
+            </FlexBetween>
+            <FlexBetween>
+              <p className={styles.paragraph}>
+                Withdraw Capital 
+              </p>
+              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>
+                Available
+              </p>
+            </FlexBetween>
           </div>
           <div style={{ paddingTop: "2rem"}}>
             <ul>
-              <li className={styles.paragraph}>322% ROI</li>
-
               <li className={styles.paragraph}>24/7 Support</li>
             </ul>
           </div>
@@ -80,13 +111,28 @@ const InvestmentPlans = () => {
           </div>
           <div style={{borderBottom: "1px solid #46454C", padding: "2rem 0"}} class="value">
             <h3 className={styles.heading2}>
-              1,000<span>$</span>
+              1,000<span>$</span> - 9,990<span>$</span>
             </h3>
+          </div>
+
+          <div style={{ padding: "2rem 0 0 0"}}>
+            <FlexBetween style={{ padding: "0 0 1rem 0"}}>
+              <p className={styles.paragraph}>
+                Monthly profit
+              </p>
+              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>+17% ROI</p>
+            </FlexBetween>
+            <FlexBetween>
+              <p className={styles.paragraph}>
+                Withdraw Capital 
+              </p>
+              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>
+                Available
+              </p>
+            </FlexBetween>
           </div>
           <div style={{ paddingTop: "2rem"}}>
             <ul>
-              <li className={styles.paragraph}>92% ROI</li>
-
               <li className={styles.paragraph}>24/7 Support</li>
             </ul>
           </div>

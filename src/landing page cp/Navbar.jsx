@@ -43,7 +43,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="gpt3__navbar-sign">
-        <p onClick={() => navigate("/login")}>Sign in</p>
+        <p onClick={() => navigate("/login")}>Login</p>
         <button onClick={() => navigate("/register")} type="button">
           Sign up
         </button>
@@ -94,7 +94,7 @@ const Navbar = () => {
               </p>
             </div>
             <div className="gpt3__navbar-menu_container-links-sign">
-              <p onClick={() => navigate("/login")}>Sign in</p>
+              <p onClick={() => navigate("/login")}>Login</p>
               <button onClick={() => navigate("/register")} type="button">
                 Sign up
               </button>

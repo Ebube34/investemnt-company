@@ -6,7 +6,6 @@ import { Slide } from "react-awesome-reveal";
 
 const Blog = () => {
  
-
   return (
     <div className="gpt3__blog" id="blog">
       <div className="gpt3__blog-heading">
