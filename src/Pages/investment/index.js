@@ -17,6 +17,8 @@ const Invest = () => {
   const delay = 25000;
   const timeoutRef = useRef(null);
 
+
+
   function resetTimeout() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -24,6 +26,7 @@ const Invest = () => {
   }
 
   useEffect(() => {
+    const colors = ["#0088FE", "#00C49F", "#FFBB28"];
     resetTimeout();
     timeoutRef.current = setTimeout(
       () =>
@@ -36,7 +39,7 @@ const Invest = () => {
     return () => {
       resetTimeout();
     };
-  }, [index]);
+  }, [index, ]);
   return (
     <>
       <div className="bg-primary w-full overflow-hidden">
