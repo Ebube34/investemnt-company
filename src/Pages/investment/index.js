@@ -116,7 +116,7 @@ const Invest = () => {
               }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <h1 className={styles.heading4}>Fractional Shares</h1>
+                <h1 className={styles.heading5}>Fractional Shares</h1>
               </AccordionSummary>
               <AccordionDetails>
                 <p className={styles.paragraph}>
@@ -150,7 +150,7 @@ const Invest = () => {
               }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <h1 className={styles.heading4}>Automatic rebalancing</h1>
+                <h1 className={styles.heading5}>Automatic rebalancing</h1>
               </AccordionSummary>
               <AccordionDetails>
                 <p className={styles.paragraph}>
@@ -189,7 +189,7 @@ const Invest = () => {
               }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <h1 className={styles.heading4}>Simple Access</h1>
+                <h1 className={styles.heading5}>Simple Access</h1>
               </AccordionSummary>
               <AccordionDetails>
                 <p className={styles.paragraph}>
@@ -229,7 +229,7 @@ const Invest = () => {
               }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <h1 className={styles.heading4}>Dividend Reinvestment</h1>
+                <h1 className={styles.heading5}>Dividend Reinvestment</h1>
               </AccordionSummary>
               <AccordionDetails>
                 <p className={styles.paragraph}>
@@ -269,7 +269,7 @@ const Invest = () => {
               }}
             >
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <h1 className={styles.heading4}>Compound Interest</h1>
+                <h1 className={styles.heading5}>Compound Interest</h1>
               </AccordionSummary>
               <AccordionDetails>
                 <p className={styles.paragraph}>
