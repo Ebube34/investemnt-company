@@ -377,7 +377,7 @@ const Invest = () => {
         </section>
 
         <div style={{ paddingTop: "2rem", textAlign: "center" }}>
-          <h1 className="flex-1 font-poppins font-semibold ss:text-[62px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
+          <h1 className="flex-1 font-poppins font-semibold ss:text-[42px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
             How To Start
           </h1>
           <div className="slideshow">

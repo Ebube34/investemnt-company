@@ -47,7 +47,11 @@ import safeAndSecure from "./safe-and-secure.png"
 import balancedPortfolio from "./balanced-portfolio.png"
 import step01 from "./step-one.png"
 import step02 from "./step-two.png"
-import step03 from "./step-three.png"
+import step03 from "./step-three.png";
+import integrity from "./integrity-01.png"
+import reliability from "./reliability-01.svg"
+import efficiency from "./efficiency-01.svg"
+import ourPromise from "./our-promise-01.svg"
 
 export {
   airbnb,
@@ -100,4 +104,8 @@ export {
   step01,
   step02,
   step03,
+  integrity,
+  reliability,
+  efficiency,
+  ourPromise
 };

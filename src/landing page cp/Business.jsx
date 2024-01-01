@@ -41,7 +41,7 @@ const Business = () =>  (
 
     <div className={`${layout.sectionImg} flex-col`}>
       {features.map((feature, index) => (
-        <Slide duration={1500}>
+        <Slide triggerOnce={true} duration={1500}>
         <FeatureCard key={feature.id} {...feature} index={index} />
         </Slide>
       ))}

@@ -27,21 +27,21 @@ const WhatQuivas = () => {
           </p>
         </div>
         <div className="gpt3__whatgpt3-container">
-        <Slide duration={1500}>
+        <Slide triggerOnce={true} duration={1500}>
           <Feature
             navigate={() => navigate("/investment")}
             title="Cryptocurrency Trading "
             text="Cryptocurrency Trading is the Forex (Foreign Exchange) of cryptocurrencies. We specialize in crypto trading while creating patternships with industry leading exchanges."
           />
           </Slide>
-          <Slide duration={1500}>
+          <Slide triggerOnce={true} duration={1500}>
           <Feature
             navigate={() => navigate("/investment")}
             title="Real Estate"
             text="With a wild range of Development Quivas is able to generate massive income out of 84.22% of our private and public owned real estate companies and potential share holding real estate companies around the globe."
           />
           </Slide>
-          <Slide direction="" duration={1500}>
+          <Slide triggerOnce={true} duration={1500}>
           <Feature
             navigate={() => navigate("/investment")}
             title="Oil and Gas"
