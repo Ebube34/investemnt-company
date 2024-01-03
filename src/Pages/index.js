@@ -13,6 +13,11 @@ import Portfolio from "./portfolio";
 import Community from "./our community";
 import CustomerSupport from "./customer support";
 import Shield from "./shield";
+import JosephKenneth from "./joseph kenneth";
+import StefflerMargaret from "./steffler Margaret";
+import CarlAAnthony from "./CarlAnthony";
+import BillWRichard from "./Bill W Richard";
+
 
 
 export {
@@ -31,4 +36,8 @@ export {
     LegalDocumentation,
     CustomerSupport,
     Shield,
+    JosephKenneth,
+    BillWRichard,
+    StefflerMargaret,
+    CarlAAnthony
 }

@@ -8,12 +8,20 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { safeAndSecure, balancedPortfolio } from "../../assets";
 import { Button } from "../../landing page cp";
+import Loading from "../../components/LoaderCompoent";
+
 
 const Invest = () => {
   const colors = ["#0088FE", "#00C49F", "#FFBB28"];
   const [index, setIndex] = useState(0);
   const delay = 25000;
   const timeoutRef = useRef(null);
+
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 3300)
+}, [])
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -31,11 +39,16 @@ const Invest = () => {
         ),
       delay
     );
-
     return () => {
       resetTimeout();
     };
   }, [index]);
+  
+
+if (loading) {
+  return <Loading />
+}
+
   return (
     <>
       <div className="bg-primary w-full overflow-hidden">
@@ -119,7 +132,7 @@ const Invest = () => {
                 <h1 className={styles.heading5}>Fractional Shares</h1>
               </AccordionSummary>
               <AccordionDetails>
-                <p className={styles.paragraph}>
+                <p className={styles.paragraph2}>
                   Maximize your investment potential by gaining exposure to an
                   ETF or stock with a higher price per share. This approach
                   offers several advantages. Firstly, it allows you to tap into
@@ -153,7 +166,7 @@ const Invest = () => {
                 <h1 className={styles.heading5}>Automatic rebalancing</h1>
               </AccordionSummary>
               <AccordionDetails>
-                <p className={styles.paragraph}>
+                <p className={styles.paragraph2}>
                   Embrace the dynamic nature of the financial landscape by
                   relishing the opportunity to engage in investment portfolio
                   rebalancing as frequently as the market undergoes changes.
@@ -192,7 +205,7 @@ const Invest = () => {
                 <h1 className={styles.heading5}>Simple Access</h1>
               </AccordionSummary>
               <AccordionDetails>
-                <p className={styles.paragraph}>
+                <p className={styles.paragraph2}>
                   Gain unparalleled control over your financial landscape by
                   effortlessly managing your accounts anytime and from anywhere.
                   This level of accessibility is a game-changer in today's
@@ -232,7 +245,7 @@ const Invest = () => {
                 <h1 className={styles.heading5}>Dividend Reinvestment</h1>
               </AccordionSummary>
               <AccordionDetails>
-                <p className={styles.paragraph}>
+                <p className={styles.paragraph2}>
                   Experience the compounding magic of your investments through
                   our innovative approach: we automatically reinvest your stock
                   dividends back into your investment portfolio, amplifying your
@@ -272,7 +285,7 @@ const Invest = () => {
                 <h1 className={styles.heading5}>Compound Interest</h1>
               </AccordionSummary>
               <AccordionDetails>
-                <p className={styles.paragraph}>
+                <p className={styles.paragraph2}>
                   Unlock the potential for effortless wealth accumulation by
                   harnessing the remarkable power of compound interest. This
                   financial phenomenon has the ability to grow your money
@@ -376,11 +389,11 @@ const Invest = () => {
           </div>
         </section>
 
-        <div style={{ paddingTop: "2rem", textAlign: "center" }}>
+        <div style={{ padding: "6rem 0 0", textAlign: "center" }}>
           <h1 className="flex-1 font-poppins font-semibold ss:text-[42px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
             How To Start
           </h1>
-          <div className="slideshow">
+          <div style={{ paddingBottom: "5rem"}} className="slideshow">
             <div
               style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
               className="slideshowSlider"

@@ -52,6 +52,10 @@ import integrity from "./integrity-01.png"
 import reliability from "./reliability-01.svg"
 import efficiency from "./efficiency-01.svg"
 import ourPromise from "./our-promise-01.svg"
+import josephKenneth from "./joseph kenneth.jpg"
+import stefflerMargaret from "./steffler-balsley.jpg"
+import CarlAnthony from "./carl-antonucci.jpg"
+import BillRichard from "./bill-newlin-ii.jpg"
 
 export {
   airbnb,
@@ -107,5 +111,9 @@ export {
   integrity,
   reliability,
   efficiency,
-  ourPromise
+  ourPromise,
+  josephKenneth,
+  stefflerMargaret,
+  BillRichard,
+  CarlAnthony
 };

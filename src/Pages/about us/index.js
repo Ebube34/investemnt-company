@@ -1,12 +1,23 @@
-import React from "react";
+import React, {useState, useEffect }  from "react";
 import { Navbar, Footer } from "../../landing page cp";
 import styles from "../../style";
 import { Box, useMediaQuery } from "@mui/material";
 import { efficiency, reliability, integrity, ourPromise } from "../../assets";
+import Loading from "../../components/LoaderCompoent";
 
 
 const About = () => {
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 3300)
+}, [])
+
+if (loading) {
+  return <Loading />
+}
+
   return (
     <>
       <div className="bg-primary w-full overflow-hidden">
@@ -45,11 +56,11 @@ const About = () => {
                 We make your life more comfortable with our services
               </h1>
 
-              <h1 style={{ padding: "9rem 0 0" }} className={styles.heading3}>
+              <h1 style={{ padding: "9rem 0 1rem" }} className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]">
                 {" "}
                 Rewards
               </h1>
-              <p className={styles.paragraph}>
+              <p className={styles.paragraph2}>
                 Indulge in the enticing allure of our premier contracts, where a
                 delectable blend of essential capital and lucrative profit
                 awaits. These offerings are carefully crafted to provide not
@@ -69,12 +80,12 @@ const About = () => {
                 with a discerning palate for wealth accumulation.
               </p>
 
-              <h1 style={{ padding: "5rem 0 0" }} className={styles.heading3}>
+              <h1 style={{ padding: "5rem 0 1rem" }} className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]">
                 {" "}
                 100% Secured
               </h1>
 
-              <p className={styles.paragraph}>
+              <p className={styles.paragraph2}>
                 Ensuring the utmost security and peace of mind is at the core of
                 our commitment. We proactively implement rigorous measures to
                 safeguard your information and transactions, employing
@@ -99,11 +110,11 @@ const About = () => {
                 only efficient but, above all, secure.
               </p>
 
-              <h1 style={{ padding: "5rem 0 0" }} className={styles.heading3}>
+              <h1 style={{ padding: "5rem 0 1rem" }} className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]">
                 {" "}
                 Integrated Support
               </h1>
-              <p className={styles.paragraph}>
+              <p className={styles.paragraph2}>
                 Our dynamic and responsive support team is not just here to
                 assist; they are ready to tackle your challenges head-on.
                 Committed to keeping you informed and empowered, our team goes
@@ -142,7 +153,7 @@ const About = () => {
                   <img
                     alt="intergrity"
                     src={integrity}
-                    style={{ marginLeft: "37%", padding: "2rem 0" }}
+                    style={{ marginLeft: "36%", padding: "2rem 0" }}
                   />
                   <p className={styles.paragraph}>Integrity</p>
                 </div>
@@ -150,7 +161,7 @@ const About = () => {
                   <img
                     alt="Efficency"
                     src={efficiency}
-                    style={{ marginLeft: "37%", padding: "2rem 0" }}
+                    style={{ marginLeft: "35%", padding: "2rem 0" }}
                   />
                   <p className={styles.paragraph}>Efficency</p>
                 </div>
@@ -158,7 +169,7 @@ const About = () => {
                   <img
                     alt="reliability"
                     src={reliability}
-                    style={{ marginLeft: "37%", padding: "2rem 0" }}
+                    style={{ marginLeft: "36%", padding: "2rem 0" }}
                   />
                   <p className={styles.paragraph}>Reliability</p>
                 </div>
@@ -267,13 +278,13 @@ const About = () => {
 
             {/* How it all Started */}
             <div style={{ padding: "10rem 0 4rem" }}>
-              <h1 className="flex-1 font-poppins font-semibold ss:text-[42px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
+              <h1 className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]">
                 How it all Started
               </h1>
 
               <p
                 style={{ padding: "2rem 1rem 0" }}
-                className={styles.paragraph}
+                className={styles.paragraph2}
               >
                 Established in 2012, QuivasFinance LTD emerged with the mission
                 of bridging the investment gap and enhancing the overall

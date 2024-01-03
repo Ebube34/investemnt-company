@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
 import styles from "../../style";
 import {
   Navbar,
@@ -16,8 +16,19 @@ import {
   Twitter,
 } from "../../landing page cp";
 import CookieConsent from "react-cookie-consent";
+import Loading from "../../components/LoaderCompoent";
 
 function Home() {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 3300)
+}, [])
+
+if (loading) {
+  return <Loading />
+}
+
   return (
     <>
       <div className=" w-full overflow-hidden"> 

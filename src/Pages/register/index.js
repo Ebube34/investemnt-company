@@ -16,6 +16,7 @@ import styles from "../../style";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DashboardFooter from "../../components/DashboardFooter";
+import Loading from "../../components/LoaderCompoent";
 
 function Register() {
   const isNonMobile = useMediaQuery("(min-width:600px)");
@@ -64,6 +65,10 @@ function Register() {
       .matches(passwordChange, "Password does not match")
       .required("required"),
   });
+
+  if (process) {
+    return <Loading />
+  }
   return (
     <>
       <div className="bg-primary w-full overflow-hidden">
@@ -84,7 +89,7 @@ function Register() {
           transition={Bounce}
         />
         <Navbar />
-        <Box ml="1rem" mr="1rem" mt="3rem">
+        <Box ml="1rem" mr="1rem" mt="12rem">
           <div className="sign-up_heading">
             <h3 className={`${styles.heading2}`}>Sign up to Quivas</h3>
             <p className={`${styles.paragraph}`}>Enter your details below</p>

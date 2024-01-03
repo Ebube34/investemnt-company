@@ -19,6 +19,8 @@ import IconButton from "@mui/material/IconButton";
 import CryptoJS from "crypto-js";
 import DashboardFooter from "../../components/DashboardFooter";
 import Cookies from "js-cookie";
+import Loading from "../../components/LoaderCompoent";
+
 
 function Login() {
   const navigate = useNavigate();
@@ -42,11 +44,15 @@ function Login() {
     password: yup.string().required("required"),
   });
 
+if (process) {
+  return <Loading />
+}
+
   return (
     <>
       <div className="bg-primary w-full overflow-hidden">
         <ToastContainer
-          position="top-center"
+          position="bottom-center"
           autoClose={6000}
           hideProgressBar={true}
           newestOnTop={false}
@@ -64,7 +70,7 @@ function Login() {
 
         <Navbar />
 
-        <Box ml="1rem" mr="1rem" mt="3rem">
+        <Box ml="1rem" mr="1rem" mt="12rem">
           <div className="sign-up_heading">
             <h3 className={`${styles.heading2}`}>Login your account</h3>
             <p className={`${styles.paragraph}`}>Enter your details below</p>

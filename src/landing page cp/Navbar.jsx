@@ -28,23 +28,23 @@ const Navbar = () => {
           <img src={logo} alt="Quivas" className="w-[134px] h-[50px]" />
         </div>
         <div className="gpt3__navbar-links_container">
-          <p>
+          <p className="hover:text-secondary">
             <Link to="/">Home</Link>
           </p>
-          <p> 
+          <p className="hover:text-secondary"> 
             <Link to="/investment">Invest</Link>
           </p>
-          <p>
+          <p className="hover:text-secondary">
             <Link to="/contact-us">Contact</Link>
           </p>
-          <p>
+          <p className="hover:text-secondary">
             <Link to="/about-us">About</Link>
           </p>
         </div>
       </div>
       <div className="gpt3__navbar-sign">
-        <p onClick={() => navigate("/login")}>Login</p>
-        <button onClick={() => navigate("/register")} type="button">
+        <p className="hover:text-secondary" onClick={() => navigate("/login")}>Login</p>
+        <button className="hover:text-secondary" onClick={() => navigate("/register")} type="button">
           Sign up
         </button>
       </div>
@@ -54,48 +54,51 @@ const Navbar = () => {
           style={{ marginRight: "20px" }}
           color="#fff"
           size={30}
+          className="hover:text-secondary"
         />
         {toggleMenu ? (
           <RiCloseLine
             color="#fff"
             size={30}
             onClick={() => setToggleMenu(false)}
+            className="hover:text-secondary"
           />
         ) : (
           <RiMenu3Line
             color="#fff"
             size={30}
             onClick={() => setToggleMenu(true)}
+            className="hover:text-secondary"
           />
         )}
         {toggleMenu && (
           <div className="gpt3__navbar-menu_container scale-in-end">
             <div className="gpt3__navbar-menu_container-links"> 
-              <p>
+              <p className="hover:text-secondary">
                 <Link to="/">Home</Link>
               </p>
               <p className="new_styles">
-                <p onClick={handleResourcesClick}>
-                  <Link>Resources</Link>
+                <p  onClick={handleResourcesClick}>
+                  <Link  className="hover:text-secondary">Resources</Link>
                   {resourcesIsClicked ? <ResourcesMenuPages2 /> : ""}
                 </p>
-                <p onClick={handleResourcesClick}>
+                <p className="hover:text-secondary" onClick={handleResourcesClick}>
                   {resourcesIsClicked ? <FiChevronDown /> : <FiChevronRight />}
                 </p>
               </p>
-              <p>
+              <p className="hover:text-secondary">
                 <Link to="/investment">Invest</Link>
               </p>
-              <p>
+              <p className="hover:text-secondary">
                 <Link to="/contact-us">Contact</Link>
               </p>
-              <p>
+              <p className="hover:text-secondary">
                 <Link to="/about-us">About</Link>
               </p>
             </div>
             <div className="gpt3__navbar-menu_container-links-sign">
-              <p onClick={() => navigate("/login")}>Login</p>
-              <button onClick={() => navigate("/register")} type="button">
+              <p className="hover:text-secondary" onClick={() => navigate("/login")}>Login</p>
+              <button className="hover:text-secondary" onClick={() => navigate("/register")} type="button">
                 Sign up
               </button>
             </div>

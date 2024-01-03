@@ -41,16 +41,16 @@ const InvestmentPlans = () => {
 
           <div style={{ padding: "2rem 0 0 0"}}>
             <FlexBetween style={{ padding: "0 0 1rem 0"}}>
-              <p className={styles.paragraph}>
+              <p className={styles.paragraph2}>
                 Monthly profit
               </p>
-              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>+68% ROI</p>
+              <p className={styles.paragraph2} style={{ color: "#39A7FF"}}>+68% ROI</p>
             </FlexBetween>
             <FlexBetween>
-              <p className={styles.paragraph}>
+              <p className={styles.paragraph2}>
                 Withdraw Capital 
               </p>
-              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>
+              <p className={styles.paragraph2} style={{ color: "#39A7FF"}}>
                 Available
               </p>
             </FlexBetween>
@@ -79,16 +79,16 @@ const InvestmentPlans = () => {
 
           <div style={{ padding: "2rem 0 0 0"}}>
             <FlexBetween style={{ padding: "0 0 1rem 0"}}>
-              <p className={styles.paragraph}>
+              <p className={styles.paragraph2}>
                 Monthly profit
               </p>
-              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>+45% ROI</p>
+              <p className={styles.paragraph2} style={{ color: "#39A7FF"}}>+45% ROI</p>
             </FlexBetween>
             <FlexBetween>
-              <p className={styles.paragraph}>
+              <p className={styles.paragraph2}>
                 Withdraw Capital 
               </p>
-              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>
+              <p className={styles.paragraph2} style={{ color: "#39A7FF"}}>
                 Available
               </p>
             </FlexBetween>
@@ -117,16 +117,16 @@ const InvestmentPlans = () => {
 
           <div style={{ padding: "2rem 0 0 0"}}>
             <FlexBetween style={{ padding: "0 0 1rem 0"}}>
-              <p className={styles.paragraph}>
+              <p className={styles.paragraph2}>
                 Monthly profit
               </p>
-              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>+32% ROI</p>
+              <p className={styles.paragraph2} style={{ color: "#39A7FF"}}>+32% ROI</p>
             </FlexBetween>
             <FlexBetween>
-              <p className={styles.paragraph}>
+              <p className={styles.paragraph2}>
                 Withdraw Capital 
               </p>
-              <p className={styles.paragraph} style={{ color: "#39A7FF"}}>
+              <p className={styles.paragraph2} style={{ color: "#39A7FF"}}>
                 Available
               </p>
             </FlexBetween>

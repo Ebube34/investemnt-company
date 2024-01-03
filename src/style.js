@@ -4,8 +4,10 @@ const styles = {
     heading2: "font-poppins font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full",
     heading3: "font-poppins font-semibold xs:text-[48px] text-[39px] text-white xs:leading-[66.8px] leading-[56.8px] w-full",
     heading4: "font-poppins xs:text-[28px] text-[29px] text-white xs:leading-[36.8px] leading-[36.8px]",
-    heading5: "font-poppins xs:text-[28px] text-[20px] text-white xs:leading-[20.8px] leading-[20.8px]",
+    heading5: "font-poppins xs:text-[18px] text-[18px] text-white xs:leading-[20.8px] leading-[20.8px]",
+    heading6: "font-poppins xs:text-[16px] text-[16px] text-white xs:leading-[20.8px] leading-[20.8px]",
     paragraph: "font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px]",
+    paragraph2: "font-poppins font-normal text-dimWhite text-[16px] leading-[30.8px]",
     fontFamily: "font-poppins",
   
     flexCenter: "flex justify-center items-center",

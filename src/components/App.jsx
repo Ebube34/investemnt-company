@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+import React, { useMemo} from "react";
+
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
@@ -20,6 +21,10 @@ import {
   News,
   Shield,
   CustomerSupport,
+  JosephKenneth,
+  BillWRichard,
+  CarlAAnthony,
+  StefflerMargaret
 } from "../Pages/index.js";
 import DashboardMain from "../scenes/dashboardmain";
 import Layout from "../scenes/layout";
@@ -40,10 +45,14 @@ function App() {
   const mode = useSelector((state) => state.global.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
+ 
+
   return (
     <div>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
+
+       
           <Routes>
             <Route path="/" element={<Home />} />
             <Route element={<PublicRoutes />}>
@@ -53,6 +62,10 @@ function App() {
             <Route path="reset-password" element={<ForgotPassword />} />
             <Route path="Our-strategy" element={<OurStrategy />} />
             <Route path="our-team" element={<Team />} />
+            <Route path="our-team/joseph-Kenneth" element={<JosephKenneth />} />
+            <Route path="our-team/bill-richard" element={<BillWRichard />} />
+            <Route path="our-team/carl-anthony" element={<CarlAAnthony />} />
+            <Route path="our-team/steffler-margaret" element={<StefflerMargaret />} />
             <Route path="contact-us" element={<Contact />} />
             <Route path="about-us" element={<About />} />
             <Route path="portfolio" element={<Portfolio />} />
@@ -62,6 +75,7 @@ function App() {
             <Route path="investment" element={<Invest />} />
             <Route path="customer-support" element={<CustomerSupport />} />
             <Route path="shield" element={<Shield />} />
+           
   
             <Route element={<PrivateRoutes />}>
               <Route element={<Layout />}>
@@ -83,6 +97,7 @@ function App() {
               </Route>
             </Route>
           </Routes>
+        
         </ThemeProvider>
       </BrowserRouter>
 

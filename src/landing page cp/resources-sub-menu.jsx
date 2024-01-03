@@ -6,16 +6,16 @@ function ResourcesMenuPages2() {
     <>
       <div class="pages-sub-menu-2">
         <ul>
-          <li>
+          <li className="hover:text-secondary">
             <Link to="/portfolio">Portfolio</Link>
           </li>
-          <li>
-            <Link to="/our-community">Community</Link>
+          <li className="hover:text-secondary">
+            <Link to="/our-team">Our Team</Link>
           </li>
-          <li>
+          <li className="hover:text-secondary">
             <Link to="/news">News</Link>
           </li>
-          <li>
+          <li className="hover:text-secondary">
             <Link to="/legal-documentation">legal Docs</Link>
           </li>
         </ul>
