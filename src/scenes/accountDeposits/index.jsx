@@ -273,9 +273,7 @@ const AccountDeposits = () => {
         transition={Bounce}
       />
       <Box height="55px"></Box>
-      <DashboardHeading
-        title="DEPOSIT"
-      />
+      <DashboardHeading title="DEPOSIT" />
 
       {/* <div>
       CRYPTOCURRENCY

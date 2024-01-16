@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import { Box, Button } from "@mui/material";
 import { Formik } from "formik";
@@ -28,7 +28,6 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const [process, setProcess] = useState(false);
-  const [logedIn, setLogedIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
@@ -81,7 +80,6 @@ if (process) {
             validationSchema={checkoutSchema}
             onSubmit={(values, { resetForm }) => {
               setProcess(true);
-              setLogedIn(false);
               resetForm({ values: "" });
               setErrorMessage("");
 
@@ -106,7 +104,6 @@ if (process) {
 
                   Cookies.set("Token", data, { path: "/", expires: 3 });
 
-                  setLogedIn(true);
                   setProcess(false);
                   toast(`Welcome ${result.data.name}`);
                   navigate("/dashboard");
@@ -114,7 +111,6 @@ if (process) {
                 })
                 .catch((error) => {
                   setProcess(false);
-                  setLogedIn(false);
                   setErrorMessage(error.response.data.message);
                   toast.error(`${error.response.data.message}`);
                 });
@@ -197,6 +193,9 @@ if (process) {
                     </p>{" "}
                   </Box>
                 </Box>
+                <p style={{ textAlign: "center" }} className="text-red-600">
+                  {errorMessage}
+                </p>
                 <Box display="flex" justifyContent="center" mt="1rem">
                   <Button
                     sx={{
@@ -206,7 +205,7 @@ if (process) {
                       fontSize: "15px",
                       border: "3px solid #171B25",
                       color: "#fff",
-                      opacity: "0.6",
+                      opacity: "0.8",
                       letterSpacing: "1.5px",
                       fontWeight: "bold",
                     }}
@@ -216,21 +215,16 @@ if (process) {
                   </Button>
                 </Box>
 
-                {logedIn ? (
-                  <p style={{ textAlign: "center" }} className="text-green-600">
-                    registration successful. Check your email for verification
-                  </p>
-                ) : (
-                  ""
-                )}
+               
 
-                <p style={{ textAlign: "center" }} className="text-red-600">
-                  {errorMessage}
-                </p>
+              
               </form>
             )}
           </Formik>
         </Box>
+        <div>
+        <p  style={{ cursor: "pointer", color: "red", opacity: "0.8", textDecoration: "underline", paddingTop: "3rem", fontSize: "13px"}}><Link to="/register">Don't have an account?</Link></p>
+        </div>
       </div>
       <DashboardFooter />
     </>

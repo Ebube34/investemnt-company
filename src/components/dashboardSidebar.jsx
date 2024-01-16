@@ -18,11 +18,8 @@ import {
   ReceiptLongOutlined,
   PublicOutlined,
   PointOfSaleOutlined,
-  TodayOutlined,
   CalendarMonthOutlined,
   AdminPanelSettingsOutlined,
-  PieChartOutlined,
-  TrendingUpOutlined,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -67,32 +64,16 @@ const navItems = [
     icon: <PointOfSaleOutlined />,
   },
   {
-    text: "Loan Request",
-    icon: <TodayOutlined />,
-  },
-  {
     text: "Calender",
     icon: <CalendarMonthOutlined />,
-  },
-  {
-    text: "FAQs",
-    icon: <PieChartOutlined />,
   },
   {
     text: "",
     icon: null,
   },
   {
-    text: "KYC",
-    icon: <AdminPanelSettingsOutlined />,
-  },
-  {
     text: "Geography",
     icon: <AdminPanelSettingsOutlined />,
-  },
-  {
-    text: "Info",
-    icon: <TrendingUpOutlined />,
   },
 ];
 

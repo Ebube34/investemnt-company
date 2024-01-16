@@ -9,6 +9,8 @@ import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-toastify/dist/ReactToastify.minimal.css";
 import { getUserId } from "../../components/getUserId";
+import Loading from "../../components/LoaderCompoent";
+import { useNavigate } from "react-router-dom";
 
 const walletList = [
   {
@@ -49,6 +51,7 @@ const Withdrawals = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
   const [process, setProcess] = useState(false);
   const userId = getUserId();
+  const navigate = useNavigate();
 
   const initialValues = {
     amount: "",
@@ -62,6 +65,9 @@ const Withdrawals = () => {
     Address: yup.string().required("required"),
   });
 
+  if (process) {
+    return <Loading />
+  }
   return (
     <>
       <div>
@@ -108,6 +114,7 @@ const Withdrawals = () => {
                   "Withdrawal Pending, contact customer support for confirmation"
                 );
                 setProcess(false);
+                navigate("/withdrawal-pending");
               })
               .catch((error) => {
                 toast.error(`${error.response.data.message}`);

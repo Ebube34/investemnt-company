@@ -32,14 +32,11 @@ const Crypto = () => {
     useState(Number);
   const [specialPlanPercentageValue, setSpecialPlanPercentageValue] =
     useState(Number);
-    
 
   const cryptoPlan = "Cryptocurrency investment";
-  const basicPlanMinimumAmount = 200;
-  const standardPlanMinimumAmount = 1000;
-  const specialPlanMinimumAmount = 5000;
-
- 
+  const basicPlanMinimumAmount = 1000;
+  const standardPlanMinimumAmount = 10000;
+  const specialPlanMinimumAmount = 100000;
 
   function handleBasicPlan() {
     setIsStandardPlanClick(false);
@@ -50,9 +47,9 @@ const Crypto = () => {
     setStandardPlanPercentage("");
     setBasicPlanClick(true);
     setBasicPlanContent("Basic Plan");
-    setBasicPlanPercentage("10% increase per month");
-    setMinimumAmount("Minimum starting capital $200");
-    setBasicPlanPercentageValue(10);
+    setBasicPlanPercentage("32% increase per month");
+    setMinimumAmount("Minimum starting capital $1,000");
+    setBasicPlanPercentageValue(32);
     setSpecialPlanPercentageValue(null);
     setStandardPlanPercentageValue(null);
   }
@@ -65,11 +62,11 @@ const Crypto = () => {
     setStandardPlanPercentage("");
     setBasicPlanPercentage("");
     setSpecialPlanClicked(true);
-    setSpecialPlanContent("Special Plan");
-    setSpecialPlanPercentage("20% increase per month");
-    setMinimumAmount("Minimum starting capital $5000");
+    setSpecialPlanContent("Ultimate Plan");
+    setSpecialPlanPercentage("68% increase per month");
+    setMinimumAmount("Minimum starting capital $100,000");
     setBasicPlanPercentageValue(null);
-    setSpecialPlanPercentageValue(20);
+    setSpecialPlanPercentageValue(68);
     setStandardPlanPercentageValue(null);
   }
 
@@ -82,11 +79,11 @@ const Crypto = () => {
     setSpecialPlanPercentage("");
     setIsStandardPlanClick(true);
     setStandardPlanContent("Standard Plan");
-    setStandardPlanPercentage("15% increase per month");
-    setMinimumAmount("Minimum starting capital $1000");
+    setStandardPlanPercentage("45% increase per month");
+    setMinimumAmount("Minimum starting capital $10,000");
     setBasicPlanPercentageValue(null);
     setSpecialPlanPercentageValue(null);
-    setStandardPlanPercentageValue(15);
+    setStandardPlanPercentageValue(45);
   }
   return (
     <>
@@ -113,7 +110,11 @@ const Crypto = () => {
       <Box>
         <Box>
           <Typography
-            sx={{ p: "2rem 1rem 1.3rem 1rem", opacity: "0.6", fontSize: "1rem" }}
+            sx={{
+              p: "2rem 1rem 1.3rem 1rem",
+              opacity: "0.6",
+              fontSize: "1rem",
+            }}
           >
             Select preferred Cryptocurrency investment plan
           </Typography>
@@ -131,10 +132,15 @@ const Crypto = () => {
           >
             <Box>
               <Button
-                onClick={handleBasicPlan}
+                onClick={handleSpecialPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isBasicPlanClicked ? theme.palette.grey[800] : "none" }}
-                
+                sx={{
+                  p: "10px 0",
+                  m: "10px 0",
+                  backgroundColor: isSpecialPlanClicked
+                    ? theme.palette.grey[800]
+                    : "none",
+                }}
               >
                 <Typography
                   sx={{
@@ -142,7 +148,7 @@ const Crypto = () => {
                     color: theme.palette.secondary[100],
                   }}
                 >
-                  Basic Plan
+                  Ultimate Plan
                 </Typography>
               </Button>
             </Box>
@@ -151,7 +157,13 @@ const Crypto = () => {
               <Button
                 onClick={handleStandardPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isStandardPlanClicked ? theme.palette.grey[800] : "none" }}
+                sx={{
+                  p: "10px 0",
+                  m: "10px 0",
+                  backgroundColor: isStandardPlanClicked
+                    ? theme.palette.grey[800]
+                    : "none",
+                }}
               >
                 <Typography
                   sx={{
@@ -163,20 +175,25 @@ const Crypto = () => {
                 </Typography>
               </Button>
             </Box>
-
             <Box>
               <Button
-                onClick={handleSpecialPlan}
+                onClick={handleBasicPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0" }}
+                sx={{
+                  p: "10px 0",
+                  m: "10px 0",
+                  backgroundColor: isBasicPlanClicked
+                    ? theme.palette.grey[800]
+                    : "none",
+                }}
               >
                 <Typography
                   sx={{
                     opacity: "0.5",
-                    color: theme.palette.secondary[100], backgroundColor: isSpecialPlanClicked ? theme.palette.grey[800] : "none"
+                    color: theme.palette.secondary[100],
                   }}
                 >
-                  Special Plan
+                  Basic Plan
                 </Typography>
               </Button>
             </Box>
@@ -187,7 +204,7 @@ const Crypto = () => {
       <Box>
         {isBasicPlanClicked ? (
           <BasicPlan
-            investmentPlanText="Basic plan offers you +10% of your starting capital per month. with minumum starting capital at 200 USD."
+            investmentPlanText="Basic plan offers you +32% of your starting capital per month. with minumum starting capital at 1,000 USD."
             investmentType={cryptoPlan}
             investmentPlan={basicPlanContent}
             percentageProfitText={basicPlanPercentage}
@@ -204,7 +221,7 @@ const Crypto = () => {
 
         {isStandardPlanClicked ? (
           <BasicPlan
-            investmentPlanText="Our standard plan offers you with +15% of your starting capital per month. with minumum starting capital at 1000 USD."
+            investmentPlanText="Our standard plan offers you with +45% of your starting capital per month. with minumum starting capital at 10,000 USD."
             investmentType={cryptoPlan}
             investmentPlan={standardPlanContent}
             percentageProfitText={standardPlanPercentage}
@@ -221,7 +238,7 @@ const Crypto = () => {
 
         {isSpecialPlanClicked ? (
           <BasicPlan
-            investmentPlanText="Our special plan offers you with +20% of your starting capital per month. with minumum starting capital at 5000 USD."
+            investmentPlanText="Ultimate plan offers you with +68% of your starting capital per month. with minumum starting capital at 100,000 USD."
             investmentType={cryptoPlan}
             investmentPlan={specialPlanContent}
             percentageProfitText={specialPlanPercentage}

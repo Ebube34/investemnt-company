@@ -24,7 +24,18 @@ import {
   JosephKenneth,
   BillWRichard,
   CarlAAnthony,
-  StefflerMargaret
+  StefflerMargaret,
+  RegistrationSuccessful,
+  DepositPending,
+  CongratulationsOnActiveContract,
+  WithdrawalPending,
+  Cryptocurrency,
+  RealEstate,
+  OilAndGas,
+  HowDoIStartInvestingWhenImScaredToLoseMoney,
+  WhatIsHedging,
+  ThePowerOfCompoundInterestCalculator,
+  WhatIsCryptoAndHowDoesItWork
 } from "../Pages/index.js";
 import DashboardMain from "../scenes/dashboardmain";
 import Layout from "../scenes/layout";
@@ -75,6 +86,18 @@ function App() {
             <Route path="investment" element={<Invest />} />
             <Route path="customer-support" element={<CustomerSupport />} />
             <Route path="shield" element={<Shield />} />
+            <Route path="registration-successful" element={<RegistrationSuccessful />} />
+            <Route path="deposit-pending" element={<DepositPending />} />
+            <Route path="Congratulations-purchased-successfully" element={<CongratulationsOnActiveContract />} />
+            <Route path="withdrawal-pending" element={<WithdrawalPending />} />
+            <Route path="cryptocurrency" element={<Cryptocurrency />} />
+            <Route path="real-estate" element={<RealEstate />} />
+            <Route path="oil-and-gas" element={<OilAndGas />} />
+            <Route path="articles/how-do-i-start-investing-when-iam-scared-to-lose-money" element={<HowDoIStartInvestingWhenImScaredToLoseMoney/>} />
+            <Route path="articles/what-is-hedging" element={<WhatIsHedging />} />
+            <Route path="articles/the-power-of-compound-interest-calculator" element={<ThePowerOfCompoundInterestCalculator />} />
+            <Route path="articles/what-does-financially-independent-mean" element={<WhatIsCryptoAndHowDoesItWork />} />
+
            
   
             <Route element={<PrivateRoutes />}>

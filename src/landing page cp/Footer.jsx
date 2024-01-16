@@ -1,8 +1,9 @@
 import styles from "../style";
 import { logo } from "../assets";
-import { footerLinks, socialMedia } from "../constants";
+import { footerLinks } from "../constants";
+import { Link } from "react-router-dom";
 const date = new Date()
-const year = date.getFullYear()
+const year = date.getFullYear() 
 
 const Footer = () => (
   <section className={`${styles.flexCenter} ${styles.paddingY} flex-col`}>
@@ -33,7 +34,7 @@ const Footer = () => (
                     index !== footerlink.links.length - 1 ? "mb-4" : "mb-0"
                   }`}
                 >
-                  {link.name}
+                  <Link to={link.link}>{link.name}</Link>
                 </li>
               ))}
             </ul>
@@ -44,22 +45,10 @@ const Footer = () => (
 
     <div className="w-full flex justify-between items-center md:flex-row flex-col pt-6 border-t-[1px]  border-t-[#3F3E45]">
       <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-white" style={{ opacity: "0.6" }}>
-        Copyright Ⓒ {year} QuivasFinance.com  <span style={{ visibility: "hidden"}}>qu</span> Crechterwoord K12 182 DK Alknjkcb. <span style={{ visibility: "hidden"}}>qu</span> All Rights Reserved.
+        Copyright Ⓒ {year} QuivasFinance.com  <span style={{ visibility: "hidden"}}>qu</span> Manchester, United Kingdom. <span style={{ visibility: "hidden"}}>qu</span> All Rights Reserved.
       </p>
 
-      <div className="flex flex-row md:mt-0 mt-6">
-        {socialMedia.map((social, index) => (
-          <img
-            key={social.id}
-            src={social.icon}
-            alt={social.id}
-            className={`w-[21px] h-[21px] object-contain cursor-pointer ${
-              index !== socialMedia.length - 1 ? "mr-6" : "mr-0"
-            }`}
-            onClick={() => window.open(social.link)}
-          />
-        ))}
-      </div>
+      
     </div>
   </section>
 );

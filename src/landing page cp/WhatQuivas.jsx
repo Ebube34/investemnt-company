@@ -29,21 +29,21 @@ const WhatQuivas = () => {
         <div className="gpt3__whatgpt3-container">
         <Slide triggerOnce={true} duration={1500}>
           <Feature
-            navigate={() => navigate("/investment")}
+            navigate={() => navigate("/cryptocurrency")}
             title="Cryptocurrency Trading "
             text="Cryptocurrency Trading is the Forex (Foreign Exchange) of cryptocurrencies. We specialize in crypto trading while creating patternships with industry leading exchanges."
           />
           </Slide>
           <Slide triggerOnce={true} duration={1500}>
           <Feature
-            navigate={() => navigate("/investment")}
+            navigate={() => navigate("/real-estate")}
             title="Real Estate"
             text="With a wild range of Development Quivas is able to generate massive income out of 84.22% of our private and public owned real estate companies and potential share holding real estate companies around the globe."
           />
           </Slide>
           <Slide triggerOnce={true} duration={1500}>
           <Feature
-            navigate={() => navigate("/investment")}
+            navigate={() => navigate("/oil-and-gas")}
             title="Oil and Gas"
             text="Investors looking for portfolio diversification through sector-specific funds can find multiple opportunities within the energy industry – and more specifically, companies operating in the oil and gas drilling sector."
           />

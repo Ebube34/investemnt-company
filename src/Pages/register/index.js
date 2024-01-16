@@ -17,14 +17,15 @@ import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DashboardFooter from "../../components/DashboardFooter";
 import Loading from "../../components/LoaderCompoent";
+import { useNavigate, Link } from "react-router-dom";
 
 function Register() {
+  const navigate = useNavigate()
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [showPassword, setShowPassword] = React.useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const [process, setProcess] = useState(false);
-  const [registered, setRegistered] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const handleClickShowConfirmPassword = () =>
     setShowConfirmPassword((show) => !show);
@@ -35,6 +36,10 @@ function Register() {
     event.preventDefault();
   };
   const [passwordChange, setPasswordChange] = useState("");
+
+
+
+ 
 
   const initialValues = {
     firstName: "",
@@ -99,7 +104,6 @@ function Register() {
             validationSchema={checkoutSchema}
             onSubmit={(values, { resetForm }) => {
               setProcess(true);
-              setRegistered(false);
               setErrorMessage("");
               resetForm({ values: "" });
 
@@ -120,13 +124,12 @@ function Register() {
                 .then(() => {
                   setProcess(false);
                   toast(
-                    "Almost there! Check your email for confirmation.", {transition: Bounce}
+                    "Almost there! Check your email for Verification.", {transition: Bounce}
                   );
-                  setRegistered(true);
+                  navigate("/registration-successful")
                 })
                 .catch((error) => {
                   setProcess(false);
-                  setRegistered(false);
                   toast.error(
                     ` ${error.response.data.message}`, {transition: Bounce}
                   );
@@ -308,6 +311,7 @@ function Register() {
                     }}
                   />
                 </Box>
+                <p style={{textAlign: "center"}} className="text-red-600">{errorMessage}</p>
                 <Box display="flex" justifyContent="center" mt="3rem">
                   <Button
                     sx={{
@@ -317,7 +321,7 @@ function Register() {
                       fontSize: "15px",
                       border: "3px solid #171B25",
                       color: "#fff",
-                      opacity: "0.6",
+                      opacity: "0.8",
                       letterSpacing: "1.5px",
                       fontWeight: "bold",
                     }}
@@ -327,18 +331,13 @@ function Register() {
                   </Button>
                   
                 </Box>
-                {registered ? (
-                    <p style={{textAlign: "center"}} className="text-green-600">
-                      registration successful. Check your email for verification
-                    </p>
-                  ) : (
-                    ""
-                  )}
-                  <p style={{textAlign: "center"}} className="text-red-600">{errorMessage}</p>
               </form>
             )}
           </Formik>
         </Box>
+        <div>
+        <p style={{ cursor: "pointer", color: "red", opacity: "0.8", textDecoration: "underline", paddingTop: "3rem", fontSize: "13px"}}> <Link to="/login">have an account?</Link></p>
+        </div>
         <DashboardFooter />
       </div>
     </>

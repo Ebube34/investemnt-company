@@ -4,6 +4,8 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import { Bounce, toast } from "react-toastify";
+import Loading from "../LoaderCompoent";
+import { useNavigate } from "react-router-dom";
 
 const CryptoAddress = ({
   cancelLogo,
@@ -20,8 +22,8 @@ const CryptoAddress = ({
   const theme = useTheme();
   const [isCopied, setIsCopied] = useState(false);
   const [process, setProcess] = useState(false);
-  const [deposited, setDeposited ] = useState(false);
-  const [ errorMessage, setErrorMessage ] = useState("")
+  const [ errorMessage, setErrorMessage ] = useState("");
+  const navigate = useNavigate()
 
   async function copyTextToClipboard(text) {
     if ("clipboard" in navigator) {
@@ -51,6 +53,13 @@ const CryptoAddress = ({
   const checkoutSchema = yup.object().shape({
     amountDeposited: yup.number().required("required"),
   });
+
+
+  if (process) {
+    return <Loading />
+  }
+
+
   return (
     <>
       <Box
@@ -151,10 +160,7 @@ const CryptoAddress = ({
                 setProcess(true)
                 resetForm({ values: "" }); 
 
-                if (values.amountDeposited < 50) {
-                  setProcess(false)
-                  toast.error("minimum deposit ammount is 50 USD", {transition: Bounce});
-                } else {
+               
                   const configuration = {
                     method: "post",
                 url: "https://fx-backend-sever.onrender.com/deposits", 
@@ -169,14 +175,13 @@ const CryptoAddress = ({
                   axios(configuration).then(() => {
                     toast.warning("Transaction Pending, contact customer support for confirmation", {transition: Bounce});
                     setProcess(false);
-                    setDeposited(true);
+                    navigate("/deposit-pending");
                   }).catch((err) => {
                     toast.error(`${err.response.data.message}`, {transition: Bounce});
                     setProcess(false);
-                    setDeposited(false)
                     setErrorMessage(`${err.response.data.message}`)
                   })
-                }
+            
               }}
             >
               {({
@@ -225,13 +230,6 @@ const CryptoAddress = ({
               )}
              
             </Formik>
-            {deposited ? (
-                  <p style={{ textAlign: "center" }} className="text-green-600">
-                    Transaction currently under review, contact customer support
-                  </p>
-                ) : (
-                  ""
-                )}
 
                 <p style={{ textAlign: "center" }} className="text-red-600">
                   {errorMessage}

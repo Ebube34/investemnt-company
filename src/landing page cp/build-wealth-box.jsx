@@ -1,31 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import { Slide } from "react-awesome-reveal";
+import { Link, Outlet } from "react-router-dom";
 
-function BuildWealthBox(props) {
+function BuildWealthBox({ imgSrc, paragraph, heading, linkName, author }) {
+  
 
-    const [isMousedOver, setIsMousedOver] = useState(false);
-    
-    function handleMouseOver() {
-        setIsMousedOver(true);
-    }
-    function handleMouseOut() {
-        setIsMousedOver(false);
-    }
-   
-    return(
-        <>
-        <Slide triggerOnce={true} duration={1500}>
-            <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}  style={{cursor: isMousedOver ? "pointer" : ""}}   className="build-wealth-box">
-                <img className="Build-wealth-img" src={props.imgSrc} alt="Build-wealth" /> 
-                <div className="wealth-text-box">
-                    <p>{props.paragraph}</p>
-                    <h6  style={{textDecoration: isMousedOver ? "underline" : "" }} className="Wealth-text-heading">{props.heading}</h6>
-                    <p>{props.author}</p>
-                </div>
-            </div>
-            </Slide>
-        </>
-    );
-};
+  return (
+    <>
+      <Slide triggerOnce={true} duration={1500}>
+        <div className="build-wealth-box">
+          <img className="Build-wealth-img" src={imgSrc} alt="Build-wealth" />
+          <div className="wealth-text-box">
+            <p>{paragraph}</p>
+            <h6 style={{ cursor: "pointer",}} className="Wealth-text-heading">
+              <Link to={linkName}>{heading}</Link>
+            </h6>
+            <p>{author}</p>
+          </div>
+        </div>
+      </Slide>
+      <Outlet />
+    </>
+  );
+}
 
 export default BuildWealthBox;

@@ -26,7 +26,7 @@ export const features = [
     title: "Rewards",
     content:
       "Our best contracts offer some mouthwatering combinations of essential capital and profit",
-      link: "/investment"
+      link: "/about-us"
   },
   {
     id: "feature-2",
@@ -34,7 +34,7 @@ export const features = [
     title: "100% Secured",
     content:
       "We take proactive steps make sure your information and transactions are secure.",
-      link: "/shield"
+      link: "/about-us"
   },
   {
     id: "feature-3",
@@ -42,7 +42,7 @@ export const features = [
     title: "Integrated Support",
     content:
       "Functional support team ready to take on your challenges updating you on our trading plans and services.",
-      link: "/customer-support"
+      link: "/about-us"
   },
 ];
 
@@ -92,53 +92,29 @@ export const stats = [
 ];
 
 export const footerLinks = [
+
   {
-    title: "Useful Links",
-    links: [
-      {
-        name: "Content",
-        link: "https://www.hoobank.com/content/",
-      },
-      {
-        name: "How it Works",
-        link: "https://www.hoobank.com/how-it-works/",
-      },
-      {
-        name: "Create",
-        link: "https://www.hoobank.com/create/",
-      },
-      {
-        name: "Explore",
-        link: "https://www.hoobank.com/explore/",
-      },
-      {
-        name: "Terms & Services",
-        link: "https://www.hoobank.com/terms-and-services/",
-      },
-    ],
-  },
-  {
-    title: "Community",
+    title: "Services",
     links: [
       {
         name: "Help Center",
-        link: "https://www.hoobank.com/help-center/",
+        link: "https://wa.me/2348132669129",
       },
       {
-        name: "Partners",
-        link: "https://www.hoobank.com/partners/",
+        name: "Portfolio",
+        link: "/portfolio",
       },
       {
-        name: "Suggestions",
-        link: "https://www.hoobank.com/suggestions/",
+        name: "Team",
+        link: "/our-team",
       },
       {
         name: "Blog",
-        link: "https://www.hoobank.com/blog/",
+        link: "/news",
       },
       {
-        name: "Newsletters",
-        link: "https://www.hoobank.com/newsletters/",
+        name: "Investment",
+        link: "/investment",
       },
     ],
   },
@@ -146,28 +122,28 @@ export const footerLinks = [
     title: "Company",
     links: [
       {
-        name: "Terms & Conditions",
-        link: "http://www.quivasfinance.com/terms-and-conditions"
+        name: "About us",
+        link: "/about-us"
       },
       {
-        name: "Privacy",
-        link: "https://www.quivasfinance.com/privacy"
+        name: "history",
+        link: "/about-us"
       },
       {
         name: "Become a Partner",
-        link: "https://www.hoobank.com/become-a-partner/",
+        link: "/register",
       },
       {
-        name: "Crechterwoord K12 182 DK Alknjkcb",
-        link: "https://google.com/map"
+        name: "contact us",
+        link: "/contact-us"
       },
       {
         name: "085-132567",
-        link: "https://www.hoobank.com/"
+        link: "https://wa.me/2348132669129"
       },
       {
         name: "@quivasfinance.com",
-        link: "https://www.hoobank.com/"
+        link: "/"
       },
     ],
   },

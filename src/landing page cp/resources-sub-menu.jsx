@@ -16,7 +16,13 @@ function ResourcesMenuPages2() {
             <Link to="/news">News</Link>
           </li>
           <li className="hover:text-secondary">
-            <Link to="/legal-documentation">legal Docs</Link>
+            <Link
+              to="https://wa.me/2348132669129" 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Help Center
+            </Link>
           </li>
         </ul>
       </div>

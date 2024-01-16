@@ -1,6 +1,6 @@
 import React from "react";
 import BuildWealthBox from "./build-wealth-box";
-import { buildWealth01, buildWealth02, buildWealth03, buildWealth04 } from "../assets";
+import { buildWealth01, buildwealth06, buildWealth03, buildWealth04 } from "../assets";
 
 
 function BuildWealth() {
@@ -13,28 +13,28 @@ function BuildWealth() {
                 paragraph="PERSONAL"
                 heading="How do i start investing when i'm scared to lose money?"
                 author="By Natalie Brolly"
-                linkName="/How-do-i-start-investing-when-i'm-scared-to-lose-money"
+                linkName="/articles/how-do-i-start-investing-when-iam-scared-to-lose-money"
                 />
                 <BuildWealthBox 
                 imgSrc={buildWealth04}
                 paragraph="INVESTING"
                 heading="What is Hedging?"
                 author="By David Jakeer"
-                linkName="/What-is-Hedging"
+                linkName="/articles/what-is-hedging"
                 />
                 <BuildWealthBox 
-                imgSrc={buildWealth02}
-                paragraph="CRYPTOCURRENCY"
-                heading="What is Crypto? and how does it work"
+                imgSrc={buildwealth06}
+                paragraph="BUDGTING"
+                heading="What Does Financially Independent Mean?"
                 author="By Stacy Howard"
-                linkName="/What-is-Crypto-and-how-does-it-work"
+                linkName="/articles/what-does-financially-independent-mean"
                 />              
                 <BuildWealthBox 
                 imgSrc={buildWealth03}
                 paragraph="BUDGTING"
                 heading="The Power of compound interest calculator"
                 author="By Diccon Myers"
-                linkName="/The-Power-of-compound-interest-calculator"
+                linkName="/articles/the-power-of-compound-interest-calculator"
                 />
             </section>
         </>

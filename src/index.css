@@ -414,10 +414,10 @@ video {
 
 @media screen and (max-width: 768px) {
   #loader-container{
-      max-width:150px;
+      max-width:180px;
   }
   #loader{
-      width:150px;
+      width:180px;
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, useMediaQuery, Button } from "@mui/material";
 import axios from "axios";
-import { Link, Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { Bounce, toast } from "react-toastify";
@@ -12,7 +12,7 @@ import styles from "../../style";
 import DashboardFooter from "../DashboardFooter";
 import { useEffect } from "react";
 import ReactLoading from "react-loading";
-
+import Loading from "../LoaderCompoent";
 
 const BasicPlan = ({
   investmentPlanText,
@@ -26,11 +26,11 @@ const BasicPlan = ({
   userId,
   rating,
 }) => {
-  const [successful, setSuccessful] = useState(false);
   const [errorContent, setErrorContent] = useState(``);
   const [process, setProcess] = useState(false);
   const isNonMobile = useMediaQuery("(min-width:600px)");
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (walletBalanceData === null || walletBalanceData === undefined) {
@@ -53,6 +53,11 @@ const BasicPlan = ({
   const checkoutSchema = yup.object().shape({
     capitalAmount: yup.number().required("required"),
   });
+
+  if (process) {
+    return <Loading />;
+  }
+
   return (
     <>
       <div style={{ opacity: "0.6", padding: "1rem 0.3rem" }}>
@@ -62,14 +67,14 @@ const BasicPlan = ({
             Earnings will be credited at the end of month.
           </li>
           <li style={{ padding: "10px" }}>
-            Capital invested credited at the end of each contract.
+            Capital invested credited at the end of each investment plan.
           </li>
           <li style={{ padding: "10px" }}>
-            Contracts can be terminated at any point after purchase.
+            Investment plan can be terminated at any point after purchase.
           </li>
           <li style={{ padding: "10px 10px 0 10px" }}>
-            Contracts are automatically terminated a year after purchase and
-            will have to be renewed.
+            Investment plans are automatically terminated a year after purchase
+            and will have to be renewed.
           </li>
         </ul>
       </div>
@@ -79,7 +84,6 @@ const BasicPlan = ({
         validationSchema={checkoutSchema}
         onSubmit={(values, { resetForm }) => {
           setProcess(true);
-          setSuccessful(false);
           setErrorContent(``);
           resetForm({ values: "" });
 
@@ -141,10 +145,10 @@ const BasicPlan = ({
               .then(() => {
                 values.capitalAmount = "";
                 setProcess(false);
-                setSuccessful(true);
                 toast(
                   `investment plan purchace was successful. view in active-contracts`
                 );
+                navigate("/Congratulations-purchased-successfully");
               })
               .catch((error) => {
                 values.capitalAmount = "";
@@ -259,6 +263,9 @@ const BasicPlan = ({
                 helperText={touched.capitalAmount && errors.capitalAmount}
               />
             </Box>
+            <p style={{ textAlign: "center" }} className="text-red-600">
+              {errorContent}
+            </p>
             <Box display="flex" justifyContent="center" mt="2rem">
               <Button
                 sx={{
@@ -277,25 +284,10 @@ const BasicPlan = ({
                 {process ? "Please wait..." : "Purchase"}
               </Button>
             </Box>
-            {successful ? (
-              <p style={{ textAlign: "center" }} className="text-green-600">
-                Contract purchased and registered successfully{" "}
-                <span style={{ textDecoration: "underline"}}>
-                  <Link to="/active-contracts">View contract</Link>
-                </span>
-              </p>
-            ) : (
-              ""
-            )}
-
-            <p style={{ textAlign: "center" }} className="text-red-600">
-              {errorContent}
-            </p>
           </form>
         )}
       </Formik>
       <DashboardFooter />
-      <Outlet />
     </>
   );
 };

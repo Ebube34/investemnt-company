@@ -10,8 +10,6 @@ import BasicPlan from "./basicPlan";
 import { useGetContractsQuery } from "../../state/api";
 import { getUserId } from "../getUserId";
 
-
-
 const Foregin = () => {
   const theme = useTheme();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
@@ -35,10 +33,9 @@ const Foregin = () => {
     useState(Number);
 
   const foreignExchangePlan = "Foreign Exchange Investment";
-  const basicPlanMinimumAmount = 300;
-  const standardPlanMinimumAmount = 2000;
-  const specialPlanMinimumAmount = 5000;
-
+  const basicPlanMinimumAmount = 1000;
+  const standardPlanMinimumAmount = 10000;
+  const specialPlanMinimumAmount = 100000;
 
   function handleBasicPlan() {
     setIsStandardPlanClick(false);
@@ -50,9 +47,9 @@ const Foregin = () => {
     setStandardPlanPercentage("");
     setBasicPlanClick(true);
     setBasicPlanContent("Basic Plan");
-    setBasicPlanPercentage("11% increase per month");
-    setMinimumAmount("Minimum starting capital $300");
-    setBasicPlanPercentageValue(11);
+    setBasicPlanPercentage("32% increase per month");
+    setMinimumAmount("Minimum starting capital $1,000");
+    setBasicPlanPercentageValue(32);
     setSpecialPlanPercentageValue(null);
     setStandardPlanPercentageValue(null);
   }
@@ -64,11 +61,11 @@ const Foregin = () => {
     setStandardPlanPercentage("");
     setBasicPlanPercentage("");
     setSpecialPlanClicked(true);
-    setSpecialPlanContent("Special Plan");
-    setSpecialPlanPercentage("23% increase per month");
-    setMinimumAmount("Minimum starting capital $5000");
+    setSpecialPlanContent("Ultimate Plan");
+    setSpecialPlanPercentage("68% increase per month");
+    setMinimumAmount("Minimum starting capital $100,000");
     setBasicPlanPercentageValue(null);
-    setSpecialPlanPercentageValue(23);
+    setSpecialPlanPercentageValue(68);
     setStandardPlanPercentageValue(null);
   }
 
@@ -81,11 +78,11 @@ const Foregin = () => {
     setSpecialPlanPercentage("");
     setIsStandardPlanClick(true);
     setStandardPlanContent("Standard Plan");
-    setStandardPlanPercentage("17% increase per month");
-    setMinimumAmount("Minimum starting capital $2000");
+    setStandardPlanPercentage("45% increase per month");
+    setMinimumAmount("Minimum starting capital $10,000");
     setBasicPlanPercentageValue(null);
     setSpecialPlanPercentageValue(null);
-    setStandardPlanPercentageValue(17);
+    setStandardPlanPercentageValue(45);
   }
 
   return (
@@ -111,7 +108,11 @@ const Foregin = () => {
       <Box>
         <Box>
           <Typography
-            style={{ p: "2rem 1rem 1.3rem 1rem", opacity: "0.6", fontSize: "1rem" }}
+            style={{
+              p: "2rem 1rem 1.3rem 1rem",
+              opacity: "0.6",
+              fontSize: "1rem",
+            }}
           >
             Select a preferred Foregin Exchange Investment plan{" "}
           </Typography>
@@ -129,27 +130,37 @@ const Foregin = () => {
           >
             <Box>
               <Button
-                onClick={handleBasicPlan}
+                onClick={handleSpecialPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isBasicPlanClicked ? theme.palette.grey[800] : "none" }}
+                sx={{
+                  p: "10px 0",
+                  m: "10px 0",
+                  backgroundColor: isSpecialPlanClicked
+                    ? theme.palette.grey[800]
+                    : "none",
+                }}
               >
                 <Typography
                   sx={{
                     opacity: "0.5",
                     color: theme.palette.secondary[100],
-                    
                   }}
                 >
-                  Basic Plan
+                  Ultimate Plan
                 </Typography>
               </Button>
             </Box>
-
             <Box>
               <Button
                 onClick={handleStandardPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isStandardPlanClicked ? theme.palette.grey[800] : "none" }}
+                sx={{
+                  p: "10px 0",
+                  m: "10px 0",
+                  backgroundColor: isStandardPlanClicked
+                    ? theme.palette.grey[800]
+                    : "none",
+                }}
               >
                 <Typography
                   sx={{
@@ -164,9 +175,15 @@ const Foregin = () => {
 
             <Box>
               <Button
-                onClick={handleSpecialPlan}
+                onClick={handleBasicPlan}
                 fullWidth
-                sx={{ p: "10px 0", m: "10px 0", backgroundColor: isSpecialPlanClicked ? theme.palette.grey[800] : "none" }}
+                sx={{
+                  p: "10px 0",
+                  m: "10px 0",
+                  backgroundColor: isBasicPlanClicked
+                    ? theme.palette.grey[800]
+                    : "none",
+                }}
               >
                 <Typography
                   sx={{
@@ -174,7 +191,7 @@ const Foregin = () => {
                     color: theme.palette.secondary[100],
                   }}
                 >
-                  Special Plan
+                  Basic Plan
                 </Typography>
               </Button>
             </Box>
@@ -185,7 +202,7 @@ const Foregin = () => {
       <Box>
         {isBasicPlanClicked ? (
           <BasicPlan
-            investmentPlanText="Foregin exchange basic plan offers you +11% of your starting capital per month. with minumum starting capital at 300 USD"
+            investmentPlanText="Foregin exchange basic plan offers you 32% of your starting capital per month. with minumum starting capital at 1,000 USD"
             investmentType={foreignExchangePlan}
             investmentPlan={basicPlanContent}
             percentageProfitText={basicPlanPercentage}
@@ -201,7 +218,7 @@ const Foregin = () => {
         )}
         {isStandardPlanClicked ? (
           <BasicPlan
-            investmentPlanText="Foregin exchange standard plan offers you +17% of your starting capital per month. with minumum starting capital at 2000 USD"
+            investmentPlanText="Foregin exchange standard plan offers you +45% of your starting capital per month. with minumum starting capital at 10,000 USD"
             investmentType={foreignExchangePlan}
             investmentPlan={standardPlanContent}
             percentageProfitText={standardPlanPercentage}
@@ -217,7 +234,7 @@ const Foregin = () => {
         )}
         {isSpecialPlanClicked ? (
           <BasicPlan
-            investmentPlanText="Foregin exchange special plan offers you +22% of your starting capital per month. with minumum starting capital at 5000 USD"
+            investmentPlanText="Foregin exchange ultimate plan offers you +68% of your starting capital per month. with minumum starting capital at 100,000 USD"
             investmentType={foreignExchangePlan}
             investmentPlan={specialPlanContent}
             percentageProfitText={specialPlanPercentage}

@@ -9,7 +9,7 @@ const Twitter = () => {
             <div className='twiter-style'>
                 <TwitterTimelineEmbed 
                     sourceType='profile'
-                    screenName='investmentnews'
+                    screenName='BitcoinMagazine'
                     options={{innerHeight: 400}}
                     theme='dark'
                 />

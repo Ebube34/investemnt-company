@@ -10,18 +10,17 @@ import { safeAndSecure, balancedPortfolio } from "../../assets";
 import { Button } from "../../landing page cp";
 import Loading from "../../components/LoaderCompoent";
 
-
 const Invest = () => {
   const colors = ["#0088FE", "#00C49F", "#FFBB28"];
   const [index, setIndex] = useState(0);
   const delay = 25000;
   const timeoutRef = useRef(null);
 
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3300)
-}, [])
+    setTimeout(() => setLoading(false), 3300);
+  }, []);
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -43,11 +42,10 @@ const Invest = () => {
       resetTimeout();
     };
   }, [index]);
-  
 
-if (loading) {
-  return <Loading />
-}
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -134,20 +132,20 @@ if (loading) {
               <AccordionDetails>
                 <p className={styles.paragraph2}>
                   Maximize your investment potential by gaining exposure to an
-                  ETF or stock with a higher price per share. This approach
+                  ETF or stock with a higher price per share. <div style={{ margin: "1.5rem 0" }} /> This approach
                   offers several advantages. Firstly, it allows you to tap into
                   the potential growth of established and high-performing
                   assets. Additionally, investing in higher-priced shares often
                   aligns with companies that have demonstrated sustained success
                   and stability. Furthermore, exposure to stocks or ETFs with a
                   higher price per share can contribute to a well-rounded and
-                  diversified portfolio. It introduces a layer of sophistication
+                  diversified portfolio. <div style={{ margin: "1.5rem 0" }} />It introduces a layer of sophistication
                   to your investment strategy, as these assets are typically
                   associated with companies that have a strong market presence
                   and a track record of delivering value to shareholders. While
                   it's essential to assess and manage risk, incorporating such
                   assets into your portfolio can offer a unique avenue for
-                  capital appreciation. Keep in mind that diversification
+                  capital appreciation.<div style={{ margin: "1.5rem 0" }} /> Keep in mind that diversification
                   remains a key principle in effective portfolio management, and
                   a balanced approach that includes exposure to higher-priced
                   shares can contribute to the overall resilience and
@@ -170,23 +168,23 @@ if (loading) {
                   Embrace the dynamic nature of the financial landscape by
                   relishing the opportunity to engage in investment portfolio
                   rebalancing as frequently as the market undergoes changes.
-                  This proactive approach to managing your portfolio offers a
+                  <div style={{ margin: "1.5rem 0" }} />This proactive approach to managing your portfolio offers a
                   multitude of benefits. Firstly, frequent rebalancing allows
                   you to stay aligned with your financial goals and risk
                   tolerance. As market conditions evolve, the weightings of your
                   assets may shift, impacting the overall risk and return
-                  profile of your portfolio. By regularly reassessing and
+                  profile of your portfolio.<div style={{ margin: "1.5rem 0" }} /> By regularly reassessing and
                   adjusting your allocations, you can ensure that your
                   investment strategy remains in harmony with your objectives.
                   Moreover, taking joy in the process of portfolio rebalancing
                   empowers you to capitalize on market trends and capitalize on
-                  emerging opportunities. It enables you to buy low and sell
+                  emerging opportunities.<div style={{ margin: "1.5rem 0" }} /> It enables you to buy low and sell
                   high, optimizing your asset allocation based on the prevailing
                   market conditions. Additionally, embracing the art of frequent
                   rebalancing fosters a sense of financial agility. It positions
                   you to adapt swiftly to changing economic landscapes,
                   geopolitical events, and other external factors that may
-                  influence the performance of your investments. In essence,
+                  influence the performance of your investments.<div style={{ margin: "1.5rem 0" }} /> In essence,
                   viewing investment portfolio rebalancing as an enjoyable and
                   integral part of your financial journey enhances your ability
                   to navigate the complexities of the market and maintain a
@@ -207,24 +205,24 @@ if (loading) {
               <AccordionDetails>
                 <p className={styles.paragraph2}>
                   Gain unparalleled control over your financial landscape by
-                  effortlessly managing your accounts anytime and from anywhere.
+                  effortlessly managing your accounts anytime and from anywhere. <div style={{ margin: "1.5rem 0" }} />
                   This level of accessibility is a game-changer in today's
                   fast-paced world, offering you a host of advantages. The
                   ability to manage your accounts around the clock empowers you
                   with real-time insights into your financial standing. Whether
                   you're at home, on the go, or traveling internationally,
                   staying connected to your accounts ensures that you are
-                  well-informed and in control of your financial decisions.
+                  well-informed and in control of your financial decisions.<div style={{ margin: "1.5rem 0" }} />
                   Moreover, the convenience of managing your accounts from any
                   location fosters a proactive and responsive financial
-                  approach. You can seize opportunities, address concerns, and
+                  approach. <div style={{ margin: "1.5rem 0" }} /> You can seize opportunities, address concerns, and
                   make strategic adjustments to your portfolio promptly,
                   maximizing the potential for financial growth and stability.
                   This flexibility also contributes to a seamless and
                   stress-free financial experience. By eliminating geographical
                   constraints, you can conduct transactions, monitor
                   investments, and stay on top of your financial goals with
-                  ease. The peace of mind that comes with knowing you can manage
+                  ease. <div style={{ margin: "1.5rem 0" }} /> The peace of mind that comes with knowing you can manage
                   your accounts whenever and wherever allows you to focus on
                   what matters most to you. In essence, the power to manage your
                   accounts at your fingertips not only enhances your financial
@@ -247,26 +245,26 @@ if (loading) {
               <AccordionDetails>
                 <p className={styles.paragraph2}>
                   Experience the compounding magic of your investments through
-                  our innovative approach: we automatically reinvest your stock
+                  our innovative approach:<div style={{ margin: "1.5rem 0" }} /> we automatically reinvest your stock
                   dividends back into your investment portfolio, amplifying your
-                  earning potential. Dividend reinvestment is a strategic move
+                  earning potential.<div style={{ margin: "1.5rem 0" }} /> Dividend reinvestment is a strategic move
                   that can significantly enhance the overall performance of your
                   portfolio over time. By seamlessly reinvesting the dividends
                   generated by your stocks, you capitalize on the power of
-                  compounding, where your earnings generate additional earnings.
+                  compounding, where your earnings generate additional earnings.<div style={{ margin: "1.5rem 0" }} />
                   This compounding effect can lead to exponential growth,
                   allowing you to harness the full potential of your
                   investments. This hands-free reinvestment process not only
                   optimizes your returns but also aligns with a long-term
-                  wealth-building strategy. It reflects a commitment to
+                  wealth-building strategy.<div style={{ margin: "1.5rem 0" }} /> It reflects a commitment to
                   maximizing the value of your investments and ensuring that
                   your portfolio is working diligently to create wealth on your
                   behalf. Furthermore, by automatically reinvesting dividends,
                   you eliminate the need for manual intervention, making your
-                  investment journey more convenient and efficient. It's a
+                  investment journey more convenient and efficient.<div style={{ margin: "1.5rem 0" }} /> It's a
                   set-and-forget approach that empowers you to focus on your
                   broader financial goals while your portfolio works diligently
-                  to generate wealth through the power of reinvested dividends.
+                  to generate wealth through the power of reinvested dividends.<div style={{ margin: "1.5rem 0" }} />
                   In essence, our dividend reinvestment feature is designed to
                   transform your investment experience by turning regular
                   payouts into a dynamic force propelling your portfolio toward
@@ -287,30 +285,30 @@ if (loading) {
               <AccordionDetails>
                 <p className={styles.paragraph2}>
                   Unlock the potential for effortless wealth accumulation by
-                  harnessing the remarkable power of compound interest. This
+                  harnessing the remarkable power of compound interest. <div style={{ margin: "1.5rem 0" }} />This
                   financial phenomenon has the ability to grow your money
                   exponentially over time, requiring minimal effort on your
-                  part. At its core, compound interest involves not only earning
+                  part. <div style={{ margin: "1.5rem 0" }} />At its core, compound interest involves not only earning
                   interest on your initial investment but also on the
                   accumulated interest that has been added to your principal
-                  over time. This compounding effect creates a snowball effect,
+                  over time. <div style={{ margin: "1.5rem 0" }} />This compounding effect creates a snowball effect,
                   allowing your money to multiply at an accelerating rate. One
                   of the key advantages of compound interest is the ability to
                   amplify the impact of your investments without the need for
-                  active management. As your earnings are reinvested and
+                  active management. <div style={{ margin: "1.5rem 0" }} /> As your earnings are reinvested and
                   contribute to the growth of your principal, the compounding
                   process takes on a life of its own, steadily building a robust
-                  foundation for your financial future. Embracing the concept of
+                  foundation for your financial future.<div style={{ margin: "1.5rem 0" }} /> Embracing the concept of
                   compound interest aligns with a patient and long-term approach
                   to wealth building. It emphasizes the importance of staying
                   invested and allowing time to work in your favor. The longer
                   your money has to compound, the greater the potential for
                   substantial growth. Moreover, the beauty of compound interest
                   lies in its ability to transform modest contributions into
-                  significant wealth over time. Even small, consistent
+                  significant wealth over time.<div style={{ margin: "1.5rem 0" }} /> Even small, consistent
                   investments can blossom into a substantial financial nest egg,
                   showcasing the accessibility and inclusivity of this powerful
-                  financial tool. In essence, growing your money through
+                  financial tool.<div style={{ margin: "1.5rem 0" }} /> In essence, growing your money through
                   compound interest is a smart and effortless way to build
                   wealth. By understanding and harnessing the dynamics of
                   compounding, you set the stage for a financially secure and
@@ -393,7 +391,7 @@ if (loading) {
           <h1 className="flex-1 font-poppins font-semibold ss:text-[42px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
             How To Start
           </h1>
-          <div style={{ paddingBottom: "5rem"}} className="slideshow">
+          <div style={{ paddingBottom: "5rem" }} className="slideshow">
             <div
               style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
               className="slideshowSlider"

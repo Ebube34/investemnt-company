@@ -1,22 +1,21 @@
-import React, {useState, useEffect }  from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Footer } from "../../landing page cp";
 import styles from "../../style";
 import { Box, useMediaQuery } from "@mui/material";
 import { efficiency, reliability, integrity, ourPromise } from "../../assets";
 import Loading from "../../components/LoaderCompoent";
 
-
 const About = () => {
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 3300)
-}, [])
+    setTimeout(() => setLoading(false), 3400);
+  }, []);
 
-if (loading) {
-  return <Loading />
-}
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -29,11 +28,13 @@ if (loading) {
                 marginTop: "7rem",
                 textAlign: "center",
                 padding: "6rem 2rem 7rem",
-                background: "#202335"
+                background: "#202335",
               }}
             >
-             
-              <h1 style={{ paddingBottom: "2rem"}} className="flex-1 font-poppins font-semibold ss:text-[42px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]">
+              <h1
+                style={{ paddingBottom: "2rem" }}
+                className="flex-1 font-poppins font-semibold ss:text-[42px] text-[52px] text-white ss:leading-[100.8px] leading-[75px]"
+              >
                 About Us
               </h1>
 
@@ -56,51 +57,57 @@ if (loading) {
                 We make your life more comfortable with our services
               </h1>
 
-              <h1 style={{ padding: "9rem 0 1rem" }} className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]">
+              <h1
+                style={{ padding: "9rem 0 1rem" }}
+                className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]"
+              >
                 {" "}
                 Rewards
               </h1>
               <p className={styles.paragraph2}>
                 Indulge in the enticing allure of our premier contracts, where a
                 delectable blend of essential capital and lucrative profit
-                awaits. These offerings are carefully crafted to provide not
+                awaits. <div style={{ margin: "1.5rem 0" }} /> These offerings are carefully crafted to provide not
                 just financial stability, but also the potential for substantial
                 earnings, creating a combination that truly whets the appetite
                 of savvy investors. Our top-tier contracts are designed to
                 deliver a feast for your portfolio, offering a perfect balance
-                of capital preservation and wealth generation. With an emphasis
+                of capital preservation and wealth generation. <div style={{ margin: "1.5rem 0" }} /> With an emphasis
                 on strategic investment and risk management. Furthermore, the
                 allure lies not only in the immediate benefits but also in the
-                long-term rewards. Our best contracts are structured to stand
+                long-term rewards. <div style={{ margin: "1.5rem 0" }} /> Our best contracts are structured to stand
                 the test of time, ensuring that the flavors of capital growth
                 and profit appreciation continue to intensify over the duration
-                of your investment journey. In essence, these contracts go
+                of your investment journey. <div style={{ margin: "1.5rem 0" }} /> In essence, these contracts go
                 beyond the ordinary, offering a culinary delight of financial
                 instruments that cater to both the seasoned investor and those
                 with a discerning palate for wealth accumulation.
               </p>
 
-              <h1 style={{ padding: "5rem 0 1rem" }} className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]">
+              <h1
+                style={{ padding: "5rem 0 1rem" }}
+                className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]"
+              >
                 {" "}
                 100% Secured
               </h1>
 
               <p className={styles.paragraph2}>
                 Ensuring the utmost security and peace of mind is at the core of
-                our commitment. We proactively implement rigorous measures to
+                our commitment. <div style={{ margin: "1.5rem 0" }} /> We proactively implement rigorous measures to
                 safeguard your information and transactions, employing
                 cutting-edge technology and best practices in the ever-evolving
-                landscape of cybersecurity. Our dedicated security protocols are
+                landscape of cybersecurity. <div style={{ margin: "1.5rem 0" }} /> Our dedicated security protocols are
                 designed to create a robust defense against potential threats.
                 From advanced encryption techniques that shield your sensitive
                 data during transmission to stringent authentication processes
                 that verify your identity.
-                <br style={{ paddingTop: "1rem" }} /> Continuous monitoring and
+                <div style={{ margin: "1.5rem 0" }} /> Continuous monitoring and
                 regular security audits are integral components of our proactive
                 approach. By staying one step ahead of emerging threats and
                 vulnerabilities, we strive to maintain a secure environment for
                 your financial interactions.
-                <br style={{ paddingTop: "1rem" }} /> Our commitment to
+                <div style={{ margin: "1.5rem 0" }} /> Our commitment to
                 transparency means that we keep you informed about the security
                 measures in place, empowering you with the knowledge that your
                 financial well-being is our top priority. We understand that
@@ -110,22 +117,25 @@ if (loading) {
                 only efficient but, above all, secure.
               </p>
 
-              <h1 style={{ padding: "5rem 0 1rem" }} className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]">
+              <h1
+                style={{ padding: "5rem 0 1rem" }}
+                className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]"
+              >
                 {" "}
                 Integrated Support
               </h1>
               <p className={styles.paragraph2}>
                 Our dynamic and responsive support team is not just here to
-                assist; they are ready to tackle your challenges head-on.
+                assist; <div style={{ margin: "1.5rem 0" }} /> they are ready to tackle your challenges head-on.
                 Committed to keeping you informed and empowered, our team goes
                 beyond mere assistance by providing regular updates on our
-                latest trading plans and services. Whether you're navigating
+                latest trading plans and services.<div style={{ margin: "1.5rem 0" }} />Whether you're navigating
                 uncertainties in the market or seeking guidance on optimizing
                 your trading strategy, our support team stands ready to be your
                 reliable partner. Their functional expertise extends to keeping
                 you abreast of the latest developments in our trading plans,
                 ensuring that you have the information needed to make informed
-                decisions. Our commitment to transparency is reflected in the
+                decisions.<div style={{ margin: "1.5rem 0" }} /> Our commitment to transparency is reflected in the
                 proactive approach of our support team. They are not just
                 responders; they are communicators, keeping you in the loop with
                 insights, updates, and relevant information about our evolving
@@ -278,7 +288,7 @@ if (loading) {
 
             {/* How it all Started */}
             <div style={{ padding: "10rem 0 4rem" }}>
-              <h1 className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]">
+              <h1 style={{ padding: "0rem 1rem 0rem" }} className="flex-1 font-poppins font-semibold ss:text-[42px] text-[42px] text-white ss:leading-[100.8px] leading-[75px]">
                 How it all Started
               </h1>
 
@@ -286,29 +296,29 @@ if (loading) {
                 style={{ padding: "2rem 1rem 0" }}
                 className={styles.paragraph2}
               >
-                Established in 2012, QuivasFinance LTD emerged with the mission
-                of bridging the investment gap and enhancing the overall
-                investment experience. Our primary objective is to offer
-                affordable and reliable market accessibility to individuals
-                worldwide, irrespective of their investment size. With a
-                background of over a decade in the financial industry, the
-                founder of Quivas recognized numerous unaddressed issues within
-                the investment field. Notably, the investment market lacked
-                inclusivity, as certain classes of investments were deemed
-                prohibitive due to high associated costs such as management fees
-                and trade commissions. Moreover, the presence of biased
-                advisors, prioritizing their interests over clients', was a
-                prevalent concern. In response to these challenges,
+                Established in 2007, QuivasFinance investment company emerged
+                with the mission of bridging the investment gap and enhancing
+                the overall investment experience. <div style={{ margin: "1.5rem 0" }} /> Our primary objective is to
+                offer affordable and reliable market accessibility to
+                individuals worldwide, irrespective of their investment size.
+                With a background of over a decade in the financial industry,
+                the founder of Quivas recognized numerous unaddressed issues
+                within the investment field. <div style={{ margin: "1.5rem 0" }} /> Notably, the investment market
+                lacked inclusivity, as certain classes of investments were
+                deemed prohibitive due to high associated costs such as
+                management fees and trade commissions. <div style={{ margin: "1.5rem 0" }} />Moreover, the presence of
+                biased advisors, prioritizing their interests over clients', was
+                a prevalent concern. In response to these challenges,
                 QuivasFinance was established to democratize the investment
                 market. Our aim is to make high-quality, tailored services
                 accessible to everyone, regardless of investment size, in a
-                fully transparent manner. Notably, we address the cost factor by
+                fully transparent manner.<div style={{ margin: "1.5rem 0" }} /> Notably, we address the cost factor by
                 offering reduced fees, with our investment fee not exceeding
                 0.75%, approximately a third less than the industry average of
                 around 1.5%. Presently, QuivasFinance stands as a comprehensive
                 online investment company catering to diverse investors,
                 irrespective of financial status, geographic location, gender,
-                or age group. We provide affordable and high-quality investment
+                or age group.<div style={{ margin: "1.5rem 0" }} /> We provide affordable and high-quality investment
                 products and services, customized to suit the needs of each
                 investor, and deliver them at a low cost with full transparency.
                 Additionally, we operate as a fiduciary investment advisor,
