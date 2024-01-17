@@ -36,6 +36,7 @@ const DashboardNavbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
           position: "static",
           background: "none",
           boxShadow: "none",
+          marginTop: "3rem"
         }}
       >
         <Toolbar sx={{ justifyContent: "space-between" }}>

@@ -6,6 +6,7 @@ import ResourcesMenuPages2 from "./resources-sub-menu";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
 
+
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [resourcesIsClicked, setResourcesClick] = useState(false);
@@ -20,8 +21,9 @@ const Navbar = () => {
   }
 
   return (
-    
-    <div className="gpt3__navbar" style={{ background: "#171622", position: "fixed", zIndex: "10", width: "100%"}}>
+    <>
+   
+    <div className="gpt3__navbar" style={{ background: "#171622", position: "fixed", zIndex: "10", width: "100%", marginTop: "1.5rem"}}>
     
       <div className="gpt3__navbar-links">
         <div>
@@ -107,6 +109,7 @@ const Navbar = () => {
       </div>
       <Outlet />
     </div>
+    </>
   );
 };
 

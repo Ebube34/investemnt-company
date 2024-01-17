@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <>
  
-    <section id="home" className={`flex md:flex-row flex-col ${styles.paddingY}`}>
+    <section style={{marginTop: "1rem"}} id="home" className={`flex md:flex-row flex-col ${styles.paddingY}`}>
     <video style={{ pointerEvents: "none"}} src={investVideo2} autoPlay muted loop></video>
 
       <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>

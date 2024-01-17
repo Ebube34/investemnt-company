@@ -16,7 +16,7 @@ const Blog = () => {
       <div className="gpt3__blog-container">
         <div className="gpt3__blog-container_groupA">
         <Slide triggerOnce={true} duration={1500}>
-          <Article newsImage={News02} newsUrl="https://readwrite.com/cryptocurrency/upcoming-icos/" title="ICOs are the best way to invest in brand-new cryptocurrencies before they explode. Ethereum, Filecoin, Chainlink, and many other" time="2024-1-25T15:16:32Z" />
+          <Article newsImage={News02} newsUrl="https://readwrite.com/cryptocurrency/upcoming-icos/" title="ICOs are the best way to invest in brand-new cryptocurrencies before they explode. Ethereum, Filecoin, Chainlink, memecoin, and many other" time="2024-1-25T15:16:32Z" />
           </Slide>
         </div>
         <div className="gpt3__blog-container_groupB">

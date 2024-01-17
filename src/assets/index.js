@@ -39,7 +39,7 @@ import InvestmentFeatured from "./invest-featured.png";
 import News01 from "./news-001.jpg";
 import News02 from "./news-002.png";
 import News03 from "./news-003.jpg";
-import News04 from "./news-004.jpg";
+import News04 from "./news-004.webp";
 import News05 from "./news-005.jpg";
 import tradingView from "./TradingView_Logo_Block.svg";
 import paxos from "./Paxos-logo.svg.png";

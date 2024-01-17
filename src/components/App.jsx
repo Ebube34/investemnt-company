@@ -51,6 +51,7 @@ import Geography from "../scenes/geography/index.js";
 import PrivateRoutes from "./PrivateRoutes.jsx";
 import PublicRoutes from "./PublicRoutes.jsx";
 import Settings from "../scenes/userSettings/index.js";
+import GoogleTranslate from "./GoogleTranslate.jsx";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -63,7 +64,9 @@ function App() {
       <BrowserRouter>
         <ThemeProvider theme={theme}>
 
-       
+       <div style={{position: "fixed", top: "0", zIndex: "20", width: "100%",}}>
+        <GoogleTranslate />
+       </div>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route element={<PublicRoutes />}>

@@ -10,17 +10,22 @@ import {
 } from "@mui/material";
 import FlexBetween from "./flexBetween";
 import ReactLoading from "react-loading";
+import Cookies from "js-cookie";
 import {
   ChatOutlined,
   ArrowForwardIosOutlined,
   ExitToAppOutlined,
 } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const SettingsComp = ({ data }) => {
   const theme = useTheme();
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState("");
-
+  const handleLogout = () => {
+    Cookies.remove("Token", { path: "/" });
+    window.location.href = "/";
+  };
   useEffect(() => {
     if (data === undefined || data === null) {
       setLoading(true);
@@ -69,7 +74,7 @@ const SettingsComp = ({ data }) => {
                       />
                     </div>
                   ) : (
-                    userId
+                    userId + "..."
                   )}
                 </Typography>
               </FlexBetween>
@@ -78,22 +83,10 @@ const SettingsComp = ({ data }) => {
               sx={{ borderBottom: "0.5px solid #FFFFFF07", padding: "1rem 0" }}
             >
               <FlexBetween>
-                <Typography variant="h4">Email</Typography>
+                <Typography variant="h4">Account</Typography>
 
                 <Typography fontSize={17} color="#008631">
                   Verified
-                </Typography>
-              </FlexBetween>
-            </Box>
-
-            <Box
-              sx={{ borderBottom: "0.5px solid #FFFFFF07", padding: "1rem 0" }}
-            >
-              <FlexBetween>
-                <Typography variant="h4">KYC</Typography>
-
-                <Typography fontSize={17} color="#D80032">
-                  Not Verified
                 </Typography>
               </FlexBetween>
             </Box>
@@ -151,7 +144,7 @@ const SettingsComp = ({ data }) => {
               sx={{ borderBottom: "0.5px solid #FFFFFF07", padding: "1rem 0" }}
             >
               <FlexBetween>
-                <Typography variant="h4">Change Password</Typography>
+                <Typography variant="h4"><Link to="/reset-password">Change Password</Link></Typography>
 
                 <IconButton>
                   <ArrowForwardIosOutlined />
@@ -208,7 +201,13 @@ const SettingsComp = ({ data }) => {
                     <ChatOutlined style={{ fontSize: "26px", color: "gray" }} />
                   </IconButton>
                   <Typography paddingTop="8px" paddingLeft="12px" variant="h4">
-                    Contact Support
+                    <Link
+                      to="https://wa.me/2348132669129"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Contact Support
+                    </Link>
                   </Typography>
                 </Box>
 
@@ -230,39 +229,7 @@ const SettingsComp = ({ data }) => {
                 </IconButton>
               </FlexBetween>
             </Box>
-            <Box
-              sx={{ borderBottom: "0.5px solid #FFFFFF07", padding: "1rem 0" }}
-            >
-              <FlexBetween>
-                <Typography variant="h4">Terms of Service</Typography>
-
-                <IconButton>
-                  <ArrowForwardIosOutlined />
-                </IconButton>
-              </FlexBetween>
-            </Box>
-            <Box
-              sx={{ borderBottom: "0.5px solid #FFFFFF07", padding: "1rem 0" }}
-            >
-              <FlexBetween>
-                <Typography variant="h4">Privacy Policy</Typography>
-
-                <IconButton>
-                  <ArrowForwardIosOutlined />
-                </IconButton>
-              </FlexBetween>
-            </Box>
-            <Box
-              sx={{ borderBottom: "0.5px solid #FFFFFF07", padding: "1rem 0" }}
-            >
-              <FlexBetween>
-                <Typography variant="h4">Cookies Policy</Typography>
-
-                <IconButton>
-                  <ArrowForwardIosOutlined />
-                </IconButton>
-              </FlexBetween>
-            </Box>
+<div onClick={handleLogout}>
             <Box
               sx={{ borderBottom: "0.5px solid #FFFFFF07", padding: "1rem 0" }}
             >
@@ -277,6 +244,7 @@ const SettingsComp = ({ data }) => {
                 </Typography>
               </Box>
             </Box>
+            </div>
           </CardContent>
         </Card>
       </div>
