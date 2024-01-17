@@ -81,7 +81,7 @@ const GoogleTranslate = () => {
       style={{ padding: "10px 15px", background: "#151623" }}
       ref={googleTranslateBox}
     >
-      <div style={{ display: "flex", marginLeft: "34%" }}>
+      <div style={{ display: "flex", marginLeft: "32%" }}>
         <p
           onClick={handleTranslate}
           style={{ cursor: "pointer" }}

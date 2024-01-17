@@ -35,7 +35,7 @@ const InvestmentPlans = () => {
           </div>
           <div style={{borderBottom: "1px solid #46454C", padding: "2rem 0"}} class="value">
             <h3 className={styles.heading2}>
-              100,000<span>$</span> - 1,000,000<span>$</span>
+            <span>$</span>100,000 - <span>$</span> 1,000,000
             </h3>
           </div>
 
@@ -73,7 +73,7 @@ const InvestmentPlans = () => {
           </div>
           <div style={{borderBottom: "1px solid #46454C", padding: "2rem 0"}} class="value">
             <h3 className={styles.heading2}>
-              10,000<span>$</span> - 99,990<span>$</span>
+            <span>$</span> 10,000- <span>$</span>99,990
             </h3>
           </div>
 
@@ -111,7 +111,7 @@ const InvestmentPlans = () => {
           </div>
           <div style={{borderBottom: "1px solid #46454C", padding: "2rem 0"}} class="value">
             <h3 className={styles.heading2}>
-              1,000<span>$</span> - 9,990<span>$</span>
+            <span>$</span>1,000 - <span>$</span>9,990
             </h3>
           </div>
 
