@@ -67,7 +67,7 @@ const GoogleTranslate = () => {
     return () => {
       document.removeEventListener("mousedown", handler);
     };
-  }, []);
+  }, [setTranslateStyleObj, translateStyleObj]);
 
   const handleTranslate = () =>
     translateStyleObj.display === "none"
