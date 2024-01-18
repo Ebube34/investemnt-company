@@ -119,7 +119,7 @@ function App() {
                 <Route path="calender" element={<Calendar />} />
                 <Route path="faqs" element={<FAQ />} />
                 <Route path="geography" element={<Geography />} />
-                <Route path="settings" element={<Settings />} />
+                <Route path="profile" element={<Settings />} />
               </Route>
             </Route>
           </Routes>

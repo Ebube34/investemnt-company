@@ -14,7 +14,7 @@ const WhatQuivas = () => {
           <Feature
             navigate={() => navigate("/about-us")}
             title="Quivas Finance LTD"
-            text="A unit investment trust (UIT) company with exclusive trading rights and combined freedom for individuals to invest their own capital. A strong hold in our ability to generate revenue while securing your funds. Providing a system that makes investing simple in a wide  variety of financial market."
+            text="A unit investment trust (UIT) company with exclusive trading rights and combined freedom for individuals to invest their own capital."
           />
         </div>
 

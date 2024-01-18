@@ -126,10 +126,6 @@ export const footerLinks = [
         link: "/about-us"
       },
       {
-        name: "history",
-        link: "/about-us"
-      },
-      {
         name: "Become a Partner",
         link: "/register",
       },

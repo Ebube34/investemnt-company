@@ -35,7 +35,7 @@ const Hero = () => {
         to Next Level
         </h1>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        Our team provide various investment Packages from the finacial market with percentage profit up to +15% per month. Earn passive income with ease, providing the right foundations for your finacial growth.
+        Our team provide various investment Packages from the finacial market with percentage profit up to +70% per month. Earn passive income with ease, providing the right foundations for your finacial growth.
         {/* Purchase investment contracts with ease using crypto from all round the world and earn passive income up to 20% per month. Picking the right protection for your finacial growth. */} 
         </p>
       </div>

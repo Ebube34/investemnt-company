@@ -20,6 +20,7 @@ import {
   PointOfSaleOutlined,
   CalendarMonthOutlined,
   AdminPanelSettingsOutlined,
+  SettingsAccessibilityOutlined
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -70,6 +71,10 @@ const navItems = [
   {
     text: "",
     icon: null,
+  },
+  {
+    text: "Profile",
+    icon: <SettingsAccessibilityOutlined />
   },
   {
     text: "Geography",
@@ -168,7 +173,7 @@ const DashboardSidebar = ({
                         color={theme.palette.grey[100]}
                         fontWeight="bold"
                         sx={{ m: "10px 0 0 0" }}
-                        onClick={() => navigate("/settings")}
+                        onClick={() => navigate("/profile")}
                       >
                         {Loading ? (
                           <div

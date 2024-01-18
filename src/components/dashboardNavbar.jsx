@@ -47,7 +47,7 @@ const DashboardNavbar = ({ isSideBarOpen, setIsSideBarOpen }) => {
           </FlexBetween>
 
           <FlexBetween style={{ paddingRight: "0", marginRight: "0" }}>
-            <div onClick={() => navigate("/settings")}>
+            <div onClick={() => navigate("/profile")}>
               <PersonIcon sx={{ color: "#fff", fontSize: "30px" }} />
             </div>
             <FlexBetween>
