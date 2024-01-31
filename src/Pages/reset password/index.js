@@ -74,7 +74,7 @@ function ForgotPassword() {
         />
         <Navbar />
         <Box mt="3rem">
-          <div className="sign-up_heading">
+          <div style={{marginTop: "11rem"}} className="sign-up_heading">
             <h3 className={`${styles.heading2}`}>Reset Password</h3>
             <p className={`${styles.paragraph}`}>Enter your details below</p>
           </div>

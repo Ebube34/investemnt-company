@@ -14,7 +14,7 @@ const RegistrationSuccessful = () => {
         </h1>
 
         <p style={{ padding: "2rem 4rem 1rem" }} className={styles.paragraph}>
-          Verification message was sent to your email. Verify your account
+           Welcome to Quivas finance login to access your account
         </p>
 
         <p
@@ -25,7 +25,7 @@ const RegistrationSuccessful = () => {
             paddingTop: "3rem",
           }}
         >
-         <Link to="/">Home</Link>
+         <Link to="/login">Dashboard</Link>
         </p>
       </div>
     </>
