@@ -126,7 +126,8 @@ function Register() {
                   toast(
                     "Almost there! Check your email for Verification.", {transition: Bounce}
                   );
-                  navigate("/registration-successful")
+                  navigate("/registration-successful");
+                  window.location.reload(true);
                 })
                 .catch((error) => {
                   setProcess(false);
