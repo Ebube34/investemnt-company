@@ -1,19 +1,11 @@
-import React, {useState, useEffect } from 'react';
+import React from 'react';
 import { Navbar, Footer } from '../../landing page cp';
 import styles from '../../style';
 import { cryptocurrencyTrading } from '../../assets';
-import Loading from "../../components/LoaderCompoent";
+
 
 const Cryptocurrency = () => {
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-      setTimeout(() => setLoading(false), 3300)
-  }, [])
-  
-  if (loading) {
-    return <Loading />
-  }
+   
   return (
     <>
         <div>

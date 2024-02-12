@@ -18,6 +18,7 @@ import IconButton from "@mui/material/IconButton";
 import CryptoJS from "crypto-js";
 import Cookies from "js-cookie";
 import DashboardFooter from "../../components/DashboardFooter";
+import Loading from "../../components/LoaderCompoent";
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -52,6 +53,10 @@ function ForgotPassword() {
       .matches(passwordChange, "password does not match")
       .required("required"),
   });
+
+  if(process) {
+    return <Loading />
+  }
 
   return (
     <>
@@ -245,7 +250,7 @@ function ForgotPassword() {
                 </Box>
 
                 {resetSuccessful ? (<p style={{textAlign: "center"}} className="text-green-600">
-                      Registration successful. Check your email for verification
+                      Password has been changed successfully
                     </p>) : ""}
 
                     <p style={{textAlign: "center"}} className="text-red-600">{errorMessage}</p>

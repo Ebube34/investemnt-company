@@ -3,18 +3,9 @@ import { Navbar, Footer } from '../../landing page cp';
 import styles from '../../style';
 import { josephKenneth, stefflerMargaret, BillRichard, CarlAnthony } from '../../assets';
 import { Link } from 'react-router-dom';
-import Loading from "../../components/LoaderCompoent";
 
 const Team = () => {
-  const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 3300)
-}, [])
-
-if (loading) {
-  return <Loading />
-}
   return (
     <>
     <div className="bg-primary w-full overflow-hidden">

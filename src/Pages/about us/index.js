@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Navbar, Footer } from "../../landing page cp";
 import styles from "../../style";
 import { Box, useMediaQuery } from "@mui/material";
 import { efficiency, reliability, integrity, ourPromise } from "../../assets";
-import Loading from "../../components/LoaderCompoent";
+
 
 const About = () => {
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 3400);
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
+ 
 
   return (
     <>

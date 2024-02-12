@@ -1,18 +1,10 @@
-import React, {useState, useEffect } from "react";
+import React from "react";
 import { Navbar, Footer } from "../../landing page cp";
 import styles from "../../style";
-import Loading from "../../components/LoaderCompoent";
+
 
 const Contact = () => {
-  const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 3300)
-}, [])
-
-if (loading) {
-  return <Loading />
-}
   return (
     <>
       <div className="bg-primary w-full overflow-hidden">

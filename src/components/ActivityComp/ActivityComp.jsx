@@ -52,14 +52,6 @@ const ActivityComp = ({ data, isLoading }) => {
 
   return (
     <>
-      <Typography
-        variant="h2"
-        color="#fff"
-        fontWeight="bold"
-        sx={{ mb: "5px", textAlign: "center" }}
-      >
-        Deposits
-      </Typography>
       <Box
         mt="40px"
         height="65vh"

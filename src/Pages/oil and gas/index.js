@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Navbar, Footer } from "../../landing page cp";
 import styles from "../../style";
 import { oilAndGas } from "../../assets";
-import Loading from "../../components/LoaderCompoent";
 
 const OilAndGas = () => {
-  const [loading, setLoading] = useState(true);
+  
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 3300);
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
   return (
     <>
       <div>

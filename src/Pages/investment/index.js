@@ -8,15 +8,12 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { safeAndSecure, balancedPortfolio } from "../../assets";
 import { Button } from "../../landing page cp";
-import Loading from "../../components/LoaderCompoent";
 
 const Invest = () => {
   const colors = ["#0088FE", "#00C49F", "#FFBB28"];
   const [index, setIndex] = useState(0);
   const delay = 25000;
   const timeoutRef = useRef(null);
-
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 3300);
@@ -43,9 +40,6 @@ const Invest = () => {
     };
   }, [index]);
 
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <>

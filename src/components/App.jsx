@@ -8,19 +8,14 @@ import { themeSettings } from "../theme.js";
 import {
   Login,
   Register,
-  OurStrategy,
   Home,
   ForgotPassword,
   Team,
   Contact,
   Invest,
   About,
-  Community,
-  LegalDocumentation,
   Portfolio,
   News,
-  Shield,
-  CustomerSupport,
   JosephKenneth,
   BillWRichard,
   CarlAAnthony,
@@ -74,7 +69,6 @@ function App() {
             </Route>
             <Route path="register" element={<Register />} />
             <Route path="reset-password" element={<ForgotPassword />} />
-            <Route path="Our-strategy" element={<OurStrategy />} />
             <Route path="our-team" element={<Team />} />
             <Route path="our-team/joseph-Kenneth" element={<JosephKenneth />} />
             <Route path="our-team/bill-richard" element={<BillWRichard />} />
@@ -83,12 +77,8 @@ function App() {
             <Route path="contact-us" element={<Contact />} />
             <Route path="about-us" element={<About />} />
             <Route path="portfolio" element={<Portfolio />} />
-            <Route path="our-community" element={<Community />} />
             <Route path="news" element={<News />} />
-            <Route path="legal-documentation" element={<LegalDocumentation />} />
             <Route path="investment" element={<Invest />} />
-            <Route path="customer-support" element={<CustomerSupport />} />
-            <Route path="shield" element={<Shield />} />
             <Route path="registration-successful" element={<RegistrationSuccessful />} />
             <Route path="deposit-pending" element={<DepositPending />} />
             <Route path="Congratulations-purchased-successfully" element={<CongratulationsOnActiveContract />} />

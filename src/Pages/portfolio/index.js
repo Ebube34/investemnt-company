@@ -10,7 +10,6 @@ import {
   assestAllocation05,
 } from "../../assets";
 import { Button } from "../../landing page cp";
-import Loading from "../../components/LoaderCompoent";
 
 const Portfolio = () => {
   const colors = ["#0088FE", "#00C49F", "#FFBB28"];
@@ -18,11 +17,6 @@ const Portfolio = () => {
   const delay = 25000;
   const timeoutRef = useRef(null);
 
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 3300);
-  }, []);
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -45,9 +39,7 @@ const Portfolio = () => {
     };
   }, [index]);
 
-  if (loading) {
-    return <Loading />;
-  }
+
   return (
     <>
       <div className="bg-primary w-full overflow-hidden">

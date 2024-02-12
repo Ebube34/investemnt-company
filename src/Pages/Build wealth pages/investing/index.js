@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Navbar, Footer } from "../../../landing page cp";
-import Loading from "../../../components/LoaderCompoent";
 import styles from "../../../style";
 import { buildWealth04 } from "../../../assets";
 const WhatIsHedging = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 3400);
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
+ 
   return (
     <>
       <div>

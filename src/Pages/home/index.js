@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React from "react";
 import styles from "../../style";
 import {
   Navbar,
@@ -11,23 +11,12 @@ import {
   Testimonials,
   CTA,
   Footer,
-  InvestmentPlans,
   Clients,
   Twitter,
 } from "../../landing page cp";
 import CookieConsent from "react-cookie-consent";
-import Loading from "../../components/LoaderCompoent";
 
 function Home() {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 3300)
-}, [])
-
-if (loading) {
-  return <Loading />
-}
 
   return (
     <>
@@ -49,7 +38,6 @@ if (loading) {
           <div className={`${styles.boxWidth}`}>
             <Stat />
            <WhatQuivas />
-            <InvestmentPlans />
             <Business />
             <Blog />
             <Testimonials />

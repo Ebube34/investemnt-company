@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Navbar, Footer, Blog } from "../../landing page cp";
-import Loading from "../../components/LoaderCompoent";
 import { Timeline } from "react-ts-tradingview-widgets";
 
 const News = () => {
-  const [loading, setLoading] = useState(true);
+  
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 3300);
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
   return (
     <>
       <Navbar />
