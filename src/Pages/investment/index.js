@@ -15,10 +15,6 @@ const Invest = () => {
   const delay = 25000;
   const timeoutRef = useRef(null);
 
-  useEffect(() => {
-    setTimeout(() => setLoading(false), 3300);
-  }, []);
-
   function resetTimeout() {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
