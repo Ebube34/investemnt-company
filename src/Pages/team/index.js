@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React from 'react';
 import { Navbar, Footer } from '../../landing page cp';
 import styles from '../../style';
 import { josephKenneth, stefflerMargaret, BillRichard, CarlAnthony } from '../../assets';
