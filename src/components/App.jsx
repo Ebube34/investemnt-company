@@ -119,7 +119,7 @@ function App() {
 
      <div className="support_agent"><p>Need Help?</p></div>
       <a
-      href="https://wa.me/2348132669129"
+      href="https://wa.me/447529652325"
       className="whatsapp_float"
       target="_blank"
       rel="noopener noreferrer"

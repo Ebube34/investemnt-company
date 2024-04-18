@@ -17,7 +17,7 @@ function ResourcesMenuPages2() {
           </li>
           <li className="hover:text-secondary">
             <Link
-              to="https://wa.me/2348132669129" 
+              to="https://wa.me/447529652325" 
               target="_blank"
               rel="noopener noreferrer"
             >

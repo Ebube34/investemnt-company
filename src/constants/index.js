@@ -98,7 +98,7 @@ export const footerLinks = [
     links: [
       {
         name: "Help Center",
-        link: "https://wa.me/2348132669129",
+        link: "https://wa.me/447529652325",
       },
       {
         name: "Portfolio",
@@ -134,8 +134,8 @@ export const footerLinks = [
         link: "/contact-us"
       },
       {
-        name: "085-132567",
-        link: "https://wa.me/2348132669129"
+        name: "+447529652325",
+        link: "https://wa.me/447529652325"
       },
       {
         name: "@quivasfinance.com",

@@ -47,7 +47,7 @@ const GoogleTranslate = () => {
     var addScript = document.createElement("script");
     addScript.setAttribute(
       "src",
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit",
     );
     addScript.setAttribute("async", "true");
     addScript.setAttribute("type", "text/javascript");

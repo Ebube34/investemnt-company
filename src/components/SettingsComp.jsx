@@ -202,7 +202,7 @@ const SettingsComp = ({ data }) => {
                   </IconButton>
                   <Typography paddingTop="8px" paddingLeft="12px" variant="h4">
                     <Link
-                      to="https://wa.me/2348132669129"
+                      to="https://wa.me/447529652325"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
