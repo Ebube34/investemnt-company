@@ -200,7 +200,7 @@ const CryptoAddress = ({
                       backgroundColor: theme.palette.primary[400],
                       mb: "2rem",
                     }}
-                    label="Deposit ammount in USD"
+                    label="Deposit amount in USD"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     error={
