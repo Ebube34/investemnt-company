@@ -54,11 +54,11 @@ const ActiveContractMain = ({
           {investmentPlan}
         </Typography>
         <Typography
-          className="text-success"
+          className="text-success" 
           sx={{ fontSize: 18, mb: "1.5rem", fontFamily: "Mohave, sans-serif" }}
           color={theme.palette.secondary[600]}
         >
-          ${Number(capital).toFixed(2)}
+          $ {Number(capital).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}
         </Typography>
         <Rating value={rating} />
         <Typography sx={{ fontSize: 16 }}>+{percentageProfit}%</Typography>
@@ -67,7 +67,7 @@ const ActiveContractMain = ({
           sx={{ fontSize: 18, mb: "1.5rem", fontFamily: "Mohave, sans-serif" }}
           color={theme.palette.secondary[600]}
         >
-          ${Number(capitalPlusProfit).toFixed(2)}
+          $ {Number(capitalPlusProfit).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}
         </Typography>
       </CardContent>
 

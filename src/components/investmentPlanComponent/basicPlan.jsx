@@ -243,7 +243,7 @@ const BasicPlan = ({
                       />
                     </div>
                   ) : (
-                    <p>${Number(walletBalanceData.walletBalance).toFixed(2)}</p>
+                    <p>$ {Number(walletBalanceData.walletBalance).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})}</p>
                   )}
                 </p>
               </Box>

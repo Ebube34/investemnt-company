@@ -23,6 +23,7 @@ const Dashboardmaincomponent = ({ user }) => {
       setLoading(true);
     } else {
       setLoading(false);
+
     }
   }, [user]);
 
@@ -91,7 +92,7 @@ const Dashboardmaincomponent = ({ user }) => {
                     />
                   </div>
                 ) : (
-                  `$${Number(user.walletBalance).toFixed(2)}`
+                  <p>$ {Number(user.walletBalance).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})} </p> 
                 )}
               </Typography>
             </Box>
@@ -143,7 +144,7 @@ const Dashboardmaincomponent = ({ user }) => {
                     />
                   </div>
                 ) : (
-                  `$${Number(user.earnings).toFixed(2)}`
+                  <p>$ {Number(user.earnings).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})} </p> 
                 )}
               </Typography>
             </Box>
@@ -195,7 +196,7 @@ const Dashboardmaincomponent = ({ user }) => {
                     />
                   </div>
                 ) : (
-                  `$${Number(user.capitalInvested).toFixed(2)}`
+                  <p>$ {Number(user.capitalInvested).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})} </p> 
                 )}
               </Typography>
             </Box>
@@ -247,7 +248,7 @@ const Dashboardmaincomponent = ({ user }) => {
                     />
                   </div>
                 ) : (
-                  `$${Number(user.totalEarnings).toFixed(2)}`
+                  <p>$ {Number(user.totalEarnings).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2})} </p> 
                 )}
               </Typography>
             </Box>
