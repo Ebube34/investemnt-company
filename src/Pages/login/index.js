@@ -19,8 +19,7 @@ import IconButton from "@mui/material/IconButton";
 import CryptoJS from "crypto-js";
 import DashboardFooter from "../../components/DashboardFooter";
 import Cookies from "js-cookie";
-import Loading from "../../components/LoaderCompoent";
-
+import { Loader2 } from "lucide-react";
 
 function Login() {
   const navigate = useNavigate();
@@ -42,10 +41,6 @@ function Login() {
     email: yup.string().email("invalid email").required("required"),
     password: yup.string().required("required"),
   });
-
-if (process) {
-  return <Loading />
-}
 
   return (
     <>
@@ -211,7 +206,9 @@ if (process) {
                     }}
                     type="submit"
                   > 
-                    {process ? "Please wait..." : "Sign in"}
+                    {process ? (
+                    <Loader2 className="animate-spin h-8 w-8 text-zinc-600" />
+                  ) : "Sign in"}
                   </Button>
                 </Box>
 

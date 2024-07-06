@@ -16,8 +16,8 @@ import styles from "../../style";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DashboardFooter from "../../components/DashboardFooter";
-import Loading from "../../components/LoaderCompoent";
 import { useNavigate, Link } from "react-router-dom";
+import { Loader2 } from "lucide-react";
 
 function Register() {
   const navigate = useNavigate()
@@ -71,9 +71,6 @@ function Register() {
       .required("required"),
   });
 
-  if (process) {
-    return <Loading />
-  }
   return (
     <>
       <div className="bg-primary w-full overflow-hidden">
@@ -121,7 +118,7 @@ function Register() {
               };
 
               axios(configuration)
-                .then(() => {
+                .then(() => { 
                   setProcess(false);
                   toast(
                     "Almost there! Check your email for Verification.", {transition: Bounce}
@@ -328,7 +325,9 @@ function Register() {
                     }}
                     type="submit"
                   >
-                    {process ? "Please wait..." : "Sign Up"}
+                    {process ? (
+                    <Loader2 className="animate-spin h-8 w-8 text-zinc-600" />
+                  ) : "Sign Up"}
                   </Button>
                   
                 </Box>
