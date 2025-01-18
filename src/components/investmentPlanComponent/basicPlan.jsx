@@ -12,7 +12,7 @@ import styles from "../../style";
 import DashboardFooter from "../DashboardFooter";
 import { useEffect } from "react";
 import ReactLoading from "react-loading";
-import Loading from "../LoaderCompoent";
+import { Loader2 } from "lucide-react";
 
 const BasicPlan = ({
   investmentPlanText,
@@ -53,10 +53,6 @@ const BasicPlan = ({
   const checkoutSchema = yup.object().shape({
     capitalAmount: yup.number().required("required"),
   });
-
-  if (process) {
-    return <Loading />;
-  }
 
   return (
     <>
@@ -281,7 +277,9 @@ const BasicPlan = ({
                 }}
                 type="submit"
               >
-                {process ? "Please wait..." : "Purchase"}
+                {process ? (
+                    <Loader2 className="animate-spin h-8 w-8 text-zinc-600" />
+                  ) : "Purchase"}
               </Button>
             </Box>
           </form>

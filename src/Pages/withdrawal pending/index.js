@@ -27,7 +27,7 @@ const WithdrawalPending = () => {
         }}
       >
         <a
-          href="https://wa.me/2348132669129"
+          href="https://wa.me/447529652325"
           target="_blank"
           rel="noopener noreferrer"
         >

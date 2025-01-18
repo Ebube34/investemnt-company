@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import { Bounce, toast } from "react-toastify";
-import Loading from "../LoaderCompoent";
+import { Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const CryptoAddress = ({
@@ -53,12 +53,6 @@ const CryptoAddress = ({
   const checkoutSchema = yup.object().shape({
     amountDeposited: yup.number().required("required"),
   });
-
-
-  if (process) {
-    return <Loading />
-  }
-
 
   return (
     <>
@@ -223,7 +217,9 @@ const CryptoAddress = ({
                     type="submit"
 
                   >
-                    { process ? "please wait..." : `I have sent ${cryptoSentButtonText} to the address above`}
+                    { process ? (
+                    <Loader2 className="animate-spin h-8 w-8 text-zinc-600" />
+                  ) : `I have sent ${cryptoSentButtonText} to the address above`}
                   </Button> 
                 </form>
               
